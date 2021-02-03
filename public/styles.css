@@ -1,0 +1,136 @@
+body {
+    text-align: center;
+    background-color: #fde2e2;
+    color:  #679b9b;
+    padding: 1rem;
+
+}
+
+.nav-link {
+    color:  #679b9b !important;
+    margin: 0.5%;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    border: solid  #679b9b 1px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    text-decoration: none;
+    color:  #679b9b;
+}
+
+h1 {
+    font-family: 'Parisienne', cursive;
+    font-size: 8rem;
+    font-weight: 100;
+    padding: 1%;
+    margin-bottom: 0%;
+    padding-bottom: 1%;
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 500;
+    color: #679b9b;
+    font-weight: 500;
+}
+
+.goldtextcss {
+    color: #D5AD6D; /*if no support for background-clip*/
+    background: -webkit-linear-gradient(transparent, transparent),
+    -webkit-linear-gradient(top, rgba(213,173,109,1) 0%, rgba(213,173,109,1) 26%, rgba(226,186,120,1) 35%, rgba(163,126,67,1) 45%, rgba(145,112,59,1) 61%, rgba(213,173,109,1) 100%);
+    background: -o-linear-gradient(transparent, transparent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    }
+
+.flower {
+    width: 60%;
+    transform: rotate(180deg);
+}
+
+span.and {
+    font-size: 4rem;
+}
+
+@media (max-width: 1028px) {
+    h1 {
+        font-size: 4rem;
+        padding-bottom: 5%;
+    }
+    span.and {
+        font-size: 2.5rem;
+    }
+    h2 {
+        font-size: 1rem;
+    }
+}
+
+/* wedding.jsx styling */
+.first-box {
+    text-align: center;
+    padding: 0 5% 5%;
+    margin: 0 5% 5%;
+    position: relative;
+}
+
+
+.background-flower {
+    width: 75%; 
+    object-fit:cover;
+    transform: rotate(180deg);
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    background-color: whitesmoke;
+    padding: 5%;
+    border-radius: 2%;
+}
+
+h4 {
+    font-size: 0.9rem;
+}
+.invite {
+    font-size: 1.5rem;
+    font-family: 'Parisienne', cursive;
+    font-weight: 500;
+}
+
+.date {
+    font-size: 1.8rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+h3 {
+    font-size: 1rem;
+
+}
+
+.church {
+    font-size: 1.2rem;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.reception {
+    font-style: oblique;
+    font-size: 0.8rem;
+}
+
+
+.information {
+    font-weight: bolder;
+    font-family: 'Parisienne', cursive;
+    font-size: 2.1rem;
+    padding-bottom: 3%;
+}
