@@ -3,7 +3,7 @@ import React from 'react';
 const Travel = () => {
     return (
        <div>
-          <h2>Accommodation and Transportation</h2>
+          <h2 className="information goldtextcss">Accommodation and Transportation</h2>
 
     <p >You may stay anywhere in Como Lake area as you desire if you have a rented car
         to move around. Varenna, 7 km north of Lierna, is a charming place to stay.

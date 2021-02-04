@@ -3,7 +3,7 @@ import React from 'react';
 const Gift = () => {
     return (
        <div>
-          <h2>Contribute to our Honeymoon Fund</h2>
+          <h2 className="information goldtextcss">Contribute to our Honeymoon Fund</h2>
           <p>We don't need you to bring us gifts, we know plane tickets are
             expensive and your presence at the wedding is enough!</p>
             <p>If you really want to give us something, a contribution to our honeymoon fund
