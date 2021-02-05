@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Flower from './image/flower.png';
-import axios from 'axios'
+import axios from 'axios';
 
 const Home = () => {
 	const [couple, setCouple] = useState()
