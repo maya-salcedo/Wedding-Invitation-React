@@ -7,6 +7,7 @@ import axios from 'axios';
  
 const Wedding = () => {
     const [instruction, setInstruction] = useState();
+    
     const getInstruction = async () => {
         const {data} = await axios.get('http://localhost:9000/wedding');
         setInstruction(data);
@@ -22,18 +23,18 @@ const Wedding = () => {
             <img className="background-flower" src={Flower} alt="flower-img"/>
             <div className="centered">
             <div>
-                <h3 className="invite">You are joyfully invited to our wedding on</h3>
-                <h2 className="goldtextcss date"> 09 July 2021 </h2>
-                <h3 className="time">3:00 P.M. Friday</h3>
-                <h3 className="goldtextcss church">Parrocchia Di Sant' Ambrogio</h3>
-                <h4 className="address">Via Papa Giovanni XXIII 41, 23827 Lierna</h4>
-                <h4 className="address">Province of Lecco, Italy</h4>
+                <h3 className="invite">{instruction?.invite}</h3>
+                <h2 className="goldtextcss date"> {instruction?.date} </h2>
+                <h3 className="time">{instruction?.time}</h3>
+                <h3 className="goldtextcss church">{instruction?.church.name}</h3>
+                <h4 className="address">{instruction?.church.addressLine1}</h4>
+                <h4 className="address">{instruction?.church.addressLine2}</h4>
             </div>
             <div>
                 <p className="reception">Reception to follow at</p>
-                <h3 className="goldtextcss restaurant">Ristorante La Breva</h3>
-                <h4 className="address">Via Roma 24, Lierna</h4>
-                <h4 className="address">Province of Lecco, Italy</h4></div>
+                <h3 className="goldtextcss restaurant">{instruction?.restaurant.name}</h3>
+                <h4 className="address">{instruction?.restaurant.addressLine1}</h4>
+                <h4 className="address">{instruction?.restaurant.addressLine2}</h4></div>
             </div>      
         </div>
         <div>
