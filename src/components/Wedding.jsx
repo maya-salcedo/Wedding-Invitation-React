@@ -8,7 +8,7 @@ import axios from 'axios';
 const Wedding = () => {
     const [instruction, setInstruction] = useState();
     const getInstruction = async () => {
-        const {data} = await axios.get('http://localhost:9000/instruction');
+        const {data} = await axios.get('http://localhost:9000/wedding');
         setInstruction(data);
     }
 
