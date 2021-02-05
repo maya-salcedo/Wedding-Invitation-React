@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/runtime": "^7.12.13",
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/react-fontawesome": "^0.1.14",
@@ -11,6 +12,7 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.6.3",
+    "axios": "^0.21.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
@@ -20,8 +22,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "client": "cd server && npm run start",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev": "concurrently \"npm run start\" \"npm run client\""
   },
   "eslintConfig": {
     "extends": [
@@ -40,5 +44,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.12.13",
+    "concurrently": "^5.3.0"
   }
 }
