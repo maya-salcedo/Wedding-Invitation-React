@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Flower from './image/flower.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCocktail, faUserTie } from '@fortawesome/free-solid-svg-icons'
-
+import axios from 'axios';
  
  
 const Wedding = () => {
+    const [instruction, setInstruction] = useState();
+    const getInstruction = async () => {
+        const {data} = await axios.get('http://localhost:9000/instruction');
+        setInstruction(data);
+    }
+
+    useEffect(() => {
+        getInstruction();
+    }, []);
+
     return (
        <div>
        <div className="first-box">
@@ -30,16 +40,11 @@ const Wedding = () => {
             <h2 className="information">Wedding Information</h2>
             <div className="detail">
                 <FontAwesomeIcon icon={faCocktail} className="icon" />
-                <p>After the church ceremony, please proceed to the reception venue.</p>
-                <p>Aperitif will be served on the restaurant's veranda followed by a sit down dinner in the function hall. </p> 
-                <p>Please let us know of any special dietary requirements you may have. </p>
+                <p>{instruction?.dining}</p>
             </div>
             <div className="detail">
                 <FontAwesomeIcon icon={faUserTie} className="icon" />
-                <p> Dress Code is semi-formal. </p> 
-                <p>Suit and tie. Cocktail dress. </p>
-                <p> Dress real pretty, dress real fine, dress for comfort, dress for fun. </p>
-                <p> 'Cause it's a party, when all's said and done.</p>
+                <p>{instruction?.dresscode}</p> 
             </div>
             
         </div>
