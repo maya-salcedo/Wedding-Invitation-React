@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
  
-import Home from './Home';
-import Wedding from './Wedding';
-import Gift from './Gift';
-import Travel from './Travel';
-import Rsvp from './Rsvp';
-import Error from './Error';
-import Navigation from './Navigation';
-import Footer from './Footer';
+import Home from './components/Home';
+import Wedding from './components/Wedding';
+import Gift from './components/Gift';
+import Travel from './components/Travel';
+import Rsvp from './components/Rsvp';
+import Error from './components/Error';
+import Navigation from './components/Navigation';
+import Footer from './components/Footer';
  
 class App extends Component {
   render() {
