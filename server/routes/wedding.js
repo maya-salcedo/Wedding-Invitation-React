@@ -5,7 +5,6 @@ var router = express.Router();
 
 /* GET wedding page. */
 router.get('/', function(req, res, next) {
-  console.log("GOING HERE")
   res.json({
     "invite": "You are joyfully invited to our wedding on",
     "date": "09 July 2021",
