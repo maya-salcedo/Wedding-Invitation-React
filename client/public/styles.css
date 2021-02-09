@@ -44,6 +44,8 @@ footer {
     color:  #679b9b;
 }
 
+/* Home.jsx styling */
+
 h1 {
     font-family: 'Parisienne', cursive;
     font-size: 8rem;
@@ -72,7 +74,7 @@ h2 {
     }
 
 .flower {
-    width: 60%;
+    width: 80%;
     transform: rotate(180deg);
 }
 
@@ -90,55 +92,40 @@ span.and {
     grid-template-columns: 1fr;
 }
 
-/*
-@media (max-width: 1028px) {
-    h1 {
-        font-size: 4rem;
-        padding-bottom: 5%;
-    }
-    span.and {
-        font-size: 2.5rem;
-    }
-    h2 {
-        font-size: 1rem;
-    }
+/* Wedding.jsx styling */
+
+.wedding-container {
+    display: grid;
+    text-align: center;
+    grid-template-columns: 1fr;
 }
-*/
 
-/* wedding.jsx styling */
-
-
+.first-box {   
+    padding: 1%;
+}
 
 .flower-box {
-    background-color: yellow;
     height: 5rem;
-    z-index: 1;
-    position: absolute;
+ /*   z-index: 1;
+    position: absolute; */
 }
 
 .centered {
+    background-color: whitesmoke;
     position: relative;
-    padding-top: 1rem;
-    z-index: 3;
-    text-align: center;
-    background-image: url("./image/flower.png");
-    background-repeat: no-repeat;
-    background-size: 1rem;
+    padding: 1.5rem;
+    border-radius: 2%;
+   /* z-index: 3; */
+    display: inline-block;
 }
 
 
 .background-flower {
-    width: 50%; 
+    width: 70%; 
     transform: rotate(180deg);
 }
 
 
-.first-box {
-    text-align: center;
-    background-color: whitesmoke;
-    padding: 5%;
-    border-radius: 2%;
-}
 
 h4 {
     font-size: 0.9rem;
@@ -173,6 +160,11 @@ h3 {
     font-weight: 500;
     font-family: 'Montserrat', sans-serif;
     margin: 3rem 0 0 0;
+}
+
+.second-box {   
+    padding: 20% 1% 1% 1%;
+    position: relative;
 }
 
 .address {

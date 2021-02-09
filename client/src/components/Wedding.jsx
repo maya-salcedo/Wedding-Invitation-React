@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-//import Flower from './image/flower.png';
-//<div className="flower-box"><img className="background-flower" src={Flower} alt="flower-img"/></div>
+import Flower from './image/flower.png';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCocktail, faUserTie } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios';
@@ -19,9 +19,9 @@ const Wedding = () => {
     }, []);
 
     return (
-       <div>      
+       <div className="wedding-container">      
        <div className="first-box">
-            
+            <div className="flower-box"><img className="background-flower" src={Flower} alt="flower-img"/></div>
             <div className="centered">
                 <div>
                     <h3 className="invite">{instruction?.invite}</h3>
