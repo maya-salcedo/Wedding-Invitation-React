@@ -8,6 +8,11 @@ body {
 
 }
 
+html {
+    display: grid;
+    text-align: center;
+}
+
 footer {
     position: relative;
     text-align: center;
@@ -15,6 +20,14 @@ footer {
     width: 100%;
     height: 2.5rem;
   }
+
+.navbar {
+    padding-top: 0.75em;
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
 .nav-link {
     color:  #679b9b !important;
@@ -63,10 +76,21 @@ h2 {
     transform: rotate(180deg);
 }
 
+.flower-box1 {
+    padding: 1rem;
+}
+
 span.and {
     font-size: 4rem;
 }
 
+.site-container {
+    display: grid;
+    text-align: center;
+    grid-template-columns: 1fr;
+}
+
+/*
 @media (max-width: 1028px) {
     h1 {
         font-size: 4rem;
@@ -79,28 +103,38 @@ span.and {
         font-size: 1rem;
     }
 }
+*/
 
 /* wedding.jsx styling */
-.first-box {
-    text-align: center;
-    padding: 0 5% 5%;
-    margin: 0 5% 5%;
+
+
+
+.flower-box {
+    background-color: yellow;
+    height: 5rem;
+    z-index: 1;
+    position: absolute;
+}
+
+.centered {
     position: relative;
+    padding-top: 1rem;
+    z-index: 3;
+    text-align: center;
+    background-image: url("./image/flower.png");
+    background-repeat: no-repeat;
+    background-size: 1rem;
 }
 
 
 .background-flower {
-    width: 75%; 
-    object-fit:cover;
+    width: 50%; 
     transform: rotate(180deg);
 }
 
-.centered {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+
+.first-box {
     text-align: center;
-    transform: translate(-50%, -50%);
     background-color: whitesmoke;
     padding: 5%;
     border-radius: 2%;
@@ -188,23 +222,6 @@ p {
     opacity: 0.4;
 }
 
-@media (max-width: 1028px) {
-    .first-box {
-        text-align: center;
-        padding: 1%;
-        margin: 1%;
-        position: relative;
-    }
-    .background-flower {
-        padding: 5% 0 5%;
-        width: 100%; 
-        object-fit:cover;
-        transform: rotate(180deg);
-    }
-    .centered {
-        width: 70%;
-    }
-}
 
 /* gift.jsx styling */
 
