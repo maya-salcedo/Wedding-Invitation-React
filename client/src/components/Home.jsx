@@ -34,6 +34,13 @@ const StyledText = styled.p`
     font-size: 1.2rem;
 `;
 
+const StyledFlower = styled.img`
+	width: 80%;
+    transform: rotate(180deg);
+    padding: 1rem;
+`;
+
+
 const Home = () => {
 	const [couple, setCouple] = useState()
 	const getCouple = async () => {
@@ -48,7 +55,7 @@ const Home = () => {
 		<StyledContainer>
 			<StyledName>{couple?.groom} <StyledSpan> & </StyledSpan> {couple?.bride}</StyledName>
 			<StyledText>ARE GETTING MARRIED </StyledText>
-			<div><img className="flower" src={Flower} alt="flower-img" /></div>
+			<StyledFlower src={Flower} alt="flower-img" />
 		</StyledContainer>
 	);
 }
