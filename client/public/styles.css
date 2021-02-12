@@ -76,10 +76,11 @@ h2 {
 .flower {
     width: 80%;
     transform: rotate(180deg);
+    padding: 1rem;
 }
 
 .flower-box1 {
-    padding: 1rem;
+    
 }
 
 span.and {
