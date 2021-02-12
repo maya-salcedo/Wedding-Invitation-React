@@ -1,6 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
- 
+import styled from 'styled-components';
+import GoldHeadingTwo from '../elements/GoldHeadingTwo';
+
+const StyledTitle = styled(GoldHeadingTwo)`
+    padding-bottom: 3%;
+`;
+
+const BankDetailsWrapper = styled.div`
+    margin: 2rem 0 2rem;
+`;
+
 const Gift = () => {
     const [message, setMessage] = useState();
     
@@ -14,20 +24,19 @@ const Gift = () => {
     }, []);
 
     return (
-       <div>
-       <div>
-         <h2 className="information goldtextcss">{message?.title}</h2>
+      <div>
+      <div>
+         <StyledTitle>{message?.title}</StyledTitle>
          <p> {message?.message}</p> 
          
        </div>
-      <div className="bank-details">
+      <BankDetailsWrapper>
       <p>Here's how you can get the money to us: </p> 
          <p> Name: {message?.account?.name}</p>  
          <p> Account Number: {message?.account?.number}</p>  
          <p> BIC: {message?.account?.bic}</p>      
+      </BankDetailsWrapper>        
       </div>
-           
-       </div>
     );
 }
  
