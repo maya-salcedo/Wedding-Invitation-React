@@ -5,84 +5,84 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCocktail, faUserTie } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios';
 import ComponentWrapper from '../elements/StyledContainer';
-import {InvitationWrapper} from './InvitationWrapper'
+import { InvitationWrapper } from './InvitationWrapper'
 
 const FirstBoxWrapper = styled.div`
-	padding: 1%;
+  padding: 1%;
 `;
 
 const FlowerWrapper = styled.div`
-	height: 5rem;
-	>img {
-		width: 70%; 
-		transform: rotate(180deg);
-	}
+  height: 5rem;
+  >img {
+    width: 70%; 
+    transform: rotate(180deg);
+  }
 `;
 
 const SecondBoxWrapper = styled.div`
-	padding: 23% 1% 1% 1%;
-	position: relative;
+  padding: 23% 1% 1% 1%;
+  position: relative;
 `;
 
 const StyledInformation = styled.h2`
-	font-weight: bolder;
-	font-family: 'Parisienne', cursive;
-	font-size: 2.1rem;
-	color: #679b9b;
-	padding-bottom: 3%;
+  font-weight: bolder;
+  font-family: 'Parisienne', cursive;
+  font-size: 2.1rem;
+  color: #679b9b;
+  padding-bottom: 3%;
 `;
 
 const InformationWrapper = styled.div`
-	padding: 1.5rem;
-	font-family: 'EB Garamond', serif;
-	font-size: 1.2rem;
-	> p {
-		padding-bottom: 1.5rem;
-	}
+  padding: 1.5rem;
+  font-family: 'EB Garamond', serif;
+  font-size: 1.2rem;
+  > p {
+    padding-bottom: 1.5rem;
+  }
 `;
 
 const Wedding = () => {
-	const [instruction, setInstruction] = useState();
+  const [instruction, setInstruction] = useState();
 
-	const getInstruction = async () => {
-		const { data } = await axios.get('http://localhost:9000/wedding');
-		setInstruction(data);
-	}
+  const getInstruction = async () => {
+    const { data } = await axios.get('http://localhost:9000/wedding');
+    setInstruction(data);
+  }
 
-	useEffect(() => {
-		getInstruction();
-	}, []);
+  useEffect(() => {
+    getInstruction();
+  }, []);
 
-	return (
-		<ComponentWrapper>
-			<FirstBoxWrapper>
-				<FlowerWrapper>
-					<img src={Flower} alt="flower-img" />
-				</FlowerWrapper>
-				<InvitationWrapper
-					invite={instruction?.invite}
-					date={instruction?.date}
-					time={instruction?.time}
-					churchName={instruction?.church?.name}
-					churchAddressFirst={instruction?.church?.addressLine1}
-					churchAddressSecond={instruction?.church?.addressLine2}
-					restaurantName={instruction?.restaurant?.name}
-					restaurantAddressFirst={instruction?.restaurant?.addressLine1}
-					restaurantAddressSecond={instruction?.restaurant?.addressLine2}
-				/>
-			</FirstBoxWrapper>
-			<SecondBoxWrapper>
-				<StyledInformation>
-					Wedding Information</StyledInformation>
-				<InformationWrapper>
-					<FontAwesomeIcon icon={faCocktail} className="icon" />
-					<p>{instruction?.dining}</p>
-					<FontAwesomeIcon icon={faUserTie} className="icon" />
-					<p>{instruction?.dresscode}</p>
-				</InformationWrapper>
-			</SecondBoxWrapper>
-		</ComponentWrapper>
-	);
+  return (
+    <ComponentWrapper>
+      <FirstBoxWrapper>
+        <FlowerWrapper>
+          <img src={Flower} alt="flower-img" />
+        </FlowerWrapper>
+        <InvitationWrapper
+          invite={instruction?.invite}
+          date={instruction?.date}
+          time={instruction?.time}
+          churchName={instruction?.church?.name}
+          churchAddressFirst={instruction?.church?.addressLine1}
+          churchAddressSecond={instruction?.church?.addressLine2}
+          restaurantName={instruction?.restaurant?.name}
+          restaurantAddressFirst={instruction?.restaurant?.addressLine1}
+          restaurantAddressSecond={instruction?.restaurant?.addressLine2}
+        />
+      </FirstBoxWrapper>
+      <SecondBoxWrapper>
+        <StyledInformation>
+          Wedding Information</StyledInformation>
+        <InformationWrapper>
+          <FontAwesomeIcon icon={faCocktail} className="icon" />
+          <p>{instruction?.dining}</p>
+          <FontAwesomeIcon icon={faUserTie} className="icon" />
+          <p>{instruction?.dresscode}</p>
+        </InformationWrapper>
+      </SecondBoxWrapper>
+    </ComponentWrapper>
+  );
 }
 
 export default Wedding;

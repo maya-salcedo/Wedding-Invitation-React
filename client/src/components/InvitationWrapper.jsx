@@ -11,54 +11,54 @@ const GoldText = styled.h2`
 `;
 
 const Wrapper = styled.div`
-	background-color: whitesmoke;
-	position: relative;
-	padding: 1.5rem;
-	border-radius: 2%;
-	display: inline-block;
+  background-color: whitesmoke;
+  position: relative;
+  padding: 1.5rem;
+  border-radius: 2%;
+  display: inline-block;
 `;
 
 const InviteText = styled.h3`
-	font-size: 1.5rem;
-	font-family: 'Parisienne', cursive;
-	font-weight: 500;
-	margin: 0 0 2rem 0;
+  font-size: 1.5rem;
+  font-family: 'Parisienne', cursive;
+  font-weight: 500;
+  margin: 0 0 2rem 0;
 `;
 
 const StyledDate = styled(GoldText)`
-	font-size: 1.8rem;
-	font-family: 'Montserrat', sans-serif;
-	font-style: normal;
-	font-weight: 500;
-	padding: 0;
-	margin: 0;
+  font-size: 1.8rem;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  padding: 0;
+  margin: 0;
 `;
 
 const StyledTime = styled.h3`
-	padding: 0;
-	margin-top: 0.2rem;
-	font-size: 1rem;
+  padding: 0;
+  margin-top: 0.2rem;
+  font-size: 1rem;
 `;
 
 const GoldHeader = styled(GoldText)`
-	font-size: 1.2rem;
-	font-weight: 500;
-	font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
 `;
 
 const StyledAddress = styled.h4`
-	padding: 0;
-	margin: 0.2rem 0 0.2rem 0;
-	font-size: 0.9rem;
-	line-height: 1.5;
+  padding: 0;
+  margin: 0.2rem 0 0.2rem 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
 `;
 
 const StyledReceptionText = styled.p`
-	font-style: oblique;
-	font-size: 0.8rem;
-	font-family: 'EB Garamond', serif;
-	margin: 3rem 0 0 0;
-	padding: 0;
+  font-style: oblique;
+  font-size: 0.8rem;
+  font-family: 'EB Garamond', serif;
+  margin: 3rem 0 0 0;
+  padding: 0;
 `;
 
 export const InvitationWrapper = (props) => {

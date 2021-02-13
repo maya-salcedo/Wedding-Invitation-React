@@ -3,22 +3,22 @@ import axios from 'axios';
 import GoldHeadingTwo from '../elements/GoldHeadingTwo';
 
 const Travel = () => {
-	const [recommendation, setRecommendation] = useState();
-	const getRecommendation = async () => {
-		const { data } = await axios.get('http://localhost:9000/travel');
-		setRecommendation(data);
-	};
+  const [recommendation, setRecommendation] = useState();
+  const getRecommendation = async () => {
+    const { data } = await axios.get('http://localhost:9000/travel');
+    setRecommendation(data);
+  };
 
-	useEffect(() => {
-		getRecommendation();
-	}, []);
+  useEffect(() => {
+    getRecommendation();
+  }, []);
 
-	return (
-		<div>
-			<GoldHeadingTwo text={recommendation?.title} />
-			<p>{recommendation?.text}</p>
-		</div>
-	);
+  return (
+    <div>
+      <GoldHeadingTwo text={recommendation?.title} />
+      <p>{recommendation?.text}</p>
+    </div>
+  );
 }
 
 export default Travel;
