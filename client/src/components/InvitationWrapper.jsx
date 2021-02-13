@@ -8,7 +8,7 @@ const GoldText = styled.h2`
   background: -o-linear-gradient(transparent, transparent);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-`; 
+`;
 
 const Wrapper = styled.div`
 	background-color: whitesmoke;

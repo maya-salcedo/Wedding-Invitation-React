@@ -9,6 +9,4 @@ const StyledDiv = styled.div`
 
 const ComponentWrapper = ({ children }) => <StyledDiv>{children}</StyledDiv>;
 
-
-
 export default ComponentWrapper;
