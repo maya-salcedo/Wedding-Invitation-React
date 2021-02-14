@@ -1,12 +1,13 @@
 import React from 'react';
- 
+import GoldHeadingTwo from '../elements/GoldHeadingTwo';
+
 const Rsvp = () => {
-    return (
-       <div>
-        <h2 className="information goldtextcss">RSVP</h2>
-        <p>RSVP by 31 May 2021</p>
-       </div>
-    );
+  return (
+    <div>
+      <GoldHeadingTwo text="RSVP" />
+      <p>RSVP by 31 May 2021</p>
+    </div>
+  );
 }
- 
+
 export default Rsvp;

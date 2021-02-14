@@ -13,21 +13,6 @@ html {
     text-align: center;
 }
 
-footer {
-    position: relative;
-    text-align: center;
-    bottom: 0;
-    width: 100%;
-    height: 2.5rem;
-  }
-
-.navbar {
-    padding-top: 0.75em;
-    display: flex;
-    text-align: center;
-    flex-wrap: wrap;
-    justify-content: center;
-}
 
 .nav-link {
     color:  #679b9b !important;
@@ -44,7 +29,6 @@ footer {
     color:  #679b9b;
 }
 
-/* Home.jsx styling */
 
 h1 {
     font-family: 'Parisienne', cursive;
@@ -61,151 +45,22 @@ h2 {
     font-style: normal;
     font-weight: 500;
     color: #679b9b;
-    font-weight: 500;
 }
-
-.goldtextcss {
-    color: #D5AD6D; /*if no support for background-clip*/
-    background: -webkit-linear-gradient(transparent, transparent),
-    -webkit-linear-gradient(top, rgba(213,173,109,1) 0%, rgba(213,173,109,1) 26%, rgba(226,186,120,1) 35%, rgba(163,126,67,1) 45%, rgba(145,112,59,1) 61%, rgba(213,173,109,1) 100%);
-    background: -o-linear-gradient(transparent, transparent);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    }
-
-.flower {
-    width: 80%;
-    transform: rotate(180deg);
-}
-
-.flower-box1 {
-    padding: 1rem;
-}
-
-span.and {
-    font-size: 4rem;
-}
-
-.site-container {
-    display: grid;
-    text-align: center;
-    grid-template-columns: 1fr;
-}
-
-/* Wedding.jsx styling */
-
-.wedding-container {
-    display: grid;
-    text-align: center;
-    grid-template-columns: 1fr;
-}
-
-.first-box {   
-    padding: 1%;
-}
-
-.flower-box {
-    height: 5rem;
- /*   z-index: 1;
-    position: absolute; */
-}
-
-.centered {
-    background-color: whitesmoke;
-    position: relative;
-    padding: 1.5rem;
-    border-radius: 2%;
-   /* z-index: 3; */
-    display: inline-block;
-}
-
-
-.background-flower {
-    width: 70%; 
-    transform: rotate(180deg);
-}
-
-
 
 h4 {
     font-size: 0.9rem;
 }
-.invite {
-    font-size: 1.5rem;
-    font-family: 'Parisienne', cursive;
-    font-weight: 500;
-    margin: 0 0 2rem 0;
-}
-
-.date {
-    font-size: 1.8rem;
-    font-family: 'Montserrat', sans-serif;
-    padding: 0;
-    margin: 0;
-}
-
-.time {
-    padding: 0;
-    margin-top: 0.2rem;
-}
-
 
 h3 {
     font-size: 1rem;
 
 }
 
-.church {
-    font-size: 1.2rem;
-    font-weight: 500;
-    font-family: 'Montserrat', sans-serif;
-    margin: 3rem 0 0 0;
-}
-
-.second-box {   
-    padding: 20% 1% 1% 1%;
-    position: relative;
-}
-
-.address {
-    padding: 0;
-    margin: 0.2rem 0 0.2rem 0;
-}
-
-.reception {
-    font-style: oblique;
-    font-size: 0.8rem;
-    margin: 3rem 0 0 0;
-    padding: 0;
-}
-
-.restaurant {
-    font-size: 1.2rem;
-    font-weight: 500;
-    font-family: 'Montserrat', sans-serif;
-    margin: 1rem 0 0 0;
-    padding: 0;
-}
-
-.information {
-    font-weight: bolder;
-    font-family: 'Parisienne', cursive;
-    font-size: 2.1rem;
-    padding-bottom: 3%;
-}
-
-.icon {
-    font-size: larger;
-}
 
 p {
     margin: 0.1rem 0 0 0;
     font-family: 'EB Garamond', serif;
     font-size: 1.2rem;
-}
-
-.detail {
-    padding: 1.5rem;
 }
 
 .icon {
@@ -215,8 +70,4 @@ p {
 }
 
 
-/* gift.jsx styling */
 
-.bank-details {
-    margin: 2rem 0 2rem;
-}
