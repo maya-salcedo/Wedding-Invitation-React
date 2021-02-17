@@ -39,7 +39,7 @@ const FlowerWrapper = styled.div`
 const Home = () => {
   const [couple, setCouple] = useState()
   const getCouple = async () => {
-    const { data } = await axios.get('http://localhost:9000/couple');
+    const { data } = await axios.get('/couple');
     setCouple(data);
   }
   useEffect(() => {
