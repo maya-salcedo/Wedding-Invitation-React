@@ -5,7 +5,7 @@ import GoldHeadingTwo from '../elements/GoldHeadingTwo';
 const Travel = () => {
   const [recommendation, setRecommendation] = useState();
   const getRecommendation = async () => {
-    const { data } = await axios.get('http://localhost:9000/travel');
+    const { data } = await axios.get('/travel');
     setRecommendation(data);
   };
 
