@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "cd ./server && node ./bin/www",
     "build": "node app.js",
-    "heroku-postbuild": "cd ../client && npm install && npm run build"
+    "heroku-postbuild": "cd ./client && npm install && npm run build"
   },
   "dependencies": {
     "clean-css": "^5.0.1",
