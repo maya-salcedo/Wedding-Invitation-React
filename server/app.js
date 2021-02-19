@@ -11,6 +11,7 @@ const wedding = require('./routes/wedding');
 const gift = require('./routes/gift');
 const travel = require('./routes/travel');
 const rsvp = require('./routes/rsvp');
+const testdb = require('./routes/testdb');
 
 const app = express();
 
@@ -33,6 +34,7 @@ app.use('/wedding', wedding);
 app.use('/gift', gift);
 app.use('/travel', travel);
 app.use('/rsvp', rsvp);
+app.use('/testdb', testdb);
 
 
 // catch 404 and forward to error handler
