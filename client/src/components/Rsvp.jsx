@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import GoldHeadingTwo from '../elements/GoldHeadingTwo';
+import axios from 'axios';
 
 const StyledWrapper = styled.div`
   padding: 2%;
@@ -48,12 +49,12 @@ const Rsvp = () => {
     setInputText(newValue);
   }
 
-  const addName = () => {
-    setNames((prevNames) => {
+  const addName = async() => {
+    await axios.post('http://localhost:9000/rsvp', {guest_name: inputText});
+    setNames((prevNames) => {   
       return [...prevNames, inputText];
     });
     setInputText("");
-    console.log(inputText);
   }
 
   return (

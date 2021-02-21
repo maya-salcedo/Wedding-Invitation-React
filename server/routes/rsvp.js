@@ -7,6 +7,7 @@ var router = express.Router();
 
 router.post("/", async(req, res) => {
     try {
+        console.log(req.body)
         const {guest_name} = req.body;
         const newGuestName = await pool.query("INSERT INTO guestlist(guest_name) VALUES ($1) RETURNING *", [guest_name]);
         res.json(newGuestName.rows[0]);
