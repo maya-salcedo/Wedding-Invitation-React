@@ -1,37 +1,67 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 import GoldHeadingTwo from '../elements/GoldHeadingTwo';
 
-function ListedName(props) {
+const StyledWrapper = styled.div`
+  padding: 2%;
+  font-family: 'EB Garamond', serif;
+  font-size: 1.3rem;
+`;
+
+const StyledListWrapper = styled.div`
+  margin-left: 5%; 
+  margin-right: 5%;
+`;
+
+const StyledList = styled.li`
+  list-style-type: none;
+  padding: 2%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  text-transform: capitalize;
+`;
+
+const StyledButton = styled.button`
+  display: inline-block;
+  position: relative;
+  right: 1;
+  padding: 2%;
+`;
+
+const ListedName = (props) => {
   return (
-    <div>
-      <li> {props.text} </li>
-      <button><span>Delete</span></button>
-      <button><span>Edit</span></button>         
-    </div>
+    <StyledListWrapper>
+      <StyledList> {props.text} </StyledList>
+      <StyledButton><span>Delete</span></StyledButton>       
+    </StyledListWrapper>
   );
 }
 
 const Rsvp = () => {
-  const [inputText, setInputText] = useState("");
+  var [inputText, setInputText] = useState("");
   const [names, setNames] = useState([]);
 
-  function handleChange(event) {
+  const handleChange = (event) => {
     const newValue = event.target.value;
     setInputText(newValue);
   }
 
-  function addName() {
-    setNames((prevItems) => {
-      return [...prevItems, inputText];
+  const addName = () => {
+    setNames((prevNames) => {
+      return [...prevNames, inputText];
     });
     setInputText("");
+    console.log(inputText);
   }
 
   return (
     <div>
       <GoldHeadingTwo text="RSVP" />
       <p>RSVP by 31 May 2021</p>
-      <div className="form">
+      <StyledWrapper>
+      <div>
         <input value={inputText} onChange={handleChange} type="text" placeholder="Name" />
         <button onClick={addName}><span>Add</span></button>
       </div>
@@ -47,6 +77,7 @@ const Rsvp = () => {
         </ol>       
       </div>
       <button>Confirm</button>
+      </StyledWrapper>
     </div>
   );
 }

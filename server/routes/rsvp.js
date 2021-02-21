@@ -2,6 +2,7 @@ var express = require('express');
 const pool = require("../db");
 var router = express.Router();
 
+
 /* POST rsvp page. */
 
 router.post("/", async(req, res) => {
