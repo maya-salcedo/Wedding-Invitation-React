@@ -7,7 +7,6 @@ var router = express.Router();
 
 router.post("/", async(req, res) => {
     try {
-        console.log(req.body)
         const {guest_name} = req.body;
         const newGuestName = await pool.query("INSERT INTO guestlist(guest_name) VALUES ($1) RETURNING *", [guest_name]);
         res.json(newGuestName.rows[0]);
@@ -17,14 +16,25 @@ router.post("/", async(req, res) => {
     }
 });
 
+
+router.get("/", async(req, res) => {
+    try {
+        const guests = await pool.query("SELECT * FROM guestlist");
+        res.json(guests.rows);
+    } catch(err){
+        console.error(err.message);
+    }
+});
+
 router.put("/:guest_id", async(req, res) => {
     try {
+        console.log(req.body);
         const {guest_id} = req.params; //WHERE
-        const {guest_name} = req.body; //SET
+        const {guest_name} = req.body; 
 
-        const updateGuestName = await pool.query("UPDATE guestlist SET guest_name = $1 WHERE guest_id = $2", [guest_name, guest_id]);
+        const confirmAttendance = await pool.query("UPDATE guestlist SET attendance = $1 WHERE guest_id = $2 AND guest_name = $3", [attendance, guest_id, guest_name]);
 
-        res.json(newGuestName.rows[0]);
+        //res
     } catch(err){
         console.error(err.message);
     }

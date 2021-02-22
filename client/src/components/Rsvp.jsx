@@ -9,34 +9,36 @@ const StyledWrapper = styled.div`
   font-size: 1.3rem;
 `;
 
-const StyledListWrapper = styled.div`
-  margin-left: 5%; 
-  margin-right: 5%;
+// Styling for ListedName
+
+const ListWrapper = styled.div`
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 const StyledList = styled.li`
-  list-style-type: none;
-  padding: 2%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-  text-transform: capitalize;
+  display: table-row;
+  justify-content: center;
 `;
 
-const StyledButton = styled.button`
-  display: inline-block;
-  position: relative;
-  right: 1;
-  padding: 2%;
+const StyledGuestName = styled.span`
+  display: table-cell;
+  text-align: left;
+`;
+
+const StyledDeleteButton = styled.span`
+  display: table-cell;
+  text-align: right;
 `;
 
 const ListedName = (props) => {
   return (
-    <StyledListWrapper>
-      <StyledList> {props.text} </StyledList>
-      <StyledButton><span>Delete</span></StyledButton>       
-    </StyledListWrapper>
+    <ListWrapper>
+    <StyledList>
+      <StyledGuestName> {props.text} </StyledGuestName>
+      <StyledDeleteButton><button>Delete</button></StyledDeleteButton>      
+    </StyledList>
+    </ListWrapper>
   );
 }
 
@@ -55,6 +57,12 @@ const Rsvp = () => {
       return [...prevNames, inputText];
     });
     setInputText("");
+  }
+
+
+  const confirmAttendance = async() => {
+    console.log(names);
+    await axios.post('http://localhost:9000/rsvp', {confirmedNames: names}); 
   }
 
   return (
@@ -77,7 +85,7 @@ const Rsvp = () => {
         ))}
         </ol>       
       </div>
-      <button>Confirm</button>
+      <button onClick={confirmAttendance}>Confirm</button>
       </StyledWrapper>
     </div>
   );
