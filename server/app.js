@@ -10,8 +10,12 @@ const couple = require('./routes/couple');
 const wedding = require('./routes/wedding');
 const gift = require('./routes/gift');
 const travel = require('./routes/travel');
+const rsvp = require('./routes/rsvp');
+const thankyoursvp = require('./routes/thankyoursvp');
+const testdb = require('./routes/testdb');
 
 const app = express();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -30,6 +34,10 @@ app.use('/couple', couple);
 app.use('/wedding', wedding);
 app.use('/gift', gift);
 app.use('/travel', travel);
+app.use('/rsvp', rsvp);
+app.use('/thankyoursvp', thankyoursvp);
+app.use('/testdb', testdb);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

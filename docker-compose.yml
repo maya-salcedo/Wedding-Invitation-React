@@ -26,3 +26,12 @@ services:
     ports:
       - "3000:3000"
     # env_file: ./client/.env # TODO - uncomment this to auto-load your .env file!
+
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./server/database.sql:/docker-entrypoint-initdb.d/database.sql
