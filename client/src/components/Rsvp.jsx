@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+//import {Link} from "react-router-dom";
 import styled from 'styled-components';
 import GoldHeadingTwo from '../elements/GoldHeadingTwo';
 import axios from 'axios';
+//import Confirmed from './Confirmed';
 
 const StyledWrapper = styled.div`
   padding: 2%;
@@ -61,7 +63,6 @@ const Rsvp = () => {
   const confirmAttendance = async() => {
     await axios.post('http://localhost:9000/rsvp', {guest_names: names});
   }
-
 
   return (
     <div>

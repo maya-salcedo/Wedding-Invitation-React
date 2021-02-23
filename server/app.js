@@ -11,7 +11,7 @@ const wedding = require('./routes/wedding');
 const gift = require('./routes/gift');
 const travel = require('./routes/travel');
 const rsvp = require('./routes/rsvp');
-const thankyoursvp = require('./routes/thankyoursvp');
+const confirmed = require('./routes/confirmed');
 const testdb = require('./routes/testdb');
 
 const app = express();
@@ -35,7 +35,7 @@ app.use('/wedding', wedding);
 app.use('/gift', gift);
 app.use('/travel', travel);
 app.use('/rsvp', rsvp);
-app.use('/thankyoursvp', thankyoursvp);
+app.use('/confirmed', confirmed);
 app.use('/testdb', testdb);
 
 

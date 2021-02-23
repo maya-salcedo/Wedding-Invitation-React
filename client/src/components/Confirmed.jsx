@@ -3,17 +3,18 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import GoldHeadingTwo from '../elements/GoldHeadingTwo';
 
-const ThankYouRsvp = () => {
+
+const Confirmed = () => {
     const [note, setNote] = useState();
     const getNote = async () => {
-        const {data} = await  axios.get('http://localhost:9000/thankyou');
+        const {data} = await axios.get('http://localhost:9000/confirmed');
         setNote(data);
     };
 
     useEffect(() => {
-        getMessage();
+        getNote();
     }, []);
-}
+
 
     return(
         <div>
@@ -27,10 +28,7 @@ const ThankYouRsvp = () => {
                 <p> Phone: {note?.cancelation?.phone} </p>
                 <p> Whatsapp: {note?.cancelation?.whatsapp} </p>
             </div>
-
-
         </div>
-    )
-
-
-export default ThankYouRsvp;
+    );
+}
+export default Confirmed;
