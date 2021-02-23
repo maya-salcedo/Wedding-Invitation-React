@@ -52,18 +52,16 @@ const Rsvp = () => {
   }
 
   const addName = async() => {
-    await axios.post('http://localhost:9000/rsvp', {guest_name: inputText});
     setNames((prevNames) => {   
       return [...prevNames, inputText];
     });
     setInputText("");
   }
 
-
   const confirmAttendance = async() => {
-    console.log(names);
-    await axios.post('http://localhost:9000/rsvp', {confirmedNames: names}); 
+    await axios.post('http://localhost:9000/rsvp', {guest_names: names});
   }
+
 
   return (
     <div>

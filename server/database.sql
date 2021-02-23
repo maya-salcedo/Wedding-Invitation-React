@@ -4,7 +4,6 @@
 
 CREATE TABLE guestlist(
     guest_id SERIAL PRIMARY KEY,
-    guest_name VARCHAR(50),
-    attendance VARCHAR
+    guest_names VARCHAR
 );
 
