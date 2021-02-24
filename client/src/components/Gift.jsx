@@ -21,7 +21,7 @@ const Gift = () => {
   return (
     <div>
       <div>
-        <GoldHeadingTwo>{message?.title}</GoldHeadingTwo>
+        <GoldHeadingTwo text={message?.title} />
         <p> {message?.message}</p>
       </div>
       <BankDetailsWrapper>

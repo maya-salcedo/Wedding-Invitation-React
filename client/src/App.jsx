@@ -9,6 +9,9 @@ import Rsvp from './components/Rsvp';
 import Error from './components/Error';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
+import Confirmed from './components/Confirmed';
+import Unconfirmed from './components/Unconfirmed';
+
 
 class App extends Component {
   render() {
@@ -22,6 +25,8 @@ class App extends Component {
             <Route path="/gift" component={Gift} />
             <Route path="/travel" component={Travel} />
             <Route path="/rsvp" component={Rsvp} />
+            <Route path="/confirmed" component={Confirmed} />
+            <Route path="/unconfirmed" component={Unconfirmed} />
             <Route component={Error} />
           </Switch>
           <Footer />
