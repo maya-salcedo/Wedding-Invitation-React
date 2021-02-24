@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import GoldHeadingTwo from '../elements/GoldHeadingTwo';
 import axios from 'axios';
+import AddIcon from '@material-ui/icons/Add';
+import Fab from '@material-ui/core/Fab';
+//import teal from '@material-ui/core/colors/teal';
 
 
 const StyledWrapper = styled.div`
@@ -19,16 +22,18 @@ const ListWrapper = styled.div`
 
 const StyledList = styled.li`
   display: table-row;
-  justify-content: center;
+  list-style-type: none;
+  text-transform: capitalize;
+  > span {
+    display: table-cell;
+  }
 `;
 
 const StyledGuestName = styled.span`
-  display: table-cell;
-  text-align: left;
+  text-align: left; 
 `;
 
 const StyledDeleteButton = styled.span`
-  display: table-cell;
   text-align: right;
 `;
 
@@ -75,7 +80,7 @@ const Rsvp = ({ history }) => {
       <StyledWrapper>
         <div>
           <input value={inputText} onChange={handleChange} type="text" placeholder="Name" />
-          <button onClick={addName}><span>Add</span></button>
+          <Fab onClick={addName} size="small" color="secondary"><AddIcon /></Fab>
         </div>
         <div>
           <ol>

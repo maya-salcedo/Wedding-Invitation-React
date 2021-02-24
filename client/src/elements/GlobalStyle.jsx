@@ -1,4 +1,6 @@
-/*
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
 body {
     text-align: center;
     background-color: #fde2e2;
@@ -69,7 +71,7 @@ p {
     font-size: 300%;
     opacity: 0.4;
 }
-*/
+`;
 
 
-
+export default GlobalStyle;
