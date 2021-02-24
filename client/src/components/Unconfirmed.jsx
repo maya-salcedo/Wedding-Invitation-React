@@ -3,8 +3,7 @@ import React, { useEffect, useState } from 'react';
 //import styled from 'styled-components';
 //import GoldHeadingTwo from '../elements/GoldHeadingTwo';
 
-
-const Confirmed = () => {
+const Unconfirmed = () => {
     const [note, setNote] = useState();
     const getNote = async () => {
         const {data} = await axios.get('http://localhost:9000/confirmed');
@@ -19,11 +18,11 @@ const Confirmed = () => {
     return(
         <div>
             <div>
-                <h1>{note?.confirmed?.title}</h1>
-                <p>{note?.confirmed?.message}</p>
+                <h1>{note?.unconfirmed?.title}</h1>
+                <p>{note?.unconfirmed?.message}</p>
             </div>
             <div>
-                <p> In case you need to cancel your rsvp, please contact us at:</p>
+                <p> In case you have technical trouble to confirm your rsvp, please contact us at:</p>
                 <p> Email: {note?.contact?.email} </p>
                 <p> Phone: {note?.contact?.phone} </p>
                 <p> Whatsapp: {note?.contact?.whatsapp} </p>
@@ -31,4 +30,4 @@ const Confirmed = () => {
         </div>
     );
 }
-export default Confirmed;
+export default Unconfirmed;
