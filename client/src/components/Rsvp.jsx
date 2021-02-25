@@ -2,49 +2,46 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import GoldHeadingTwo from '../elements/GoldHeadingTwo';
 import axios from 'axios';
-import AddIcon from '@material-ui/icons/Add';
-import Fab from '@material-ui/core/Fab';
-//import teal from '@material-ui/core/colors/teal';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserPlus, faMinusCircle } from '@fortawesome/free-solid-svg-icons';
+import ComponentWrapper from '../elements/StyledContainer';
 
 
-const StyledWrapper = styled.div`
-  padding: 2%;
-  font-family: 'EB Garamond', serif;
-  font-size: 1.3rem;
-`;
 
 // Styling for ListedName
 
-const ListWrapper = styled.div`
+const StyledTable = styled.table`
+  table-layout: auto;
+  width: 1rem;
   margin-left: auto;
   margin-right: auto;
 `;
 
-const StyledList = styled.li`
-  display: table-row;
+const StyledRow = styled.tr`
   list-style-type: none;
   text-transform: capitalize;
-  > span {
-    display: table-cell;
-  }
 `;
 
-const StyledGuestName = styled.span`
+const StyledGuestName = styled.td`
   text-align: left; 
 `;
 
-const StyledDeleteButton = styled.span`
+const StyledDeleteButton = styled.td`
   text-align: right;
 `;
 
 const ListedName = (props) => {
+  const handleClick = () => {
+    props.onDelete(props.id);
+  }
   return (
-    <ListWrapper>
-      <StyledList>
+       <StyledRow>
         <StyledGuestName> {props.text} </StyledGuestName>
-        <StyledDeleteButton><button>Delete</button></StyledDeleteButton>
-      </StyledList>
-    </ListWrapper>
+        <StyledDeleteButton>
+          <button onClick={handleClick}>
+          <FontAwesomeIcon icon={faMinusCircle} />
+          </button></StyledDeleteButton>
+      </StyledRow>
   );
 }
 
@@ -73,29 +70,48 @@ const Rsvp = ({ history }) => {
     }
   }
 
+  const deleteName = (id) => {
+    setNames(prevNames => {
+      return prevNames.filter((nameOfGuest, index) => {
+        return index !== id;
+      });
+    });
+  }
+
   return (
-    <div>
+    <ComponentWrapper>
       <GoldHeadingTwo text="RSVP" />
       <p>RSVP by 31 May 2021</p>
-      <StyledWrapper>
-        <div>
-          <input value={inputText} onChange={handleChange} type="text" placeholder="Name" />
-          <Fab onClick={addName} size="small" color="secondary"><AddIcon /></Fab>
-        </div>
-        <div>
-          <ol>
-            {names.map((nameOfGuest, index) => (
-              <ListedName
-                key={index}
-                id={index}
-                text={nameOfGuest}
-              />
-            ))}
-          </ol>
-        </div>
-        <button onClick={confirmAttendance}>Confirm</button>
-      </StyledWrapper>
-    </div>
+      <StyledTable>
+        <StyledRow>
+          <StyledGuestName>
+            <input value={inputText} onChange={handleChange} type="text" placeholder="Name" />
+          </StyledGuestName>
+          <StyledDeleteButton>
+            <button onClick={addName}>
+            <FontAwesomeIcon icon={faUserPlus} />
+            </button>
+          </StyledDeleteButton>
+        </StyledRow>
+        <StyledRow>
+          <StyledGuestName>
+            <ol>
+                {names.map((nameOfGuest, index) => (
+                  <ListedName
+                    key={index}
+                    id={index}
+                    text={nameOfGuest}
+                    onDelete={deleteName}
+                  />
+                ))}
+              </ol>
+          </StyledGuestName>
+        </StyledRow>     
+        <StyledRow>
+            <button onClick={confirmAttendance}>Confirm</button>
+          </StyledRow>    
+      </StyledTable>
+    </ComponentWrapper>
   );
 }
 

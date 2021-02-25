@@ -66,6 +66,21 @@ p {
     font-size: 1.2rem;
 }
 
+button {
+    color: #679b9b;
+    background-color: #fde2e2;
+    background-image: url("https://www.transparenttextures.com/patterns/white-wall-3.png");
+    border: none;
+    cursor: pointer;
+    border-radius: 10%;
+    font-size: 100%
+}
+
+.button:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+
 .icon {
     margin-bottom: 0.5rem;
     font-size: 300%;
