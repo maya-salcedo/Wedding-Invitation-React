@@ -12,15 +12,26 @@ import ComponentWrapper from '../elements/StyledContainer';
 
 const StyledTable = styled.table`
   table-layout: auto;
-  width: 1rem;
   margin-left: auto;
   margin-right: auto;
 `;
 
-const StyledRow = styled.tr`
-  list-style-type: none;
+const StyledHeading = styled.thead`
   text-transform: capitalize;
 `;
+
+const StyledNameInput = styled.td`
+  text-align: left;
+
+`;
+
+const StyledAddButton = styled.td`
+  text-align: right;
+`;
+
+const StyledBody = styled.tbody`
+`;
+
 
 const StyledGuestName = styled.td`
   text-align: left; 
@@ -35,13 +46,16 @@ const ListedName = (props) => {
     props.onDelete(props.id);
   }
   return (
-       <StyledRow>
-        <StyledGuestName> {props.text} </StyledGuestName>
-        <StyledDeleteButton>
-          <button onClick={handleClick}>
-          <FontAwesomeIcon icon={faMinusCircle} />
-          </button></StyledDeleteButton>
-      </StyledRow>
+       <StyledBody>
+        <tr>
+          <StyledGuestName> {props.text} </StyledGuestName>
+          <StyledDeleteButton>
+            <button onClick={handleClick}>
+            <FontAwesomeIcon icon={faMinusCircle} />
+            </button>
+          </StyledDeleteButton>
+        </tr>
+      </StyledBody>
   );
 }
 
@@ -83,33 +97,35 @@ const Rsvp = ({ history }) => {
       <GoldHeadingTwo text="RSVP" />
       <p>RSVP by 31 May 2021</p>
       <StyledTable>
-        <StyledRow>
-          <StyledGuestName>
-            <input value={inputText} onChange={handleChange} type="text" placeholder="Name" />
-          </StyledGuestName>
-          <StyledDeleteButton>
-            <button onClick={addName}>
-            <FontAwesomeIcon icon={faUserPlus} />
-            </button>
-          </StyledDeleteButton>
-        </StyledRow>
-        <StyledRow>
-          <StyledGuestName>
-            <ol>
-                {names.map((nameOfGuest, index) => (
-                  <ListedName
-                    key={index}
-                    id={index}
-                    text={nameOfGuest}
-                    onDelete={deleteName}
-                  />
-                ))}
-              </ol>
-          </StyledGuestName>
-        </StyledRow>     
-        <StyledRow>
-            <button onClick={confirmAttendance}>Confirm</button>
-          </StyledRow>    
+        <StyledHeading>
+          <tr>
+            <StyledNameInput>
+              <input value={inputText} onChange={handleChange} type="text" placeholder="Name" minLength="1" />
+            </StyledNameInput>
+            <StyledAddButton>
+              <button onClick={addName}>
+                <FontAwesomeIcon icon={faUserPlus} />
+              </button>
+            </StyledAddButton>
+          </tr>
+        </StyledHeading>
+  
+          {names.map((nameOfGuest, index) => (
+            <ListedName
+              key={index}
+              id={index}
+              text={nameOfGuest}
+              onDelete={deleteName}
+            />
+          ))}
+   
+        <tfoot>
+          <tr>
+            <td>
+              <button onClick={confirmAttendance}>Confirm</button>
+            </td>
+          </tr>  
+        </tfoot>    
       </StyledTable>
     </ComponentWrapper>
   );
