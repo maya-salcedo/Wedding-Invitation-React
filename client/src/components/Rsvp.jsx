@@ -59,8 +59,6 @@ const ListedName = (props) => {
 
 const Rsvp = ({ history }) => {
 
-  //const [isVisible, setVisible] = useState(false);
-
   var [inputText, setInputText] = useState("");
   const [names, setNames] = useState([]);
 
@@ -73,7 +71,6 @@ const Rsvp = ({ history }) => {
     if (inputText.length === 0){
       alert("Please enter your name.");
     } else { setNames((prevNames) => {
-      console.log(confirmId + "button is triggered");
       return [...prevNames, inputText];
     }); 
     } 
@@ -97,10 +94,7 @@ const Rsvp = ({ history }) => {
     });
   }
 
-  //const showConfirmButton = () => {
-  //  setVisible(true);
-  //}
-
+  
   return (
     <ComponentWrapper>
       <GoldHeadingTwo text="RSVP" />
@@ -129,12 +123,12 @@ const Rsvp = ({ history }) => {
           ))}
         </StyledBody>
         <tfoot>
-          <tr>
+        <tr>
             <td>
-              <button onClick={confirmAttendance}>Confirm</button>
+              {names.length > 0 && <button onClick={confirmAttendance}>Confirm</button>}
             </td>
           </tr>  
-        </tfoot>    
+        </tfoot>  
       </StyledTable>
     </ComponentWrapper>
   );
