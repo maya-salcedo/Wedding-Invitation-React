@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import GlobalStyle from './elements/GlobalStyle';
 
 import Home from './components/Home';
 import Wedding from './components/Wedding';
@@ -17,6 +18,7 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
+      <GlobalStyle />
         <div>
           <Navigation />
           <Switch>

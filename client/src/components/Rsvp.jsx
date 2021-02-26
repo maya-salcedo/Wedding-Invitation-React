@@ -2,48 +2,63 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import GoldHeadingTwo from '../elements/GoldHeadingTwo';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserPlus, faMinusCircle } from '@fortawesome/free-solid-svg-icons';
+import ComponentWrapper from '../elements/StyledContainer';
 
 
-const StyledWrapper = styled.div`
-  padding: 2%;
-  font-family: 'EB Garamond', serif;
-  font-size: 1.3rem;
-`;
 
 // Styling for ListedName
 
-const ListWrapper = styled.div`
+const StyledTable = styled.table`
+  table-layout: auto;
   margin-left: auto;
   margin-right: auto;
 `;
 
-const StyledList = styled.li`
-  display: table-row;
-  justify-content: center;
+const StyledHeading = styled.thead`
+  text-transform: capitalize;
 `;
 
-const StyledGuestName = styled.span`
-  display: table-cell;
+const StyledNameInput = styled.td`
   text-align: left;
+
 `;
 
-const StyledDeleteButton = styled.span`
-  display: table-cell;
+const StyledAddButton = styled.td`
+  text-align: right;
+`;
+
+const StyledBody = styled.tbody`
+`;
+
+
+const StyledGuestName = styled.td`
+  text-align: left; 
+`;
+
+const StyledDeleteButton = styled.td`
   text-align: right;
 `;
 
 const ListedName = (props) => {
-  return (
-    <ListWrapper>
-      <StyledList>
-        <StyledGuestName> {props.text} </StyledGuestName>
-        <StyledDeleteButton><button>Delete</button></StyledDeleteButton>
-      </StyledList>
-    </ListWrapper>
+  const handleClick = () => {
+    props.onDelete(props.id);
+  }
+  return (      
+    <tr>
+      <StyledGuestName> {props.text} </StyledGuestName>
+      <StyledDeleteButton>
+        <button onClick={handleClick}>
+        <FontAwesomeIcon icon={faMinusCircle} />
+        </button>
+      </StyledDeleteButton>
+    </tr>
   );
 }
 
 const Rsvp = ({ history }) => {
+
   var [inputText, setInputText] = useState("");
   const [names, setNames] = useState([]);
 
@@ -53,9 +68,12 @@ const Rsvp = ({ history }) => {
   }
 
   const addName = async () => {
-    setNames((prevNames) => {
+    if (inputText.length === 0){
+      alert("Please enter your name.");
+    } else { setNames((prevNames) => {
       return [...prevNames, inputText];
-    });
+    }); 
+    } 
     setInputText("");
   }
 
@@ -68,29 +86,51 @@ const Rsvp = ({ history }) => {
     }
   }
 
+  const deleteName = (id) => {
+    setNames(prevNames => {
+      return prevNames.filter((nameOfGuest, index) => {
+        return index !== id;
+      });
+    });
+  }
+
+  
   return (
-    <div>
+    <ComponentWrapper>
       <GoldHeadingTwo text="RSVP" />
       <p>RSVP by 31 May 2021</p>
-      <StyledWrapper>
-        <div>
-          <input value={inputText} onChange={handleChange} type="text" placeholder="Name" />
-          <button onClick={addName}><span>Add</span></button>
-        </div>
-        <div>
-          <ol>
-            {names.map((nameOfGuest, index) => (
-              <ListedName
-                key={index}
-                id={index}
-                text={nameOfGuest}
-              />
-            ))}
-          </ol>
-        </div>
-        <button onClick={confirmAttendance}>Confirm</button>
-      </StyledWrapper>
-    </div>
+      <StyledTable>
+        <StyledHeading>
+          <tr>
+            <StyledNameInput>
+              <input value={inputText} onChange={handleChange} type="text" placeholder="Name" minLength="1" />
+            </StyledNameInput>
+            <StyledAddButton>
+              <button onClick={addName}>
+                <FontAwesomeIcon icon={faUserPlus} />
+              </button>
+            </StyledAddButton>
+          </tr>
+        </StyledHeading>
+        <StyledBody>
+          {names.map((nameOfGuest, index) => (
+            <ListedName
+              key={index}
+              id={index}
+              text={nameOfGuest}
+              onDelete={deleteName}
+            />
+          ))}
+        </StyledBody>
+        <tfoot>
+        <tr>
+            <td>
+              {names.length > 0 && <button onClick={confirmAttendance}>Confirm</button>}
+            </td>
+          </tr>  
+        </tfoot>  
+      </StyledTable>
+    </ComponentWrapper>
   );
 }
 
