@@ -122,6 +122,7 @@ const Rsvp = ({ history }) => {
             />
           ))}
         </StyledBody>
+        
         <tfoot>
         <tr>
             <td>
