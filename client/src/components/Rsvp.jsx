@@ -45,21 +45,22 @@ const ListedName = (props) => {
   const handleClick = () => {
     props.onDelete(props.id);
   }
-  return (
-       <StyledBody>
-        <tr>
-          <StyledGuestName> {props.text} </StyledGuestName>
-          <StyledDeleteButton>
-            <button onClick={handleClick}>
-            <FontAwesomeIcon icon={faMinusCircle} />
-            </button>
-          </StyledDeleteButton>
-        </tr>
-      </StyledBody>
+  return (      
+    <tr>
+      <StyledGuestName> {props.text} </StyledGuestName>
+      <StyledDeleteButton>
+        <button onClick={handleClick}>
+        <FontAwesomeIcon icon={faMinusCircle} />
+        </button>
+      </StyledDeleteButton>
+    </tr>
   );
 }
 
 const Rsvp = ({ history }) => {
+
+  //const [isVisible, setVisible] = useState(false);
+
   var [inputText, setInputText] = useState("");
   const [names, setNames] = useState([]);
 
@@ -69,9 +70,13 @@ const Rsvp = ({ history }) => {
   }
 
   const addName = async () => {
-    setNames((prevNames) => {
+    if (inputText.length === 0){
+      alert("Please enter your name.");
+    } else { setNames((prevNames) => {
+      console.log(confirmId + "button is triggered");
       return [...prevNames, inputText];
-    });
+    }); 
+    } 
     setInputText("");
   }
 
@@ -92,6 +97,10 @@ const Rsvp = ({ history }) => {
     });
   }
 
+  //const showConfirmButton = () => {
+  //  setVisible(true);
+  //}
+
   return (
     <ComponentWrapper>
       <GoldHeadingTwo text="RSVP" />
@@ -109,7 +118,7 @@ const Rsvp = ({ history }) => {
             </StyledAddButton>
           </tr>
         </StyledHeading>
-  
+        <StyledBody>
           {names.map((nameOfGuest, index) => (
             <ListedName
               key={index}
@@ -118,7 +127,7 @@ const Rsvp = ({ history }) => {
               onDelete={deleteName}
             />
           ))}
-   
+        </StyledBody>
         <tfoot>
           <tr>
             <td>
