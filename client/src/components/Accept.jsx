@@ -97,16 +97,15 @@ const Accept = ({ history }) => {
     });
   }
 
-  // let guests = names;
-      //   if (!guests.includes(detail.fname) && detail.fname) {
-      //  guests.push(detail.fname);
-      //  console.log(guests);
-      //}
-
   const accept = async () => {
     try {
+      let guests = names;
+      if (!guests.includes(detail.fname) && detail.fname) {
+        guests.push(detail.fname);
+        console.log(guests);
+      }
       await axios.post('http://localhost:9000/accept', {
-        Name: "new",
+        Name: guests,
         Phone: detail.phone,
         Email: detail.email,
         Message: detail.message,
