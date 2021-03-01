@@ -17,8 +17,15 @@ const StyledName = styled.h1`
   background: -o-linear-gradient(transparent, transparent);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  @media (max-width: 1028px) {
+    font-size: 6.5rem;
+    padding-bottom: 5%;
+  }
   > span {
     font-size: 4rem;
+    @media (max-width: 1028px) {
+     font-size: 3rem;
+    }
   }
 `;
 

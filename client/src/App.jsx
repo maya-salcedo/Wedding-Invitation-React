@@ -7,11 +7,14 @@ import Wedding from './components/Wedding';
 import Gift from './components/Gift';
 import Travel from './components/Travel';
 import Rsvp from './components/Rsvp';
+import Accept from './components/Accept';
+import Decline from './components/Decline';
 import Error from './components/Error';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import Confirmed from './components/Confirmed';
 import Unconfirmed from './components/Unconfirmed';
+
 
 
 class App extends Component {
@@ -27,6 +30,8 @@ class App extends Component {
             <Route path="/gift" component={Gift} />
             <Route path="/travel" component={Travel} />
             <Route path="/rsvp" component={Rsvp} />
+            <Route path="/accept" component={Accept} />
+            <Route path="/decline" component={Decline} />
             <Route path="/confirmed" component={Confirmed} />
             <Route path="/unconfirmed" component={Unconfirmed} />
             <Route component={Error} />
