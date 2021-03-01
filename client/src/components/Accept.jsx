@@ -97,14 +97,16 @@ const Accept = ({ history }) => {
     });
   }
 
+  // let guests = names;
+      //   if (!guests.includes(detail.fname) && detail.fname) {
+      //  guests.push(detail.fname);
+      //  console.log(guests);
+      //}
+
   const accept = async () => {
     try {
-      //let guests = names;
-      //if (!guests.includes(detail.fname) && detail.fname) {
-      //  guests.push(detail.fname)
-      //}
       await axios.post('http://localhost:9000/accept', {
-        Name: "old",
+        Name: "new",
         Phone: detail.phone,
         Email: detail.email,
         Message: detail.message,
@@ -120,7 +122,7 @@ const Accept = ({ history }) => {
   return (
     <ComponentWrapper>
       <GoldHeadingTwo text="RSVP" />
-      <p>RSVP by 31 May 2021</p>
+      <p>RSVP by 31 May 2021 </p>
       <StyledTable>
         <StyledHeading>
           <tr>
