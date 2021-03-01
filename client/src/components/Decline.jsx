@@ -10,7 +10,7 @@ import ComponentWrapper from '../elements/StyledContainer';
 
 
 
-const Rsvp = ({ history }) => {
+const Decline = ({ history }) => {
 
   var [detail, setDetail] = useState({
       fname: "",
@@ -20,18 +20,13 @@ const Rsvp = ({ history }) => {
   });
   
   const handleChange = (event) => {
-    const {name, value} = event.target;
-    setDetail({[name]:value});
+    setDetail({
+      ...detail,
+      [event.target.name]:event.target.value});
   }
   
   const decline = async () => {
-    setDetail({
-      fname: "",
-      email: "",
-      phone: "",
-      message: "" 
-      });
-    try {
+      try {
       await axios.post('http://localhost:9000/decline', {
         Name: detail.fname, 
         Phone: detail.phone, 
@@ -51,7 +46,7 @@ const Rsvp = ({ history }) => {
       <p>RSVP by 31 May 2021</p>
       <div>
           <label for="fname">Your name:</label>
-          <input name="fname" type="text" placeholder="Name" value={detail.name} onChange={handleChange} />
+          <input name="fname" type="text" placeholder="Name" value={detail.fname} onChange={handleChange} />
           <label for="email">Email:</label>
           <input name="email" type="email" placeholder="Email" value={detail.email} onChange={handleChange} />
           <label for="phone">Phone:</label>
@@ -64,4 +59,4 @@ const Rsvp = ({ history }) => {
   );
 }
 
-export default Rsvp;
+export default Decline;

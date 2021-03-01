@@ -57,7 +57,7 @@ const ListedName = (props) => {
   );
 }
 
-const Rsvp = ({ history }) => {
+const Accept = ({ history }) => {
 
   const [detail, setDetail] = useState({
     fname: "",
@@ -84,7 +84,7 @@ const Rsvp = ({ history }) => {
       return [...prevNames, detail.fname];
     }); 
     } 
-    //setDetail({detail.fname: ""});
+    setDetail({fname: ""});
   }
 
   const deleteName = (id) => {
@@ -95,16 +95,16 @@ const Rsvp = ({ history }) => {
     });
   }
 
-  const confirmAttendance = async () => {
-    setDetail({
-      fname: "",
-      email: "",
-      phone: "",
-      message: "" 
-      });
+  const accept = async () => {
+
+    
+
     try {
+      if (names.length === 0 ){
+        let names = detail.fname;
+      }
       await axios.post('http://localhost:9000/accept', { 
-        Name: detail.fname, 
+        Name: names, 
         Phone: detail.phone, 
         Email: detail.email, 
         Message: detail.message,
@@ -156,7 +156,7 @@ const Rsvp = ({ history }) => {
         <tfoot>
         <tr>
             <td>
-              <button onClick={confirmAttendance}>Joyfully Accept</button>
+              <button onClick={accept}>Joyfully Accept</button>
             </td>
           </tr>  
         </tfoot>  
@@ -165,4 +165,4 @@ const Rsvp = ({ history }) => {
   );
 }
 
-export default Rsvp;
+export default Accept;
