@@ -45,12 +45,12 @@ const ListedName = (props) => {
   const handleClick = () => {
     props.onDelete(props.id);
   }
-  return (      
+  return (
     <tr>
       <StyledGuestName> {props.text} </StyledGuestName>
       <StyledDeleteButton>
         <button onClick={handleClick}>
-        <FontAwesomeIcon icon={faMinusCircle} />
+          <FontAwesomeIcon icon={faMinusCircle} />
         </button>
       </StyledDeleteButton>
     </tr>
@@ -74,17 +74,19 @@ const Accept = ({ history }) => {
     //console.log(value);
     setDetail({
       ...detail,
-      [event.target.name]:event.target.value});   
+      [event.target.name]: event.target.value
+    });
   }
 
   const addName = async () => {
-    if (detail.fname.length === 0){
+    if (detail.fname.length === 0) {
       alert("Please enter your name.");
-    } else { setNames((prevNames) => {
-      return [...prevNames, detail.fname];
-    }); 
-    } 
-    setDetail({fname: ""});
+    } else {
+      setNames((prevNames) => {
+        return [...prevNames, detail.fname];
+      });
+    }
+    setDetail({ fname: "" });
   }
 
   const deleteName = (id) => {
@@ -96,27 +98,25 @@ const Accept = ({ history }) => {
   }
 
   const accept = async () => {
-
-    
-
     try {
-      if (names.length === 0 ){
-        let names = detail.fname;
+      let guests = names;
+      if (!guests.includes(detail.fname) && detail.fname) {
+        guests.push(detail.fname)
       }
-      await axios.post('http://localhost:9000/accept', { 
-        Name: names, 
-        Phone: detail.phone, 
-        Email: detail.email, 
+      await axios.post('http://localhost:9000/accept', {
+        Name: guests,
+        Phone: detail.phone,
+        Email: detail.email,
         Message: detail.message,
         Response: "Accept"
-    });
+      });
       history.push('/confirmed');
     } catch (err) {
       history.push('/unconfirmed');
     }
   }
 
- 
+
   return (
     <ComponentWrapper>
       <GoldHeadingTwo text="RSVP" />
@@ -150,16 +150,16 @@ const Accept = ({ history }) => {
             <input name="phone" value={detail.phone} onChange={handleChange} type="number" placeholder="Phone" />
           </StyledNameInput>
           <StyledNameInput>
-              <input name="message" value={detail.message} onChange={handleChange} type="text" placeholder="Your message: (optional)" />
+            <input name="message" value={detail.message} onChange={handleChange} type="text" placeholder="Your message: (optional)" />
           </StyledNameInput>
         </StyledBody>
         <tfoot>
-        <tr>
+          <tr>
             <td>
               <button onClick={accept}>Joyfully Accept</button>
             </td>
-          </tr>  
-        </tfoot>  
+          </tr>
+        </tfoot>
       </StyledTable>
     </ComponentWrapper>
   );
