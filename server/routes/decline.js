@@ -6,11 +6,11 @@ var router = express.Router();
 router.post("/", async (req, res) => {
   try {
     console.log(req.body);
-    const { guest_names } = req.body;
-    const newGuestName = await pool.query("INSERT INTO guestlist(guest_names) VALUES ($1) RETURNING *", [guest_names]);
+    const { Name, Phone, Email, Message, Response } = req.body;
+    const newResponse = await pool.query("INSERT INTO guestlist(names, phone, email, message, response) VALUES ($1) RETURNING *", [Name, Phone, Email, Message, Response]);
     // Uncomment line after to check the unconfirmed page
     // res.status(500).send('Something Went Wrong'); 
-    res.json(newGuestName.rows[0]);
+    res.json(newResponse.rows[0]);
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Something Went Wrong');
@@ -19,8 +19,8 @@ router.post("/", async (req, res) => {
 
 router.get("/", async (req, res) => {
   try {
-    const guests = await pool.query("SELECT * FROM guestlist");
-    res.json(guests.rows);
+    const allResponse = await pool.query("SELECT * FROM guestlist");
+    res.json(allResponse.rows);
   } catch (err) {
     console.error(err.message);
   }
