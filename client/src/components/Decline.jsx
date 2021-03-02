@@ -34,9 +34,9 @@ const Decline = ({ history }) => {
         Message: detail.message,
         Response: "Decline"
       });
-      history.push('/confirmed');
+      history.push('/confirmed-decline');
     } catch (err) {
-      history.push('/unconfirmed');
+      history.push('/unconfirmed-decline');
     }
   }
  

@@ -2,10 +2,11 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 //import styled from 'styled-components';
 //import GoldHeadingTwo from '../elements/GoldHeadingTwo';
-const Unconfirmed = () => {
+
+const UnconfirmedAccept = () => {
   const [note, setNote] = useState();
   const getNote = async () => {
-    const { data } = await axios.get('http://localhost:9000/confirmed');
+    const { data } = await axios.get('http://localhost:9000/unconfirmed-accept');
     setNote(data);
   };
   useEffect(() => {
@@ -16,10 +17,10 @@ const Unconfirmed = () => {
     <div>
       <div>
         <h1>{note?.unconfirmed?.title}</h1>
-        <p>{note?.unconfirmed?.message}</p>
+        <p>{note?.unconfirmed?.message1}</p>
       </div>
       <div>
-        <p> In case you have technical trouble to confirm your rsvp, please contact us at:</p>
+        <p> {note?.unconfirmed?.message2}</p>
         <p> Email: {note?.contact?.email} </p>
         <p> Phone: {note?.contact?.phone} </p>
         <p> Whatsapp: {note?.contact?.whatsapp} </p>
@@ -27,4 +28,4 @@ const Unconfirmed = () => {
     </div>
   );
 }
-export default Unconfirmed;
+export default UnconfirmedAccept;

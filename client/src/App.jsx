@@ -12,8 +12,10 @@ import Decline from './components/Decline';
 import Error from './components/Error';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
-import Confirmed from './components/Confirmed';
-import Unconfirmed from './components/Unconfirmed';
+import ConfirmedAccept from './components/ConfirmedAccept';
+import UnconfirmedAccept from './components/UnconfirmedAccept';
+import ConfirmedDecline from './components/ConfirmedDecline';
+import UnconfirmedDecline from './components/UnconfirmedDecline'; 
 
 
 
@@ -32,8 +34,10 @@ class App extends Component {
             <Route path="/rsvp" component={Rsvp} />
             <Route path="/accept" component={Accept} />
             <Route path="/decline" component={Decline} />
-            <Route path="/confirmed" component={Confirmed} />
-            <Route path="/unconfirmed" component={Unconfirmed} />
+            <Route path="/confirmed-accept" component={ConfirmedAccept} />
+            <Route path="/unconfirmed-accept" component={UnconfirmedAccept} />
+            <Route path="/confirmed-decline" component={ConfirmedDecline} />
+            <Route path="/unconfirmed-decline" component={UnconfirmedDecline} />
             <Route component={Error} />
           </Switch>
           <Footer />

@@ -48,6 +48,7 @@ h2 {
     font-style: normal;
     font-weight: 500;
     color: #679b9b;
+    margin-block-end: 0;
 }
 
 h4 {
@@ -69,7 +70,6 @@ p {
 button {
     color: #679b9b;
     background-color: #fde2e2;
-    background-image: url("https://www.transparenttextures.com/patterns/white-wall-3.png");
     border: none;
     cursor: pointer;
     border-radius: 10%;
@@ -86,6 +86,38 @@ button {
     font-size: 300%;
     opacity: 0.4;
 }
+
+.rsvp-button {
+   -webkit-border-radius: 1rem;
+   -moz-border-radius: 1rem;
+   border-radius: 1rem;
+   color: #D5AD6D;
+   font-size: 1.2rem;
+   font-family: 'Montserrat', sans-serif;
+   font-weight: 100;
+   padding: 0.8rem;
+   margin: 0.5rem auto 0.5rem auto;
+   width: 15rem;
+   background-color: #f9f3f3;
+   -webkit-box-shadow: 1px 1px 20px 0 #2B7070;
+   -moz-box-shadow: 1px 1px 20px 0 #2B7070;
+   box-shadow: 1px 1px 20px 0 #2B7070;
+   text-shadow: 1px 1px 20px #F9F7F5;
+   text-decoration: none;
+   display: inline-block;
+   cursor: pointer;
+   text-align: center;
+}
+
+.rsvp-button:hover {
+   background: ;
+   border: solid #679B9B 1px;
+   -webkit-border-radius: 19px;
+   -moz-border-radius: 19px;
+   border-radius: 19px;
+   text-decoration: none;
+}
+
 `;
 
 

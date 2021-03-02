@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import GoldHeadingTwo from '../elements/GoldHeadingTwo';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserPlus, faMinusCircle } from '@fortawesome/free-solid-svg-icons';
+import { faUserPlus, faMinusCircle,  faCheck } from '@fortawesome/free-solid-svg-icons';
 import ComponentWrapper from '../elements/StyledContainer';
 
 
@@ -47,7 +47,7 @@ const ListedName = (props) => {
   }
   return (
     <tr>
-      <StyledGuestName> {props.text} </StyledGuestName>
+      <StyledGuestName> <FontAwesomeIcon icon={faCheck} />{props.text} </StyledGuestName>
       <StyledDeleteButton>
         <button onClick={handleClick}>
           <FontAwesomeIcon icon={faMinusCircle} />
@@ -111,9 +111,9 @@ const Accept = ({ history }) => {
         Message: detail.message,
         Response: "Accept"
       });
-      history.push('/confirmed');
+      history.push('/confirmed-accept');
     } catch (err) {
-      history.push('/unconfirmed');
+      history.push('/unconfirmed-accept');
     }
   }
 
@@ -121,7 +121,7 @@ const Accept = ({ history }) => {
   return (
     <ComponentWrapper>
       <GoldHeadingTwo text="RSVP" />
-      <p>RSVP by 31 May 2021 </p>
+      <p>RSVP by 31 May 2021</p>
       <StyledTable>
         <StyledHeading>
           <tr>
@@ -130,12 +130,13 @@ const Accept = ({ history }) => {
             </StyledNameInput>
             <StyledAddButton>
               <button onClick={addName}>
-                <FontAwesomeIcon icon={faUserPlus} />
+                Add to guestlist
               </button>
             </StyledAddButton>
           </tr>
         </StyledHeading>
         <StyledBody>
+        {names.length > 0 && <tr><td>Names of Guests</td></tr>}
           {names.map((nameOfGuest, index) => (
             <ListedName
               key={index}
