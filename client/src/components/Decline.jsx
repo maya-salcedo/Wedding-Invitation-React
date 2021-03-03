@@ -43,18 +43,26 @@ const Decline = ({ history }) => {
   return (
     <ComponentWrapper>
       <GoldHeadingTwo text="Decline with Regret" />
-      <p>RSVP by 31 May 2021</p>
-      <div>
-          <label for="fname">Your name:</label>
-          <input name="fname" type="text" placeholder="Name" value={detail.fname} onChange={handleChange} />
-          <label for="email">Email:</label>
-          <input name="email" type="email" placeholder="Email" value={detail.email} onChange={handleChange} />
-          <label for="phone">Phone:</label>
-          <input name="phone" type="number" placeholder="Phone" value={detail.phone} onChange={handleChange} />
-          <label for="message">Your message:</label>
-          <textarea name="message" type="text" placeholder="Your message(optional)" value={detail.message} onChange={handleChange} />
+      <p>Respond by 31 May 2021</p>
+      <div className="decline-form">
+        <div className="form-group">
+          <label classname="label" for="fname">Your name:</label>
+          <input classname="input" name="fname" type="text" placeholder="Name" value={detail.fname} onChange={handleChange} />
+        </div>
+        <div className="form-group">
+          <label classname="label" for="email">Email:</label>
+          <input classname="input" name="email" type="email" placeholder="Email" value={detail.email} onChange={handleChange} />
+        </div>
+        <div className="form-group">
+          <label classname="label" for="phone">Phone:</label>
+          <input classname="input" name="phone" type="number" placeholder="Phone" value={detail.phone} onChange={handleChange} /></div>
+        <div className="form-group">
+          <label classname="label" for="message">Your message:</label>
+          <textarea classname="input" name="message" type="text" placeholder="Your message(optional)" value={detail.message} onChange={handleChange} />
+        </div>         
+          
       </div>
-      <button onClick={decline}>Decline</button>
+      <button className="decline-button" onClick={decline}>Decline</button>
     </ComponentWrapper>
   );
 }
