@@ -67,20 +67,6 @@ p {
     font-size: 1.2rem;
 }
 
-button {
-    color: #679b9b;
-    background-color: #fde2e2;
-    border: none;
-    cursor: pointer;
-    border-radius: 10%;
-    font-size: 100%
-}
-
-.button:hover {
-  background-color: #4CAF50; /* Green */
-  color: white;
-}
-
 .icon {
     margin-bottom: 0.5rem;
     font-size: 300%;
@@ -88,6 +74,23 @@ button {
 }
 
 .rsvp-button {
+  cursor: pointer;
+  margin: 0.5rem auto 0.5rem auto;
+  border-radius: 5px;
+  text-decoration: none;
+  padding: 0.5rem;
+  width: 15rem;
+  font-size: 1.1rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 100;
+  transition: .3s;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -o-transition: .3s;
+  display: inline-block;
+  border: 0.1rem #D5AD6D solid;
+  color: #D5AD6D; /*if no support for background-clip*/
+  /*
    -webkit-border-radius: 1rem;
    -moz-border-radius: 1rem;
    border-radius: 1rem;
@@ -106,16 +109,18 @@ button {
    text-decoration: none;
    display: inline-block;
    cursor: pointer;
-   text-align: center;
+   text-align: center; 
+   */
 }
 
 .rsvp-button:hover {
-   background: ;
-   border: solid #679B9B 1px;
-   -webkit-border-radius: 19px;
-   -moz-border-radius: 19px;
-   border-radius: 19px;
-   text-decoration: none;
+  color: #f9f3f3;
+  background: -webkit-linear-gradient(transparent, transparent),
+  -webkit-linear-gradient(top, rgba(163,126,67,1) 0%, rgba(213,173,109,1) 26%, rgba(226,186,120,1) 35%, rgba(226,186,120,1) 45%, rgba(213,173,109,1) 61%, rgba(163,126,67,1) 100%);
+  /*background: -webkit-linear-gradient(transparent, transparent),
+  -webkit-linear-gradient(top, rgba(213,173,109,1) 0%, rgba(213,173,109,1) 26%, rgba(226,186,120,1) 35%, rgba(163,126,67,1) 45%, rgba(145,112,59,1) 61%, rgba(213,173,109,1) 100%);*/
+  
+
 }
 
 `;
