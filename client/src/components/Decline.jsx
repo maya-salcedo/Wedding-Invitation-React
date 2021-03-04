@@ -1,13 +1,8 @@
 import React, { useState } from 'react';
-//import styled from 'styled-components';
 import GoldHeadingTwo from '../elements/GoldHeadingTwo';
 import axios from 'axios';
-//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-//import { faUserPlus, faMinusCircle } from '@fortawesome/free-solid-svg-icons';
 import ComponentWrapper from '../elements/StyledContainer';
-
-
-
+import FormWrapper, {FormGroupWrapper, ButtonWrapper} from '../elements/FormWrapper';
 
 
 const Decline = ({ history }) => {
@@ -44,25 +39,26 @@ const Decline = ({ history }) => {
     <ComponentWrapper>
       <GoldHeadingTwo text="Decline with Regret" />
       <p>Respond by 31 May 2021</p>
-      <div className="decline-form">
-        <div className="form-group">
-          <label classname="label" for="fname">Your name:</label>
-          <input classname="input" name="fname" type="text" placeholder="Name" value={detail.fname} onChange={handleChange} />
-        </div>
-        <div className="form-group">
-          <label classname="label" for="email">Email:</label>
-          <input classname="input" name="email" type="email" placeholder="Email" value={detail.email} onChange={handleChange} />
-        </div>
-        <div className="form-group">
-          <label classname="label" for="phone">Phone:</label>
-          <input classname="input" name="phone" type="number" placeholder="Phone" value={detail.phone} onChange={handleChange} /></div>
-        <div className="form-group">
-          <label classname="label" for="message">Your message:</label>
-          <textarea classname="input" name="message" type="text" placeholder="Your message(optional)" value={detail.message} onChange={handleChange} />
-        </div>         
+      <FormWrapper>
+        <FormGroupWrapper>
+          <label htmlFor="fname">Your Name:</label>
+          <input name="fname" type="text" placeholder="Name" value={detail.fname} onChange={handleChange} />
+        </FormGroupWrapper>
+        <FormGroupWrapper>
+          <label htmlFor="email">Email:</label>
+          <input name="email" type="email" placeholder="Email" value={detail.email} onChange={handleChange} />
+        </FormGroupWrapper>
+        <FormGroupWrapper>
+          <label htmlFor="phone">Phone:</label>
+          <input name="phone" type="number" placeholder="Phone" value={detail.phone} onChange={handleChange} />
+          </FormGroupWrapper>
+        <FormGroupWrapper>
+          <label htmlFor="message">Your message:</label>
+          <textarea name="message" type="text" placeholder="Your message: (optional)" rows="3" value={detail.message} onChange={handleChange} />
+        </FormGroupWrapper>         
           
-      </div>
-      <button className="decline-button" onClick={decline}>Decline</button>
+      </FormWrapper>
+      <ButtonWrapper onClick={decline}>Decline</ButtonWrapper>
     </ComponentWrapper>
   );
 }

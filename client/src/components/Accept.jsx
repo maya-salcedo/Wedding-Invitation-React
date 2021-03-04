@@ -5,55 +5,18 @@ import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserPlus, faMinusCircle,  faCheck } from '@fortawesome/free-solid-svg-icons';
 import ComponentWrapper from '../elements/StyledContainer';
-
-
-
-// Styling for ListedName
-
-const StyledTable = styled.table`
-  table-layout: auto;
-  margin-left: auto;
-  margin-right: auto;
-`;
-
-const StyledHeading = styled.thead`
-  text-transform: capitalize;
-`;
-
-const StyledNameInput = styled.td`
-  text-align: left;
-
-`;
-
-const StyledAddButton = styled.td`
-  text-align: right;
-`;
-
-const StyledBody = styled.tbody`
-`;
-
-
-const StyledGuestName = styled.td`
-  text-align: left; 
-`;
-
-const StyledDeleteButton = styled.td`
-  text-align: right;
-`;
+import FormWrapper, {FormGroupWrapper, ButtonWrapper} from '../elements/FormWrapper';
 
 const ListedName = (props) => {
   const handleClick = () => {
     props.onDelete(props.id);
   }
   return (
-    <tr>
-      <StyledGuestName> <FontAwesomeIcon icon={faCheck} />{props.text} </StyledGuestName>
-      <StyledDeleteButton>
-        <button onClick={handleClick}>
-          <FontAwesomeIcon icon={faMinusCircle} />
-        </button>
-      </StyledDeleteButton>
-    </tr>
+    <FormGroupWrapper>
+      <li>{props.text} </li>
+      <button onClick={handleClick}><FontAwesomeIcon icon={faMinusCircle} /></button>
+    </FormGroupWrapper>
+    
   );
 }
 
@@ -86,6 +49,7 @@ const Accept = ({ history }) => {
         return [...prevNames, detail.fname];
       });
     }
+   
     setDetail({ fname: "" });
   }
 
@@ -122,22 +86,14 @@ const Accept = ({ history }) => {
     <ComponentWrapper>
       <GoldHeadingTwo text="RSVP" />
       <p>RSVP by 31 May 2021</p>
-      <StyledTable>
-        <StyledHeading>
-          <tr>
-            <StyledNameInput>
-              <input name="fname" value={detail.fname} onChange={handleChange} type="text" placeholder="Name" />
-            </StyledNameInput>
-            <StyledAddButton>
-              <button onClick={addName}>
-                Add to guestlist
-              </button>
-            </StyledAddButton>
-          </tr>
-        </StyledHeading>
-        <StyledBody>
-        {names.length > 0 && <tr><td>Names of Guests</td></tr>}
-          {names.map((nameOfGuest, index) => (
+      <FormWrapper>
+        <FormGroupWrapper>
+          <label htmlFor="fname">Your Name:</label>
+          <input name="fname" value={detail.fname} onChange={handleChange} type="text" placeholder="Name" />
+          <button onClick={addName}>Add</button>
+        </FormGroupWrapper>
+        
+           {names.map((nameOfGuest, index) => (
             <ListedName
               key={index}
               id={index}
@@ -145,24 +101,22 @@ const Accept = ({ history }) => {
               onDelete={deleteName}
             />
           ))}
-          <StyledNameInput>
-            <input name="email" value={detail.email} onChange={handleChange} type="email" placeholder="Email" />
-          </StyledNameInput>
-          <StyledNameInput>
-            <input name="phone" value={detail.phone} onChange={handleChange} type="number" placeholder="Phone" />
-          </StyledNameInput>
-          <StyledNameInput>
-            <input name="message" value={detail.message} onChange={handleChange} type="text" placeholder="Your message: (optional)" />
-          </StyledNameInput>
-        </StyledBody>
-        <tfoot>
-          <tr>
-            <td>
-              <button onClick={accept}>Joyfully Accept</button>
-            </td>
-          </tr>
-        </tfoot>
-      </StyledTable>
+
+        <FormGroupWrapper>
+          <label htmlFor="email">Email:</label>
+          <input name="email" value={detail.email} onChange={handleChange} type="email" placeholder="Email" />
+        </FormGroupWrapper>
+        <FormGroupWrapper>
+          <label htmlFor="phone">Phone:</label>
+          <input name="phone" value={detail.phone} onChange={handleChange} type="number" placeholder="Phone" />
+          </FormGroupWrapper>
+        <FormGroupWrapper>
+          <label htmlFor="message">Your message:</label>
+          <textarea name="message" type="text" placeholder="Your message: (optional)" rows="3" value={detail.message} onChange={handleChange} />
+        </FormGroupWrapper>         
+          
+      </FormWrapper>
+      <ButtonWrapper onClick={accept}>Joyfully Accept</ButtonWrapper>
     </ComponentWrapper>
   );
 }
