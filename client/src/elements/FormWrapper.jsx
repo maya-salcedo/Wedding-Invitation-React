@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Form = styled.form`
+const Form = styled.div`
   background-color: whitesmoke;
   padding: 1.5rem;
   border-radius: 2%;
@@ -35,7 +35,7 @@ const FormGroup = styled.div`
     margin-bottom: 20px;
     font-family: 'Montserrat', sans-serif;
   }
-  
+
 `;
 
 
@@ -59,7 +59,7 @@ const Button = styled.button`
   background: -webkit-linear-gradient(transparent, transparent),
   -webkit-linear-gradient(top, rgba(163,126,67,1) 0%, rgba(213,173,109,1) 26%, rgba(226,186,120,1) 35%, rgba(226,186,120,1) 45%, rgba(213,173,109,1) 61%, rgba(163,126,67,1) 100%);
 
-  :hover {
+  &:hover {
   border: 0.1rem #679b9b solid;
   color: #679b9b;
   background: #f9f3f3;
@@ -67,6 +67,6 @@ const Button = styled.button`
   
 const FormWrapper = ({children}) => <Form>{children}</Form>; 
 export const FormGroupWrapper = ({children}) => <FormGroup>{children}</FormGroup>; 
-export const  ButtonWrapper = ({children}) => <Button>{children}</Button>; 
+export const  ButtonWrapper = ({children}) => <Button />;
 
 export default FormWrapper;
