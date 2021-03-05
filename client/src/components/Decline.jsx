@@ -22,14 +22,18 @@ const Decline = ({ history }) => {
   
   const decline = async () => {
       try {
-      await axios.post('http://localhost:9000/decline', {
-        Name: detail.fname, 
-        Phone: detail.phone, 
-        Email: detail.email, 
-        Message: detail.message,
-        Response: "Decline"
-      });
-      history.push('/confirmed-decline');
+        if (detail.fname.length === 0){
+          alert("Please enter your name.");
+        } else {
+        await axios.post('http://localhost:9000/decline', {
+          Name: detail.fname, 
+          Phone: detail.phone, 
+          Email: detail.email, 
+          Message: detail.message,
+          Response: "Decline"
+        });
+        history.push('/confirmed-decline');
+      }
     } catch (err) {
       history.push('/unconfirmed-decline');
     }
@@ -58,7 +62,7 @@ const Decline = ({ history }) => {
         </FormGroupWrapper>         
           
       </FormWrapper>
-      <ButtonWrapper onClick={decline}>Decline</ButtonWrapper>
+      <button onClick={decline}>Decline</button>
     </ComponentWrapper>
   );
 }

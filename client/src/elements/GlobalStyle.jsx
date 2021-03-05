@@ -73,6 +73,9 @@ p {
   opacity: 0.4;
 }
 
+.name {
+  width: 70rem;
+}
 
 `;
 

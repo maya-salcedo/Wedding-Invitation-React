@@ -12,7 +12,7 @@ const Form = styled.div`
     
 const FormGroup = styled.div`
   width: 100%;
-  padding-bottom: 1em;
+  padding-top: 1rem;
   > label{
     display: inline-block;
     width: 10em;
@@ -24,8 +24,7 @@ const FormGroup = styled.div`
   > input, textarea {
     box-sizing: border-box;
     background-color: transparent;
-    text-decoration: none;
-    padding: 0.5rem;
+    padding: 0.3rem;
     border-bottom-right-radius: 3px 15px;
     border-bottom-left-radius: 3px 15px;
     border: solid 3px transparent;
@@ -34,8 +33,8 @@ const FormGroup = styled.div`
     width: 70%;
     margin-bottom: 20px;
     font-family: 'Montserrat', sans-serif;
+    color: #2b2b28;
   }
-
 `;
 
 
@@ -46,7 +45,7 @@ const Button = styled.button`
   text-decoration: none;
   padding: 0.5rem;
   width: 15rem;
-  font-size: 1.1rem
+  font-size: 1.1rem;
   font-family: 'Montserrat', sans-serif;
   font-weight: 100;
   transition: .3s;
@@ -63,10 +62,12 @@ const Button = styled.button`
   border: 0.1rem #679b9b solid;
   color: #679b9b;
   background: #f9f3f3;
+  }
 `;
   
 const FormWrapper = ({children}) => <Form>{children}</Form>; 
 export const FormGroupWrapper = ({children}) => <FormGroup>{children}</FormGroup>; 
-export const  ButtonWrapper = ({children}) => <Button />;
+export const  ButtonWrapper = ({children}) => <Button>{children}</Button>;
+
 
 export default FormWrapper;
