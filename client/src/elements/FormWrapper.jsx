@@ -67,7 +67,7 @@ const Button = styled.button`
   
 const FormWrapper = ({children}) => <Form>{children}</Form>; 
 export const FormGroupWrapper = ({children}) => <FormGroup>{children}</FormGroup>; 
-export const  ButtonWrapper = ({children}) => <Button>{children}</Button>;
+export const  ButtonWrapper = ({onClick, text}) => <Button onClick={onClick}>{text}</Button>;
 
 
 export default FormWrapper;
