@@ -40,7 +40,7 @@ const InformationWrapper = styled.div`
 `;
 
 const Wedding = () => {
-  const {flag} = useContext(FlagContext)
+  const {flag} = useContext(FlagContext);
 
   const [instruction, setInstruction] = useState();
   const query = flag === 'italy' ? '?it=true' : '';

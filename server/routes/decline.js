@@ -6,19 +6,19 @@ var router = express.Router();
 /* GET decline page */
 router.get("/", function (req, res, next) {
   if(req.query.it){
-    res.json({
+    return res.json({
       "title": "Declino con Dispiace",
       "respondByDate": "Rispondi entro il 31 Maggi 2021",
       "yourName": "Il Tuo Nome:",
-      "yourName": "Nome",
-      "Phone": "Telefono:",
-      "Phone1": "Telefono",
+      "yourName1": "Nome",
+      "phone": "Telefono:",
+      "phone1": "Telefono",
       "yourMessage" : "Scrivi un messaggio:",
       "yourMessage1": "Scrivi un messaggio: (opzione)",
       "yourResponse": "Rifiuto"
     })
   }
-  res.json({
+  return res.json({
     "title": "Decline with Regret",
     "respondByDate": "Respond by 31 May 2021",
     "yourName": "Your Name:",

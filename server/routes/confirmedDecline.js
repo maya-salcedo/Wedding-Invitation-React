@@ -4,7 +4,7 @@ var router = express.Router();
 /* GET confirmed-decline page */
 router.get("/", function (req, res, next) {
   if(req.query.it){
-    res.json({
+    return res.json({
       "decline":  {
         "confirmed": {
           "title": "Grazie per averci contattato.",
@@ -12,7 +12,7 @@ router.get("/", function (req, res, next) {
           }
     }})
   }
-  res.json({
+  return res.json({
     "decline":  {
       "confirmed": {
         "title": "Thank you for your response",

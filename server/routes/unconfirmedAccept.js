@@ -4,7 +4,7 @@ var router = express.Router();
 /* GET unconfirmed-accept page */
 router.get("/", function (req, res, next) {
   if(req.query.it){
-    res.json({
+    return res.json({
       "unconfirmed": {
         "title": "Ooops... Errore tecnico!",
         "message1": "Ci dispiace per questo problema.",
@@ -17,7 +17,7 @@ router.get("/", function (req, res, next) {
       }
     })
   }
-  res.json({
+  return res.json({
     "unconfirmed": {
       "title": "Ooops... Technical Error!",
       "message1": "Sorry for this technical issue.",

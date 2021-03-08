@@ -5,13 +5,13 @@ var router = express.Router();
 /* GET accept page */
 router.get("/", function (req, res, next) {
   if(req.query.it){
-    res.json({
+    return res.json({
       "title": "Accetto con Piacere",
       "respondByDate": "Rispondi entro il 31 Maggi 2021",
       "yourName": "Il Tuo Nome:",
       "yourName": "Nome",
-      "Phone": "Telefono:",
-      "Phone1": "Telefono",
+      "phone": "Telefono:",
+      "phone1": "Telefono",
       "additionalNames" : "Nome dell'Ospite Aggiuntivo:",
       "additionalNames1": "Nome",
       "yourMessage" : "Scrivi un messaggio:",
@@ -19,7 +19,7 @@ router.get("/", function (req, res, next) {
       "yourResponse": "Accetto"
     })
   }
-  res.json({
+  return res.json({
     "title": "Joyfully Accept",
     "respondByDate": "Respond by 31 May 2021",
     "yourName": "Your Name:",

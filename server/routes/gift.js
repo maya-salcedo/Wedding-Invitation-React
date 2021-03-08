@@ -4,7 +4,7 @@ var router = express.Router();
 /* GET gift page */
 router.get("/", function (req, res, next) {
   if(req.query.it){
-    res.json({
+    return res.json({
     "title": "Contribute to our Honeymoon Fund",
     "message": "La vostra presenza al nostro matrimonio è il dono più grande tutti. Se desideri farci un regalo, apprezzeremmo molto un contributo per la nostra luna di miele.",
     "account": {
@@ -15,7 +15,7 @@ router.get("/", function (req, res, next) {
     }
     })
   }
-  res.json({
+  return res.json({
     "title": "Contribute to our Honeymoon Fund",
     "message": "We don't need you to bring us gifts, we know plane tickets are expensive and your presence at the wedding is enough! If you really want to give us something, a contribution to our honeymoon fund would be awesome.",
     "account": {

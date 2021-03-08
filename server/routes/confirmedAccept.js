@@ -4,7 +4,7 @@ var router = express.Router();
 /* GET  confirmed-accept page */
 router.get("/", function (req, res, next) {
   if(req.query.it){
-    res.json({
+    return res.json({
       "confirmed": {
         "title": "Eccezionale!",
         "message1": "Non vedioamo l'ora di celebrare con voi il nostro matrimonio. Grazie mille dal profondo del nostro cuore.",
@@ -21,7 +21,7 @@ router.get("/", function (req, res, next) {
       }
     })
   }
-  res.json({
+  return res.json({
     "confirmed": {
       "title": "Awesome!",
       "message1": "Can't wait to celebrate with you on our wedding day. Thank you so much from the bottom of our hearts.",

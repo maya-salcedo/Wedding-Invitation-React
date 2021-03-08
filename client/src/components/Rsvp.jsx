@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import GoldHeadingTwo from '../elements/GoldHeadingTwo';
 import ComponentWrapper from '../elements/StyledContainer';
+import { FlagContext } from './FlagContext';
 
 const TextWrapper = styled.p`
   margin-block-end: 2em;
@@ -34,15 +35,17 @@ const ButtonWrapper = styled.button`
 `;
 
 const Rsvp = ({ history }) => {
+  const {flag} = useContext(FlagContext);
   const [message, setMessage] = useState();
+  const query = flag === 'italy' ? '?it=true' : '';
   const getMessage = async () => {
-    const { data } = await axios.get('http://localhost:9000/rsvp');
+    const { data } = await axios.get(`http://localhost:9000/rsvp${query}`);
     setMessage(data);
   };
 
   useEffect(() => {
     getMessage();
-  }, []);
+  }, [flag]);
 
   const accept = async () => {
     try {

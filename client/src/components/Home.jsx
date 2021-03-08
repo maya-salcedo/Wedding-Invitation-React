@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Flower from './image/flower.png';
 import styled from 'styled-components';
 import axios from 'axios';
 import ComponentWrapper from '../elements/StyledContainer';
+import { FlagContext } from './FlagContext';
 
 const StyledName = styled.h1`
   font-family: 'Parisienne', cursive;
@@ -44,14 +45,17 @@ const FlowerWrapper = styled.div`
 `;
 
 const Home = () => {
-  const [couple, setCouple] = useState()
+  const {flag} = useContext(FlagContext);
+
+  const [couple, setCouple] = useState();
+  const query = flag === 'italy' ? '?it=true' : '';
   const getCouple = async () => {
-    const { data } = await axios.get('http://localhost:9000/couple');
+    const { data } = await axios.get(`http://localhost:9000/couple${query}`);
     setCouple(data);
   }
   useEffect(() => {
     getCouple();
-  }, []);
+  }, [flag]);
 
   return (
     <ComponentWrapper>

@@ -1,20 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import GoldHeadingTwo from '../elements/GoldHeadingTwo';
 import axios from 'axios';
 import ComponentWrapper from '../elements/StyledContainer';
 import FormWrapper, {FormGroupWrapper, ButtonWrapper} from '../elements/FormWrapper';
+import { FlagContext } from './FlagContext';
 
 const Accept = ({ history }) => {
+  const {flag} = useContext(FlagContext);
 
   const [message, setMessage] = useState();
+  const query = flag === 'italy' ? '?it=true' : '';
   const getMessage = async () => {
-    const { data } = await axios.get('http://localhost:9000/accept');
+    const { data } = await axios.get(`http://localhost:9000/accept${query}`);
     setMessage(data);
   };
 
   useEffect(() => {
     getMessage();
-  }, []);
+  }, [flag]);
 
   const [detail, setDetail] = useState({
     fname: "",

@@ -1,20 +1,23 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faPhoneAlt  } from '@fortawesome/free-solid-svg-icons';
 import GoldHeadingTwo from '../elements/GoldHeadingTwo';
 import ResponseWrapper from '../elements/ResponseWrapper';
+import { FlagContext } from './FlagContext';
 
 const ConfirmedAccept = () => {
+  const {flag} = useContext(FlagContext);
   const [note, setNote] = useState();
+  const query = flag === 'italy' ? '?it=true' : '';
   const getNote = async () => {
-    const { data } = await axios.get('http://localhost:9000/confirmed-accept');
+    const { data } = await axios.get(`http://localhost:9000/confirmed-accept${query}`);
     setNote(data);
   };
   useEffect(() => {
     getNote();
-  }, []);
+  }, [flag]);
 
   return (
     <div>
