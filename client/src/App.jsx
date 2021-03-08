@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import GlobalStyle from './elements/GlobalStyle';
 
@@ -15,20 +15,20 @@ import Footer from './components/Footer';
 import ConfirmedAccept from './components/ConfirmedAccept';
 import UnconfirmedAccept from './components/UnconfirmedAccept';
 import ConfirmedDecline from './components/ConfirmedDecline';
-import UnconfirmedDecline from './components/UnconfirmedDecline'; 
+import UnconfirmedDecline from './components/UnconfirmedDecline';
+import { FlagContext } from './components/FlagContext';
 
 
-
-class App extends Component {
-  render() {
+const App = () => {
+    const [flag, setFlag] = useState('english')
     return (
       <BrowserRouter>
-      <GlobalStyle />
-        <div>
+        <GlobalStyle />
+        <FlagContext.Provider value={{flag, setFlag}} >
           <Navigation />
-          <Switch>
+          <Switch >
             <Route path="/" component={Home} exact />
-            <Route path="/wedding" component={Wedding} />
+            <Route path="/wedding" component={Wedding}/>
             <Route path="/gift" component={Gift} />
             <Route path="/travel" component={Travel} />
             <Route path="/rsvp" component={Rsvp} />
@@ -41,10 +41,9 @@ class App extends Component {
             <Route component={Error} />
           </Switch>
           <Footer />
-        </div>
+        </FlagContext.Provider>
       </BrowserRouter>
     );
-  }
 }
 
 export default App;

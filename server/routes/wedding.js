@@ -6,7 +6,7 @@ var router = express.Router();
 /* GET wedding page. */
 router.get('/', function(req, res, next) {
   if(req.query.it){
-    res.json({
+    return res.json({
       "invite": "Siamo lieti di invitarvi al nostro matrimonio",
       "date": "09 Giugno 2021",
       "time": "15:00 Venerdì",
@@ -28,7 +28,7 @@ router.get('/', function(req, res, next) {
         "line1": "Semi Formale"}
     })
   }
-  res.json({
+  return res.json({
     "invite": "You are joyfully invited to our wedding on",
     "date": "09 July 2021",
     "time": "3:00 P.M. Friday",
