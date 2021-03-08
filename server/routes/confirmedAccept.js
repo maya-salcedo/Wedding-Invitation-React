@@ -6,13 +6,13 @@ router.get("/", function (req, res, next) {
   if(req.query.it){
     res.json({
       "confirmed": {
-        "title": "Awesome!",
-        "message1": "Can't wait to celebrate with you on our wedding day. Thank you so much from the bottom of our hearts.",
+        "title": "Eccezionale!",
+        "message1": "Non vedioamo l'ora di celebrare con voi il nostro matrimonio. Grazie mille dal profondo del nostro cuore.",
         "information": {
-          "date": "Friday, 09 July 2021",
+          "date": "Venerdì, 09 Luglio 2021",
           "place": "Lierna, Italy"
         },
-        "message2": "A confirmation email or text message will be sent to you. Please contact us if you don't hear from us or in case you need to cancel your rsvp."
+        "message2": "Riceverai un'email o un sms di conferma. Per favore contattaci ne caso che non ricevi nessuna risposta da noi o nel caso che devi cancellare la tua partecipazione."
       },
       "contact": {
         "email": "colturi.emanuele@gmail.com",

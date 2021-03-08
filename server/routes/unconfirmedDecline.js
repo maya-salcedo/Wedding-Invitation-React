@@ -6,9 +6,9 @@ router.get("/", function (req, res, next) {
   if(req.query.it){
     res.json({
       "unconfirmed": {
-        "title": "Ooops... Technical Error!",
-        "message1": "Sorry for this technical issue.", 
-        "message2": "Please contact us if you cannot come."
+        "title": "Ooops... Errore tecnico!",
+        "message1": "Ci dispiace per questo problema.", 
+        "message2": " Per favore contattaci per declinare l'invito."
       },
       "contact": {
         "email": "colturi.emanuele@gmail.com",

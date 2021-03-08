@@ -7,16 +7,15 @@ var router = express.Router();
 router.get("/", function (req, res, next) {
   if(req.query.it){
     res.json({
-      "title": "Joyfully Accept",
-      "yourName": "Your Name:",
-      "yourName": "Name",
-      "Phone": "Phone:",
-      "Phone1": "Phone",
-      "additionalNames" : "Additional Guest Names:",
-      "additionalNames1": "Name(s)",
-      "yourMessage" : "Your message:",
-      "yourMessage1": "Your message: (optional)",
-      "yourResponse": "Accept"
+      "title": "Declino con Dispiace",
+      "respondByDate": "Rispondi entro il 31 Maggi 2021",
+      "yourName": "Il Tuo Nome:",
+      "yourName": "Nome",
+      "Phone": "Telefono:",
+      "Phone1": "Telefono",
+      "yourMessage" : "Scrivi un messaggio:",
+      "yourMessage1": "Scrivi un messaggio: (opzione)",
+      "yourResponse": "Rifiuto"
     })
   }
   res.json({

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Flower from './image/flower.png';
+
 
 const StyledFooter = styled.footer`
   position: absolute;

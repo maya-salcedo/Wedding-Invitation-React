@@ -42,7 +42,7 @@ const Wedding = () => {
   const [instruction, setInstruction] = useState();
 
   const getInstruction = async () => {
-    const { data } = await axios.get('http://localhost:9000/wedding');
+    const { data } = await axios.get('http://localhost:9000/wedding?it=true');
     setInstruction(data);
   }
 

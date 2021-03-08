@@ -5,10 +5,10 @@ var router = express.Router();
 router.get("/", function (req, res, next) {
   if(req.query.it){
     res.json({
-      "instruction": "Respond by",
-      "date": "31 May 2021",
-      "attending": "Accetto",
-      "notattending": "Rifiuto"
+      "instruction": "Rispondi Entro il",
+      "date": "31 Maggi 2021",
+      "attending": "Accetto con Piacere",
+      "notattending": "Declino con Dispiace"
     })
   }
   res.json({

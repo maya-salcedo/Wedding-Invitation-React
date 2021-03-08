@@ -6,17 +6,17 @@ var router = express.Router();
 router.get("/", function (req, res, next) {
   if(req.query.it){
     res.json({
-      "title": "Joyfully Accept",
-      "respondByDate": "Respond by 31 May 2021",
-      "yourName": "Your Name:",
-      "yourName": "Name",
-      "Phone": "Phone:",
-      "Phone1": "Phone",
-      "additionalNames" : "Additional Guest Names:",
-      "additionalNames1": "Name(s)",
-      "yourMessage" : "Your message:",
-      "yourMessage1": "Your message: (optional)",
-      "yourResponse": "Accept"
+      "title": "Accetto con Piacere",
+      "respondByDate": "Rispondi entro il 31 Maggi 2021",
+      "yourName": "Il Tuo Nome:",
+      "yourName": "Nome",
+      "Phone": "Telefono:",
+      "Phone1": "Telefono",
+      "additionalNames" : "Nome dell'Ospite Aggiuntivo:",
+      "additionalNames1": "Nome",
+      "yourMessage" : "Scrivi un messaggio:",
+      "yourMessage1": "Scrivi un messaggio: (opzione)",
+      "yourResponse": "Accetto"
     })
   }
   res.json({
@@ -37,12 +37,10 @@ router.get("/", function (req, res, next) {
 
 /* POST rsvp page. */
 router.post("/", async (req, res) => {
-  try {
-    console.log(req.body);
-    
-    //const { Phone, Email, Message, Response } = req.body;
-    
-    //const newResponse = await pool.query("INSERT INTO guestlist(names, phone, email, message, response) VALUES ($1) RETURNING *", [Name, Phone, Email, Message, Response]);
+  try {  
+    const { Name, Email, Phone, Additional, Message, Response } = req.body;
+    console.log(Name);
+    const newResponse = await pool.query("INSERT INTO weddingguestlist(fullname, email, phone, additionalguest, guestmessage, response) VALUES ($1) RETURNING *", [Name, Email, Phone, Additional, Message, Response]);
     // Uncomment line after to check the unconfirmed page
     // res.status(500).send('Something Went Wrong'); 
     res.json(newResponse.rows[0]);

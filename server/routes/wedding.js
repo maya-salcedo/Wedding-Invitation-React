@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
   if(req.query.it){
     res.json({
       "invite": "Siamo lieti di invitarvi al nostro matrimonio",
-      "date": "09 Giugno 2021",
+      "date": "09 Luglio 2021",
       "time": "15:00 Venerdì",
       "church" : {
         "name": "Parrocchia Di Sant' Ambrogio",
