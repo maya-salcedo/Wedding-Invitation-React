@@ -10,10 +10,13 @@ const couple = require('./routes/couple');
 const wedding = require('./routes/wedding');
 const gift = require('./routes/gift');
 const travel = require('./routes/travel');
+const rsvp = require('./routes/rsvp');
 const accept = require('./routes/accept');
 const decline = require('./routes/decline');
-const confirmed = require('./routes/confirmed');
-const unconfirmed = require('./routes/confirmed');
+const confirmedAccept = require('./routes/confirmedAccept');
+const unconfirmedAccept = require('./routes/unconfirmedAccept');
+const confirmedDecline = require('./routes/confirmedDecline');
+const unconfirmedDecline = require('./routes/unconfirmedDecline');
 const testdb = require('./routes/testdb');
 
 const app = express();
@@ -36,10 +39,13 @@ app.use('/couple', couple);
 app.use('/wedding', wedding);
 app.use('/gift', gift);
 app.use('/travel', travel);
+app.use('/rsvp', rsvp);
 app.use('/accept', accept);
 app.use('/decline', decline);
-app.use('/confirmed', confirmed);
-app.use('/unconfirmed', unconfirmed);
+app.use('/confirmed-accept', confirmedAccept);
+app.use('/unconfirmed-accept', unconfirmedAccept);
+app.use('/confirmed-decline', confirmedDecline);
+app.use('/unconfirmed-decline', unconfirmedDecline);
 app.use('/testdb', testdb);
 
 

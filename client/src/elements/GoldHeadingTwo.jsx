@@ -10,8 +10,7 @@ const StyledHeading2 = styled.h2`
   -webkit-text-fill-color: transparent;
   font-weight: bolder;
   font-family: 'Parisienne', cursive;
-  font-size: 2.1rem;
-  padding-bottom: 3%;
+  font-size: 3rem;
 `;
 
 const GoldHeadingTwo = ({ text }) => <StyledHeading2>{text}</StyledHeading2>;

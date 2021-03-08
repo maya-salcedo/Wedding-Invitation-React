@@ -3,9 +3,17 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.json({
+  if(req.query.it){
+    return res.json({
+      'groom': 'Emanuele',
+      'bride': 'Maya',
+      'event': 'MATRIMONIO'
+    })
+  }
+  return res.json({
     'groom': 'Emanuele',
-    'bride': 'Maya'
+    'bride': 'Maya',
+    'event': 'ARE GETTING MARRIED'
   })
 });
 

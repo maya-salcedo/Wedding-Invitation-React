@@ -1,6 +1,13 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
+html {
+    display: grid;
+    text-align: center;
+    position: relative;
+    min-height: 100%;
+}
+
 body {
     text-align: center;
     background-color: #fde2e2;
@@ -8,14 +15,9 @@ body {
     color:  #679b9b;
     padding: 1rem;
     font-family: 'Montserrat', sans-serif;
+    margin-bottom: 60px;
 
 }
-
-html {
-    display: grid;
-    text-align: center;
-}
-
 
 .nav-link {
     color:  #679b9b !important;
@@ -48,6 +50,7 @@ h2 {
     font-style: normal;
     font-weight: 500;
     color: #679b9b;
+    margin-block-end: 0;
 }
 
 h4 {
@@ -61,31 +64,19 @@ h3 {
 
 
 p {
-    margin: 0.1rem 0 0 0;
-    font-family: 'EB Garamond', serif;
-    font-size: 1.2rem;
-}
-
-button {
-    color: #679b9b;
-    background-color: #fde2e2;
-    background-image: url("https://www.transparenttextures.com/patterns/white-wall-3.png");
-    border: none;
-    cursor: pointer;
-    border-radius: 10%;
-    font-size: 100%
-}
-
-.button:hover {
-  background-color: #4CAF50; /* Green */
-  color: white;
+  margin: 0.1rem 0 0 0;
+  font-family: 'EB Garamond', serif;
+  font-size: 1.2rem;
 }
 
 .icon {
-    margin-bottom: 0.5rem;
-    font-size: 300%;
-    opacity: 0.4;
+  padding-top: 3rem;
+  margin-bottom: 0.5rem;
+  font-size: 300%;
+  opacity: 0.4;
 }
+
+
 `;
 
 

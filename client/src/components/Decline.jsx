@@ -1,16 +1,23 @@
-import React, { useState } from 'react';
-//import styled from 'styled-components';
+import React, { useState, useEffect, useContext } from 'react';
 import GoldHeadingTwo from '../elements/GoldHeadingTwo';
 import axios from 'axios';
-//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-//import { faUserPlus, faMinusCircle } from '@fortawesome/free-solid-svg-icons';
 import ComponentWrapper from '../elements/StyledContainer';
-
-
-
-
+import FormWrapper, {FormGroupWrapper, ButtonWrapper} from '../elements/FormWrapper';
+import { FlagContext } from './FlagContext';
 
 const Decline = ({ history }) => {
+  const {flag} = useContext(FlagContext);
+
+  const [message, setMessage] = useState();
+  const query = flag === 'italy' ? '?it=true' : '';
+  const getMessage = async () => {
+    const { data } = await axios.get(`http://localhost:9000/decline${query}`);
+    setMessage(data);
+  };
+
+  useEffect(() => {
+    getMessage();
+  }, [flag]);
 
   var [detail, setDetail] = useState({
       fname: "",
@@ -27,34 +34,47 @@ const Decline = ({ history }) => {
   
   const decline = async () => {
       try {
-      await axios.post('http://localhost:9000/decline', {
-        Name: detail.fname, 
-        Phone: detail.phone, 
-        Email: detail.email, 
-        Message: detail.message,
-        Response: "Decline"
-      });
-      history.push('/confirmed');
+        if (detail.fname.length === 0){
+          alert("Please enter your name.");
+        } else {
+        await axios.post('http://localhost:9000/decline', {
+          Name: detail.fname, 
+          Phone: detail.phone, 
+          Email: detail.email, 
+          Message: detail.message,
+          Response: "Decline"
+        });
+        history.push('/confirmed-decline');
+      }
     } catch (err) {
-      history.push('/unconfirmed');
+      history.push('/unconfirmed-decline');
     }
   }
  
   return (
     <ComponentWrapper>
-      <GoldHeadingTwo text="Decline with Regret" />
-      <p>RSVP by 31 May 2021</p>
-      <div>
-          <label for="fname">Your name:</label>
-          <input name="fname" type="text" placeholder="Name" value={detail.fname} onChange={handleChange} />
-          <label for="email">Email:</label>
+      <GoldHeadingTwo text={message?.title} />
+      <p>{message?.respondByDate}</p>
+      <FormWrapper>
+        <FormGroupWrapper>
+          <label htmlFor="fname">{message?.yourName}</label>
+          <input name="fname" type="text" placeholder={message?.yourName1} value={detail.fname} onChange={handleChange} />
+        </FormGroupWrapper>
+        <FormGroupWrapper>
+          <label htmlFor="email">Email:</label>
           <input name="email" type="email" placeholder="Email" value={detail.email} onChange={handleChange} />
-          <label for="phone">Phone:</label>
-          <input name="phone" type="number" placeholder="Phone" value={detail.phone} onChange={handleChange} />
-          <label for="message">Your message:</label>
-          <textarea name="message" type="text" placeholder="Your message(optional)" value={detail.message} onChange={handleChange} />
-      </div>
-      <button onClick={decline}>Decline</button>
+        </FormGroupWrapper>
+        <FormGroupWrapper>
+          <label htmlFor="phone">{message?.phone}</label>
+          <input name="phone" type="number" placeholder={message?.phone1} value={detail.phone} onChange={handleChange} />
+          </FormGroupWrapper>
+        <FormGroupWrapper>
+          <label htmlFor="message">{message?.yourMessage}</label>
+          <textarea name="message" type="text" placeholder={message?.yourMessage1} rows="3" value={detail.message} onChange={handleChange} />
+        </FormGroupWrapper>         
+          
+      </FormWrapper>
+      <ButtonWrapper onClick={decline} text={message?.yourResponse} />
     </ComponentWrapper>
   );
 }

@@ -1,35 +1,39 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import GoldHeadingTwo from '../elements/GoldHeadingTwo';
+import ResponseWrapper from '../elements/ResponseWrapper';
+import { FlagContext } from './FlagContext';
 
-const BankDetailsWrapper = styled.div`
-    margin: 2rem 0 2rem;
-`;
 
 const Gift = () => {
+  const {flag} = useContext(FlagContext);
+
   const [message, setMessage] = useState();
+  const query = flag === 'italy' ? '?it=true' : '';
   const getMessage = async () => {
-    const { data } = await axios.get('http://localhost:9000/gift');
+    const { data } = await axios.get(`http://localhost:9000/gift${query}`);
     setMessage(data);
   };
 
   useEffect(() => {
     getMessage();
-  }, []);
+  }, [flag]);
 
   return (
     <div>
-      <div>
-        <GoldHeadingTwo text={message?.title} />
-        <p> {message?.message}</p>
-      </div>
-      <BankDetailsWrapper>
-        <p>Here's how you can get the money to us: </p>
-        <p> Name: {message?.account?.name}</p>
-        <p> Account Number: {message?.account?.number}</p>
-        <p> BIC: {message?.account?.bic}</p>
-      </BankDetailsWrapper>
+      <GoldHeadingTwo text={message?.title} />
+      <ResponseWrapper>
+      <p> {message?.message}</p>
+      </ResponseWrapper>
+        
+
+      <ResponseWrapper>
+        <p>{message?.account?.instruction}</p>
+        <p>{message?.account?.name}</p>
+        <p>{message?.account?.number}</p>
+        <p>{message?.account?.bic}</p>
+      </ResponseWrapper>
     </div>
   );
 }
