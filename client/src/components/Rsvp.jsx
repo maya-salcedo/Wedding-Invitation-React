@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import styled from 'styled-components';
-//import styled from 'styled-components';
 import GoldHeadingTwo from '../elements/GoldHeadingTwo';
 import ComponentWrapper from '../elements/StyledContainer';
 
@@ -34,6 +34,15 @@ const ButtonWrapper = styled.button`
 `;
 
 const Rsvp = ({ history }) => {
+  const [message, setMessage] = useState();
+  const getMessage = async () => {
+    const { data } = await axios.get('http://localhost:9000/rsvp');
+    setMessage(data);
+  };
+
+  useEffect(() => {
+    getMessage();
+  }, []);
 
   const accept = async () => {
     try {
@@ -54,10 +63,10 @@ const Rsvp = ({ history }) => {
 
   return (
     <ComponentWrapper>
-      <GoldHeadingTwo text="Respond by" />
-      <TextWrapper>31 May 2021</TextWrapper>
-      <ButtonWrapper onClick={accept}>Accept with pleasure</ButtonWrapper>
-      <ButtonWrapper onClick={decline}>Decline with regrets</ButtonWrapper>
+      <GoldHeadingTwo text={message?.instruction} />
+      <TextWrapper>{message?.date}</TextWrapper>
+      <ButtonWrapper onClick={accept}>{message?.attending}</ButtonWrapper>
+      <ButtonWrapper onClick={decline}>{message?.notattending}</ButtonWrapper>
     </ComponentWrapper>
   );
 }

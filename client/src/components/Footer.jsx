@@ -18,7 +18,7 @@ const StyledFooter = styled.footer`
 const Footer = () => {
   return (
     <StyledFooter>
-    <p>© EM 2021</p>
+    <p>Copyright © EM 2021</p>
     </StyledFooter>
   );
 }

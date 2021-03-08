@@ -36,9 +36,6 @@ const InformationWrapper = styled.div`
   padding: 1.5rem;
   font-family: 'EB Garamond', serif;
   font-size: 1.2rem;
-  > p {
-    padding-bottom: 1.5rem;
-  }
 `;
 
 const Wedding = () => {
@@ -66,6 +63,7 @@ const Wedding = () => {
           churchName={instruction?.church?.name}
           churchAddressFirst={instruction?.church?.addressLine1}
           churchAddressSecond={instruction?.church?.addressLine2}
+          receptionText = {instruction?.restaurant?.reception}
           restaurantName={instruction?.restaurant?.name}
           restaurantAddressFirst={instruction?.restaurant?.addressLine1}
           restaurantAddressSecond={instruction?.restaurant?.addressLine2}
@@ -76,9 +74,13 @@ const Wedding = () => {
           Wedding Information</StyledInformation>
         <InformationWrapper>
           <FontAwesomeIcon icon={faCocktail} className="icon" />
-          <p>{instruction?.dining}</p>
+          <p>{instruction?.dining?.line1}</p>
+          <p>{instruction?.dining?.line2}</p>
           <FontAwesomeIcon icon={faUserTie} className="icon" />
-          <p>{instruction?.dresscode}</p>
+          <p>{instruction?.dresscode?.line1}</p>
+          <p>{instruction?.dresscode?.line2}</p>
+          <p>{instruction?.dresscode?.line3}</p>
+          <p>{instruction?.dresscode?.line4}</p>
         </InformationWrapper>
       </SecondBoxWrapper>
     </ComponentWrapper>

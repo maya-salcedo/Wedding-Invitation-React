@@ -2,6 +2,39 @@ var express = require('express');
 const pool = require("../db");
 var router = express.Router();
 
+/* GET accept page */
+router.get("/", function (req, res, next) {
+  if(req.query.it){
+    res.json({
+      "title": "Joyfully Accept",
+      "respondByDate": "Respond by 31 May 2021",
+      "yourName": "Your Name:",
+      "yourName": "Name",
+      "Phone": "Phone:",
+      "Phone1": "Phone",
+      "additionalNames" : "Additional Guest Names:",
+      "additionalNames1": "Name(s)",
+      "yourMessage" : "Your message:",
+      "yourMessage1": "Your message: (optional)",
+      "yourResponse": "Accept"
+    })
+  }
+  res.json({
+    "title": "Joyfully Accept",
+    "respondByDate": "Respond by 31 May 2021",
+    "yourName": "Your Name:",
+    "yourName1": "Name",
+    "phone": "Phone:",
+    "phone1": "Phone",
+    "additionalNames" : "Additional Guest Names:",
+    "additionalNames1": "Name(s)",
+    "yourMessage" : "Your message:",
+    "yourMessage1": "Your message: (optional)",
+    "yourResponse": "Accept"
+    }
+  )
+})
+
 /* POST rsvp page. */
 router.post("/", async (req, res) => {
   try {
@@ -27,5 +60,7 @@ router.get("/", async (req, res) => {
     console.error(err.message);
   }
 });
+
+
 
 module.exports = router;

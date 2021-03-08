@@ -70,6 +70,7 @@ p {
 }
 
 .icon {
+  padding-top: 3rem;
   margin-bottom: 0.5rem;
   font-size: 300%;
   opacity: 0.4;

@@ -60,7 +60,7 @@ const Home = () => {
         <span> & </span>
         {couple?.bride}
       </StyledName>
-      <StyledText>ARE GETTING MARRIED </StyledText>
+      <StyledText>{couple?.event}</StyledText>
       <FlowerWrapper>
         <img src={Flower} alt="flower-img" />
       </FlowerWrapper>

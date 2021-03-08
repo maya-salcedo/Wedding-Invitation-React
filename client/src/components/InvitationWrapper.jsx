@@ -64,7 +64,7 @@ const StyledReceptionText = styled.p`
 export const InvitationWrapper = (props) => {
   const {
     invite, date, time, churchName, churchAddressFirst,
-    churchAddressSecond, restaurantName, restaurantAddressFirst,
+    churchAddressSecond, receptionText, restaurantName, restaurantAddressFirst,
     restaurantAddressSecond
   } = props;
   return (
@@ -77,7 +77,7 @@ export const InvitationWrapper = (props) => {
         <br />
         {churchAddressSecond}
       </StyledAddress>
-      <StyledReceptionText>Reception to follow at</StyledReceptionText>
+      <StyledReceptionText>{receptionText}</StyledReceptionText>
       <GoldHeader margin="1rem 0 0 0">{restaurantName}</GoldHeader>
       <StyledAddress>{restaurantAddressFirst}
         <br />

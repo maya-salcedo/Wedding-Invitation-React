@@ -25,10 +25,10 @@ const Gift = () => {
         
 
       <ResponseWrapper>
-        <p>Here's how you can get the money to us: </p>
-        <p> Name: {message?.account?.name}</p>
-        <p> Account#: {message?.account?.number}</p>
-        <p> BIC: {message?.account?.bic}</p>
+        <p>{message?.account?.instruction}</p>
+        <p>{message?.account?.name}</p>
+        <p>{message?.account?.number}</p>
+        <p>{message?.account?.bic}</p>
       </ResponseWrapper>
     </div>
   );
