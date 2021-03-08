@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState, useContext } from 'react';
-import GoldHeadingTwo from '../elements/GoldHeadingTwo';
+import {FailedHeading} from '../elements/GoldHeadingTwo';
 import ResponseWrapper from '../elements/ResponseWrapper';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
@@ -17,11 +17,12 @@ const UnconfirmedDecline = () => {
   };
   useEffect(() => {
     getNote();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flag]);
 
   return (
     <div>
-      <GoldHeadingTwo text={note?.unconfirmed?.title} />
+      <FailedHeading text={note?.unconfirmed?.title} />
       <ResponseWrapper>
         <p>{note?.unconfirmed?.message1}</p>
         <p> {note?.unconfirmed?.message2}</p>

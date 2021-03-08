@@ -18,13 +18,14 @@ const Gift = () => {
 
   useEffect(() => {
     getMessage();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flag]);
 
   return (
     <div>
       <GoldHeadingTwo text={message?.title} />
       <ResponseWrapper>
-      <p> {message?.message}</p>
+        <p> {message?.message}</p>
       </ResponseWrapper>
         
 

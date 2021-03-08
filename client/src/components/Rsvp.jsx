@@ -45,6 +45,7 @@ const Rsvp = ({ history }) => {
 
   useEffect(() => {
     getMessage();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flag]);
 
   const accept = async () => {

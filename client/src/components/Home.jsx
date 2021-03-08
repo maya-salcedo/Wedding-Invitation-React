@@ -55,6 +55,7 @@ const Home = () => {
   }
   useEffect(() => {
     getCouple();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flag]);
 
   return (
