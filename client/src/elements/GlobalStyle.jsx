@@ -1,6 +1,13 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
+html {
+    display: grid;
+    text-align: center;
+    position: relative;
+    min-height: 100%;
+}
+
 body {
     text-align: center;
     background-color: #fde2e2;
@@ -8,14 +15,9 @@ body {
     color:  #679b9b;
     padding: 1rem;
     font-family: 'Montserrat', sans-serif;
+    margin-bottom: 60px;
 
 }
-
-html {
-    display: grid;
-    text-align: center;
-}
-
 
 .nav-link {
     color:  #679b9b !important;
@@ -73,9 +75,6 @@ p {
   opacity: 0.4;
 }
 
-.name {
-  width: 70rem;
-}
 
 `;
 

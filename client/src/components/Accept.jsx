@@ -71,7 +71,7 @@ const Accept = ({ history }) => {
         </FormGroupWrapper>         
           
       </FormWrapper>
-      <button onClick={accept}>Accept</button>
+      <ButtonWrapper onClick={accept} text="Accept" />
     </ComponentWrapper>
   );
 }

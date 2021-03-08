@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-//import styled from 'styled-components';
-//import GoldHeadingTwo from '../elements/GoldHeadingTwo';
+import GoldHeadingTwo from '../elements/GoldHeadingTwo';
+import ResponseWrapper from '../elements/ResponseWrapper';
 
 
 const ConfirmedDecline = () => {
@@ -16,8 +16,10 @@ const ConfirmedDecline = () => {
 
   return (
       <div>
-        <h1>{note?.decline?.confirmed?.title}</h1>
-        <p>{note?.decline?.confirmed?.message}</p>
+        <GoldHeadingTwo text={note?.decline?.confirmed?.title} />
+        <ResponseWrapper>
+          <p>{note?.decline?.confirmed?.message}</p>
+        </ResponseWrapper>      
       </div>      
   );
 }

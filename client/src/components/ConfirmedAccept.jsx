@@ -1,8 +1,10 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-//import styled from 'styled-components';
-//import GoldHeadingTwo from '../elements/GoldHeadingTwo';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope, faPhoneAlt  } from '@fortawesome/free-solid-svg-icons';
+import GoldHeadingTwo from '../elements/GoldHeadingTwo';
+import ResponseWrapper from '../elements/ResponseWrapper';
 
 const ConfirmedAccept = () => {
   const [note, setNote] = useState();
@@ -16,18 +18,20 @@ const ConfirmedAccept = () => {
 
   return (
     <div>
-      <div>
-        <h1>{note?.confirmed?.title}</h1>
+      <GoldHeadingTwo text={note?.confirmed?.title} />
+      <ResponseWrapper>
         <p>{note?.confirmed?.message1}</p>
-        <p>{note?.confirmed?.information?.date}</p>
-        <p>{note?.confirmed?.information?.place}</p>
+        <div>
+          <p>{note?.confirmed?.information?.date}</p>
+          <p>{note?.confirmed?.information?.place}</p>
+        </div>
         <p>{note?.confirmed?.message2}</p>
-      </div>
-      <div>
-        <p> Email: {note?.contact?.email} </p>
-        <p> Phone: {note?.contact?.phone} </p>
-        <p> Whatsapp: {note?.contact?.whatsapp} </p>
-      </div>
+      </ResponseWrapper>
+      <ResponseWrapper>
+        <p> <FontAwesomeIcon icon={faEnvelope} />  {note?.contact?.email} </p>
+        <p> <FontAwesomeIcon icon={faPhoneAlt} />  {note?.contact?.phone} </p>
+        <p> <FontAwesomeIcon icon={faWhatsapp} />  {note?.contact?.whatsapp} </p>
+      </ResponseWrapper>
     </div>
   );
 }

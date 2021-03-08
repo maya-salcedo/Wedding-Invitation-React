@@ -6,8 +6,8 @@ router.get("/", function (req, res, next) {
   res.json({
     "unconfirmed": {
       "title": "Ooops... Technical Error!",
-      "message1": "Sorry. Looks like we are having some technical problem here.", 
-      "message2": "Please contact us at:"
+      "message1": "Sorry for this technical issue.", 
+      "message2": "Please contact us if you cannot come."
     },
     "contact": {
       "email": "maya.salcedo@yahoo.com",

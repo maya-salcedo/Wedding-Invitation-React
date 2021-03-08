@@ -62,7 +62,7 @@ const Decline = ({ history }) => {
         </FormGroupWrapper>         
           
       </FormWrapper>
-      <button onClick={decline}>Decline</button>
+      <ButtonWrapper onClick={decline} text="Decline" />
     </ComponentWrapper>
   );
 }

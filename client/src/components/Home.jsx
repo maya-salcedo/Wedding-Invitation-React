@@ -18,7 +18,7 @@ const StyledName = styled.h1`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   @media (max-width: 1028px) {
-    font-size: 6.5rem;
+    font-size: 6.2rem;
     padding-bottom: 5%;
   }
   > span {

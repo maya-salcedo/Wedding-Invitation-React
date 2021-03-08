@@ -1,17 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
+import Flower from './image/flower.png';
 
 const StyledFooter = styled.footer`
-  position: relative;
+  position: absolute;
   text-align: center;
   bottom: 0;
-  width: 100%;
-  height: 2.5rem;
+  width: 95%;
+  height: 3rem;
+  margin: auto;
+  > p {
+    text-align: center
+  }
 `;
+
 
 const Footer = () => {
   return (
-    <StyledFooter><p>© EM 2021</p></StyledFooter>
+    <StyledFooter>
+    <p>© EM 2021</p>
+    </StyledFooter>
   );
 }
 
