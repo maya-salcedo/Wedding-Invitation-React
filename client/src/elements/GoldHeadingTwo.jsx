@@ -11,6 +11,7 @@ const StyledHeading2 = styled.h2`
   font-weight: bolder;
   font-family: 'Parisienne', cursive;
   font-size: 3rem;
+  margin-top: 0;
 `;
 
 const StyledFailedHeading = styled.h2`

@@ -17,7 +17,7 @@ const Decline = ({ history }) => {
 
   useEffect(() => {
     getMessage();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flag]);
 
   var [detail, setDetail] = useState({

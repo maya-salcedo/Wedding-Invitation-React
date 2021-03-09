@@ -17,7 +17,7 @@ const ConfirmedAccept = () => {
   };
   useEffect(() => {
     getNote();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flag]);
 
   return (

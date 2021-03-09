@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import styled from 'styled-components';
 import GoldHeadingTwo from '../elements/GoldHeadingTwo';
 import ResponseWrapper from '../elements/ResponseWrapper';
 import { FlagContext } from './FlagContext';
@@ -18,7 +17,7 @@ const Gift = () => {
 
   useEffect(() => {
     getMessage();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flag]);
 
   return (
