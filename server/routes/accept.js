@@ -61,9 +61,9 @@ router.post("/", async (req, res) => {
 
     //Step 2
     let mailOptions = {
-      from: 'emanuele.maya.wedding@gmail.com',
+      from: 'process.env.EMAIL',
       to: guestEmail,
-      cc: 'maya.salcedo@yahoo.com, colturi.emanuele@gmail.com',
+      cc: 'process.env.HER_EMAIL, process.env.HIS_EMAIL',
       subject: 'Testing and testing',
       text: 'This works fine.'
     };
