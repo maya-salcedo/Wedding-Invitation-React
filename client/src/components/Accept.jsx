@@ -17,6 +17,7 @@ const Accept = ({ history }) => {
 
   useEffect(() => {
     getMessage();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flag]);
 
   const [detail, setDetail] = useState({

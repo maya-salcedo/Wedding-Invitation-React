@@ -10,6 +10,7 @@ const StyledName = styled.h1`
   font-size: 8rem;
   font-weight: 100;
   padding: 1%;
+  margin-top: 0%;
   margin-bottom: 0%;
   padding-bottom: 1%;
   color: #D5AD6D; /*if no support for background-clip*/
@@ -55,6 +56,7 @@ const Home = () => {
   }
   useEffect(() => {
     getCouple();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flag]);
 
   return (

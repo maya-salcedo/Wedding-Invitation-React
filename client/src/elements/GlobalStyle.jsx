@@ -23,6 +23,7 @@ body {
     color:  #679b9b !important;
     margin: 0.5%;
     text-decoration: none;
+    padding: 3px;
 }
 
 .nav-link:hover {
@@ -32,6 +33,7 @@ body {
     border-radius: 3px;
     text-decoration: none;
     color:  #679b9b;
+    padding: 3px;
 }
 
 

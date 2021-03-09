@@ -14,6 +14,7 @@ const ConfirmedDecline = () => {
   };
   useEffect(() => {
     getNote();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flag]);
 
   return (
@@ -21,6 +22,7 @@ const ConfirmedDecline = () => {
         <GoldHeadingTwo text={note?.decline?.confirmed?.title} />
         <ResponseWrapper>
           <p>{note?.decline?.confirmed?.message}</p>
+          <p>{note?.decline?.confirmed?.message1}</p>
         </ResponseWrapper>      
       </div>      
   );

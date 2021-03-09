@@ -11,10 +11,17 @@ const StyledHeading2 = styled.h2`
   font-weight: bolder;
   font-family: 'Parisienne', cursive;
   font-size: 3rem;
+  margin-top: 0;
+`;
+
+const StyledFailedHeading = styled.h2`
+  color: #fa1e0e;
+  font-weight: bold;
+  font-size: 2rem;
 `;
 
 const GoldHeadingTwo = ({ text }) => <StyledHeading2>{text}</StyledHeading2>;
-
+export const FailedHeading = ({ text }) => <StyledFailedHeading>{text}</StyledFailedHeading>;
 
 
 export default GoldHeadingTwo;
