@@ -19,11 +19,9 @@ const confirmedDecline = require('./routes/confirmedDecline');
 const unconfirmedDecline = require('./routes/unconfirmedDecline');
 const testdb = require('./routes/testdb');
 require('dotenv').config();
-const nodemailer = require('nodemailer');
 const { text } = require('express');
 
 const app = express();
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -50,33 +48,6 @@ app.use('/unconfirmed-accept', unconfirmedAccept);
 app.use('/confirmed-decline', confirmedDecline);
 app.use('/unconfirmed-decline', unconfirmedDecline);
 app.use('/testdb', testdb);
-
-//Step 1 Nodemailer (see .env file)
-let transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: 'process.env.EMAIL',
-    pass: 'process.env.PASSWORD'
-  }
-});
-
-//Step 2
-let mailOptions = {
-  from: 'emanuele.maya.wedding@gmail.com',
-  to: 'mayann18na@yahoo.com',
-  subject: 'Testing and testing',
-  text: 'This works fine.'
-};
-
-//Step 3
-transporter.sendMail(mailOptions, function(err, data){
-  if (err) {
-    console.log('Error occurs');
-  } else {
-    console.log('Email sent!!');
-  }
-});
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
