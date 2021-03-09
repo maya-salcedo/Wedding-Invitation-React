@@ -1,6 +1,9 @@
 var express = require('express');
 const pool = require("../db");
 var router = express.Router();
+require('dotenv').config();
+const nodemailer = require('nodemailer');
+
 
 /* GET accept page */
 router.get("/", function (req, res, next) {
@@ -39,11 +42,40 @@ router.get("/", function (req, res, next) {
 router.post("/", async (req, res) => {
   try {  
     const { Name, Email, Phone, Additional, Message, Response } = req.body;
-    console.log(Name);
-    const newResponse = await pool.query("INSERT INTO weddingguestlist(fullname, email, phone, additionalguest, guestmessage, response) VALUES ($1) RETURNING *", [Name, Email, Phone, Additional, Message, Response]);
+    console.log(req.body);
+    const newResponse = await pool.query("INSERT INTO weddingguestlist(fullname, email, phone, additionalguest, guestmessage, response) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *", [Name, Email, Phone, Additional, Message, Response]);
     // Uncomment line after to check the unconfirmed page
     // res.status(500).send('Something Went Wrong'); 
     res.json(newResponse.rows[0]);
+    const guestEmail =newResponse.rows[0].email;
+    console.log(guestEmail);
+    
+    //Step 1 Nodemailer (see .env file)
+    let transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: 'process.env.EMAIL',
+        pass: 'process.env.PASSWORD'
+      }
+    });
+
+    //Step 2
+    let mailOptions = {
+      from: 'emanuele.maya.wedding@gmail.com',
+      to: guestEmail,
+      cc: 'maya.salcedo@yahoo.com, colturi.emanuele@gmail.com',
+      subject: 'Testing and testing',
+      text: 'This works fine.'
+    };
+
+    //Step 3
+    transporter.sendMail(mailOptions, function(err, data){
+      if (err) {
+        console.log(err);
+      } else {
+        console.log('Email sent!!');
+      }
+    });
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Something Went Wrong');

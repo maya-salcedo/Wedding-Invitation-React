@@ -38,7 +38,7 @@ router.post("/", async (req, res) => {
   try {
     console.log(req.body);
     const { Name, Phone, Email, Message, Response } = req.body;
-    //const newResponse = await pool.query("INSERT INTO guestlist(names, phone, email, message, response) VALUES ($1) RETURNING *", [Name, Phone, Email, Message, Response]);
+    //const newResponse = await pool.query("INSERT INTO guestlist(names, phone, email, message, response) VALUES ($1, $2, $3, $4, $5) RETURNING *", [Name, Phone, Email, Message, Response]);
     // Uncomment line after to check the unconfirmed page
     // res.status(500).send('Something Went Wrong'); 
     res.json(newResponse.rows[0]);
