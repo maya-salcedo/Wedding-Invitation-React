@@ -6,7 +6,7 @@ router.get("/", function (req, res, next) {
   if(req.query.it){
     return res.json({
       "confirmed": {
-        "title": "Eccezionale!",
+        "title": "Fantastico!",
         "message1": "Non vedioamo l'ora di celebrare con voi il nostro matrimonio. Grazie mille dal profondo del nostro cuore.",
         "information": {
           "date": "Venerdì, 09 Luglio 2021",

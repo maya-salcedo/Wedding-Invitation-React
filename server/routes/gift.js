@@ -5,10 +5,10 @@ var router = express.Router();
 router.get("/", function (req, res, next) {
   if(req.query.it){
     return res.json({
-    "title": "Contribute to our Honeymoon Fund",
+    "title": "Regali",
     "message": "La vostra presenza al nostro matrimonio è il dono più grande tutti. Se desideri farci un regalo, apprezzeremmo molto un contributo per la nostra luna di miele.",
     "account": {
-      "instruction": "Al nostro conto corrente (IBAN) oppure in contanti:",
+      "instruction": "Al nostro conto corrente oppure in contanti:",
       "name": "Name: May Salcedo",
       "number": "Account#: FI29 3939 0050 8098 54",
       "bic": "BIC: SBANFIH"

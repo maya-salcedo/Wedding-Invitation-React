@@ -3,17 +3,13 @@ const pool = require('../db')
 
 var router = express.Router();
 
-router.get('/', function(req, res, next) {
-  pool.connect(function (err) {
-    if (err) throw err;
-    pool.query('SELECT $1::text as db', ['works'], function (err, result) {
-      if (err) throw err;
-      res.json({ result: result.rows });
-      pool.end(function (err) {
-        if (err) throw err;
-      });
-    });
-  });
+router.get("/", async (req, res) => {
+  try {
+    const allResponse = await pool.query("SELECT * FROM weddingguestlist");
+    res.json(allResponse.rows);
+  } catch (err) {
+    console.error(err.message);
+  }
 });
 
 module.exports = router;
