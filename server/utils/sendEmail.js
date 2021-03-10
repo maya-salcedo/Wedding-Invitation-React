@@ -1,10 +1,10 @@
 const nodemailer = require('nodemailer');
 const { google } = require('googleapis');
 
-const CLIENT_ID = 'FILL UP';
-const CLIENT_SECRET = 'FILL UP';
+const CLIENT_ID = process.env.CLIENT_ID;
+const CLIENT_SECRET = process.env.CLIENT_SECRET;
 const REDIRECT_URI = 'https://developers.google.com/oauthplayground';
-const REFRESH_TOKEN = 'FILL UP';
+const REFRESH_TOKEN = process.env.REFRESH_TOKEN;
 
 const oAuth2Client = new google.auth.OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI);
 oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
@@ -16,7 +16,7 @@ const sendEmail = async (guestEmail) => {
       service: 'gmail',
       auth: {
         type: 'OAuth2',
-        user: 'FILL UP',
+        user: process.env.EMAIL,
         clientId: CLIENT_ID,
         clientSecret: CLIENT_SECRET,
         refreshToken: REFRESH_TOKEN,
@@ -25,15 +25,18 @@ const sendEmail = async (guestEmail) => {
     });
 
     const mailOptions = {
-      from: 'emanuele.maya.wedding@gmail.com',
+      from: process.env.EMAIL,
       to: guestEmail,
       cc: 'maya.salcedo@yahoo.com, colturi.emanuele@gmail.com',
-      subject: 'WAKE UP!!!!',
-      text: 'Amelia needs a playmate :D , if you get this email then nodemailer works.'
+      subject: 'Testing',
+      text: 'If you get this email then nodemailer works.'
     };
     const result = await transport.sendMail(mailOptions);
+    console.log("Email sent");
     return result;
+    
   } catch (error) {
+    console.log("error");
     return error;
   }
 }
