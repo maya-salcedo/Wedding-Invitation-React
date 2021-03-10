@@ -9,29 +9,29 @@ router.get('/', function(req, res, next) {
     return res.json({
       "invite": "Siamo lieti di invitarvi al nostro matrimonio",
       "date": "09 Luglio 2021",
-      "time": "15:00 Venerdì",
+      "time": "10:30 Venerdì",
       "church" : {
         "name": "Parrocchia Di Sant' Ambrogio",
-        "addressLine1": "Via Papa Giovanni XXIII 41, 23827 Lierna",
-        "addressLine2": "Province of Lecco, Italy"
+        "addressLine1": "Via Papa Giovanni XXIII 41, 23827",
+        "addressLine2": "Lierna (LC)"
       },
       "restaurant" : {
         "reception": "Ricevimento presso",
         "name": "Ristorante La Breva",
-        "addressLine1": "Via Roma 24, Lierna",
-        "addressLine2": "Province of Lecco, Italy"
+        "addressLine1": "Via Roma 24",
+        "addressLine2": "Lierna (LC)"
       },
       "dining": {
-        "line1": "Dopo la cerionia saremmo lieti di intrallenere parenti ed amici presso Ristorante La Breva via Roma 24 Lierna."
+        "line1": "Dopo la cerionia saremmo lieti di intrattenere parenti ed amici presso Ristorante La Breva via Roma 24 Lierna."
       },
       "dresscode": {
-        "line1": "Semi Formale"}
+        "line1": "Dress Code: Semi Formale"}
     })
   }
   return res.json({
     "invite": "You are joyfully invited to our wedding on",
     "date": "09 July 2021",
-    "time": "3:00 P.M. Friday",
+    "time": "10:30 Friday",
     "church" : {
       "name": "Parrocchia Di Sant' Ambrogio",
       "addressLine1": "Via Papa Giovanni XXIII 41, 23827 Lierna",

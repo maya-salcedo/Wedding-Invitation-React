@@ -45,6 +45,7 @@ router.post("/", async (req, res) => {
     const newResponse = await pool.query("INSERT INTO weddingguestlist(fullname, email, phone, additionalguest, guestmessage, response) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *", [Name, Email, Phone, Additional, Message, Response]);
     res.json(newResponse.rows[0]);
     const guestEmail = newResponse.rows[0].email;
+    console.log(guestDetail);
     sendEmail(guestEmail);
   } catch (err) {
     console.error(err.message);

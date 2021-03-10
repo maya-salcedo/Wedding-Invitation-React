@@ -8,7 +8,8 @@ router.get("/", function (req, res, next) {
       "decline":  {
         "confirmed": {
           "title": "Grazie per averci contattato.",
-          "message": "È triste non poter celebrare con voi il giorno più memorabile della nostra vita. ( Si, Covid-19 è una da incolpare per aver complicato le cose.) Ci vedremo alla prossima quando le cose torneranno alla normalità. Take care!"
+          "message": "È triste non poter celebrare con voi il nostro matrimonio. Ci vedremo alla prossima occasione quando tutto tornerà alla normalità.",
+          "message1": "Con affetto Maya ed Emanuele"
           }
     }})
   }

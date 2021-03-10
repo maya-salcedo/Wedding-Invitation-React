@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
     return res.json({
       'groom': 'Emanuele',
       'bride': 'Maya',
-      'event': 'MATRIMONIO'
+      'event': 'SI SPOSANO'
     })
   }
   return res.json({

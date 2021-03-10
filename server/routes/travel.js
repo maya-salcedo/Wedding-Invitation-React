@@ -5,7 +5,7 @@ var router = express.Router();
 router.get("/", function (req, res, next) {
   if(req.query.it){
     return res.json({
-      "title": "",
+      "title": "Mappa",
       "text": ""
     })
   }
