@@ -15,8 +15,8 @@ router.get("/", function (req, res, next) {
       "yourName": "Nome",
       "phone": "Telefono:",
       "phone1": "Telefono",
-      "additionalNames": "Nome dell'Ospite Aggiuntivo:",
-      "additionalNames1": "Nome",
+      "additionalNames": "Ospite Aggiuntivo:",
+      "additionalNames1": "Nome/i",
       "yourMessage": "Scrivi un messaggio:",
       "yourMessage1": "Scrivi un messaggio: (opzione)",
       "yourResponse": "Accetto"
@@ -44,9 +44,8 @@ router.post("/", async (req, res) => {
     const { Name, Email, Phone, Additional, Message, Response } = req.body;
     const newResponse = await pool.query("INSERT INTO weddingguestlist(fullname, email, phone, additionalguest, guestmessage, response) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *", [Name, Email, Phone, Additional, Message, Response]);
     res.json(newResponse.rows[0]);
-    const guestEmail = newResponse.rows[0].email;
-    console.log(guestDetail);
-    sendEmail(guestEmail);
+    const guestDetail = newResponse.rows[0];
+    sendEmail(guestDetail);
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Something Went Wrong');
