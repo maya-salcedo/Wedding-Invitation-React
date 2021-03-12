@@ -42,7 +42,9 @@ router.get("/", function (req, res, next) {
 router.post("/", async (req, res) => {
   try {
     const { Name, Email, Phone, Additional, Message, Response } = req.body;
-    const newResponse = await pool.query("INSERT INTO weddingguestlist(fullname, email, phone, additionalguest, guestmessage, response) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *", [Name, Email, Phone, Additional, Message, Response]);
+    const newResponse = await pool.query("INSERT INTO weddingguestlist(fullname, email, phone, additionalguest, guestmessage, response) VALUES ($1, $2, $3, $4, $5, $6 ) RETURNING *", [Name, Email, Phone, Additional, Message, Response]);
+    // Uncomment line after to check the unconfirmed page
+    // res.status(500).send('Something Went Wrong'); 
     res.json(newResponse.rows[0]);
     const guestDetail = newResponse.rows[0];
     sendEmail(guestDetail);
@@ -54,7 +56,7 @@ router.post("/", async (req, res) => {
 
 router.get("/", async (req, res) => {
   try {
-    const allResponse = await pool.query("SELECT * FROM guestlist");
+    const allResponse = await pool.query("SELECT * FROM weddingguestlist");
     res.json(allResponse.rows);
   } catch (err) {
     console.error(err.message);
