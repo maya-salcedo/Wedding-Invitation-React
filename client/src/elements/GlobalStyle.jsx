@@ -23,11 +23,12 @@ body {
     color:  #679b9b !important;
     margin: 0.5%;
     text-decoration: none;
-    padding: 3px;
+    padding: 4px;
 }
 
 .nav-link:hover {
     border: solid  #679b9b 1px;
+    margin: 0.5%;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
@@ -78,7 +79,16 @@ p {
   opacity: 0.4;
 }
 
+a {
+  color: #679b9b;
+}
+a:link {
+  text-decoration: none;
+}
 
+a:hover {
+  text-decoration: underline;
+}
 `;
 
 

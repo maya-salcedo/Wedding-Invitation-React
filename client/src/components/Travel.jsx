@@ -10,6 +10,7 @@ const MapWrapper = styled.img`
   padding: 1rem;
   width: 20rem;
   height: auto;
+  border-radius: 8%;
 `;
 
 const Travel = () => {

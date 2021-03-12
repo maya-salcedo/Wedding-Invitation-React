@@ -66,7 +66,7 @@ const Accept = ({ history }) => {
       <FormWrapper>
         <FormGroupWrapper>
           <label htmlFor="fname">{message?.yourName}</label>
-          <input className="name" name="fname" value={detail.fname} onChange={handleChange} type="text" placeholder={message?.yourName1} />
+          <input className="name" name="fname" value={detail.fname} onChange={handleChange} type="text" placeholder={message?.yourName1} style={{textTransform: 'capitalize'}} />
         </FormGroupWrapper>
         <FormGroupWrapper>
           <label htmlFor="email">Email:</label>

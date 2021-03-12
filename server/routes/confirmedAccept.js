@@ -12,7 +12,7 @@ router.get("/", function (req, res, next) {
           "date": "Venerdì, 09 Luglio 2021",
           "place": "Lierna, Italy"
         },
-        "message2": "Riceverai un'email o un sms di conferma. Per favore contattaci ne caso che non ricevi nessuna risposta da noi o nel caso che devi cancellare la tua partecipazione."
+        "message2": "Riceverai un'email di conferma. Per favore contattaci ne caso che non ricevi nessuna risposta da noi o nel caso che devi cancellare la tua partecipazione."
       },
       "contact": {
         "email": "colturi.emanuele@gmail.com",
@@ -29,7 +29,7 @@ router.get("/", function (req, res, next) {
         "date": "Friday, 09 July 2021",
         "place": "Lierna, Italy"
       },
-      "message2": "A confirmation email or text message will be sent to you. Please contact us if you don't hear from us or in case you need to cancel your rsvp."
+      "message2": "A confirmation email will be sent to you. Please contact us if you don't hear from us or in case you need to cancel your rsvp."
     },
     "contact": {
       "email": "maya.salcedo@yahoo.com",

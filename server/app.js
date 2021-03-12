@@ -18,9 +18,10 @@ const unconfirmedAccept = require('./routes/unconfirmedAccept');
 const confirmedDecline = require('./routes/confirmedDecline');
 const unconfirmedDecline = require('./routes/unconfirmedDecline');
 const testdb = require('./routes/testdb');
+require('dotenv').config();
+const { text } = require('express');
 
 const app = express();
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -47,7 +48,6 @@ app.use('/unconfirmed-accept', unconfirmedAccept);
 app.use('/confirmed-decline', confirmedDecline);
 app.use('/unconfirmed-decline', unconfirmedDecline);
 app.use('/testdb', testdb);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
