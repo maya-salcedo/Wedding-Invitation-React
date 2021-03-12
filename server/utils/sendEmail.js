@@ -31,7 +31,7 @@ const sendEmail = async (guestDetail) => {
       cc: process.env.HER_EMAIL,
       subject: '💒Wedding of Emanuele and Maya',
       html: `
-            <h6>In English</h6>
+            <h6 style="font-style:italic">In English</h6>
             <p>Ciao ${guestDetail.fullname}!</p>
             <p>Thank you for confirming your RSVP. Please save the date in your calendar. </p>
             <h4>10:30 Friday, 09 July 2021<br>
@@ -39,12 +39,14 @@ const sendEmail = async (guestDetail) => {
             <p> Names of additional guests: ${guestDetail.additionalguest} </p>
             <p>Can't wait to see you!</p>
             <p>Best regards,</p>
-            <p>Emanuele ❤️ Maya </p>
-
-            <h6>In Italiano</h6>
+            <p>Emanuele ❤️ Maya 
+            </p>
+            <hr>
+            <h6 style="font-style:italic">In Italiano</h6>
             <p>Ciao ${guestDetail.fullname}!</p>
-            <p>Thank you for confirming your RSVP. Save the date in your calendar. </p>
-            <h4> 10:30 Venerdì, 09 Luglio 2021<br>
+            <p>Grazie per aver confermato il RSVP. Salva questa data nel tuo calendario.</p>
+            <h4>Venerdì, 09 Luglio 2021<br>
+            ore 10:30<br>
             Lierna (LC) </h4>
             <p>Ospite Aggiuntivo: ${guestDetail.additionalguest} </p>
             <p>Can't wait to see you!</p>

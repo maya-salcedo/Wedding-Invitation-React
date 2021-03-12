@@ -79,7 +79,16 @@ p {
   opacity: 0.4;
 }
 
+a {
+  color: #679b9b;
+}
+a:link {
+  text-decoration: none;
+}
 
+a:hover {
+  text-decoration: underline;
+}
 `;
 
 

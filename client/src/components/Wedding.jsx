@@ -15,12 +15,13 @@ const FirstBoxWrapper = styled.div`
 const FlowerWrapper = styled.div`
   height: 5rem;
   >img {
-    width: 70%; 
+    width: 60%; 
     transform: rotate(180deg);
   }
 `;
 
 const SecondBoxWrapper = styled.div`
+  margin-top: 5%;
   padding: 23% 1% 1% 1%;
   position: relative;
 `;
@@ -30,7 +31,9 @@ const StyledInformation = styled.h2`
   font-family: 'Parisienne', cursive;
   font-size: 2.1rem;
   color: #679b9b;
-  padding-bottom: 3%;
+  @media (max-width: 1028px) {
+    padding-top: 3%;
+  }
 `;
 
 const InformationWrapper = styled.div`
@@ -65,10 +68,12 @@ const Wedding = () => {
           date={instruction?.date}
           time={instruction?.time}
           churchName={instruction?.church?.name}
+          churchLink={instruction?.church?.churchLink}
           churchAddressFirst={instruction?.church?.addressLine1}
           churchAddressSecond={instruction?.church?.addressLine2}
           receptionText={instruction?.restaurant?.reception}
           restaurantName={instruction?.restaurant?.name}
+          restaurantLink={instruction?.restaurant?.restaurantLink}
           restaurantAddressFirst={instruction?.restaurant?.addressLine1}
           restaurantAddressSecond={instruction?.restaurant?.addressLine2}
         />

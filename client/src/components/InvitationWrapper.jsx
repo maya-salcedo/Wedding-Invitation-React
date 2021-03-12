@@ -13,7 +13,7 @@ const GoldText = styled.h2`
 const Wrapper = styled.div`
   background-color: whitesmoke;
   position: relative;
-  padding: 1.5rem;
+  padding: 2.5rem 1.5rem;
   border-radius: 2%;
   display: inline-block;
 `;
@@ -35,7 +35,7 @@ const StyledDate = styled(GoldText)`
 `;
 
 const StyledTime = styled.h3`
-  padding: 0;
+  padding: 0 0 1rem 0;
   margin-top: 0.2rem;
   font-size: 1rem;
 `;
@@ -46,10 +46,11 @@ const GoldHeader = styled(GoldText)`
   font-family: 'Montserrat', sans-serif;
 `;
 
-const StyledAddress = styled.h4`
+const StyledAddress = styled.h3`
   padding: 0;
   margin: 0.2rem 0 0.2rem 0;
   font-size: 0.9rem;
+  font-weight: 500;
   line-height: 1.5;
 `;
 
@@ -63,8 +64,8 @@ const StyledReceptionText = styled.p`
 
 export const InvitationWrapper = (props) => {
   const {
-    invite, date, time, churchName, churchAddressFirst,
-    churchAddressSecond, receptionText, restaurantName, restaurantAddressFirst,
+    invite, date, time, churchName, churchLink, churchAddressFirst,
+    churchAddressSecond, receptionText, restaurantName, restaurantLink, restaurantAddressFirst,
     restaurantAddressSecond
   } = props;
   return (
@@ -72,16 +73,26 @@ export const InvitationWrapper = (props) => {
       <InviteText>{invite}</InviteText>
       <StyledDate> {date} </StyledDate>
       <StyledTime>{time}</StyledTime>
-      <GoldHeader margin="3rem 0 0 0">{churchName}</GoldHeader>
-      <StyledAddress>{churchAddressFirst}
+      <GoldHeader margin="3rem 0 0 0">
+      <a href={churchLink} target="_blank">{churchName}</a>
+      </GoldHeader>
+      <StyledAddress>
+        <a href={churchLink} target="_blank">
+        {churchAddressFirst}
         <br />
         {churchAddressSecond}
+        </a>
       </StyledAddress>
       <StyledReceptionText>{receptionText}</StyledReceptionText>
-      <GoldHeader margin="1rem 0 0 0">{restaurantName}</GoldHeader>
-      <StyledAddress>{restaurantAddressFirst}
+      <GoldHeader margin="1rem 0 0 0">
+      <a href={restaurantLink} target="_blank">{restaurantName}</a>
+      </GoldHeader>
+      <StyledAddress>
+      <a href={restaurantLink} target="_blank">
+        {restaurantAddressFirst}
         <br />
         {restaurantAddressSecond}
+      </a>
       </StyledAddress>
     </Wrapper>
   )

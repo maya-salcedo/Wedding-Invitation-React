@@ -12,7 +12,7 @@ router.get("/", function (req, res, next) {
       "title": "Accetto con Piacere",
       "respondByDate": "Rispondi entro il 31 Maggi 2021",
       "yourName": "Il Tuo Nome:",
-      "yourName": "Nome",
+      "yourName1": "Nome",
       "phone": "Telefono:",
       "phone1": "Telefono",
       "additionalNames": "Ospite Aggiuntivo:",

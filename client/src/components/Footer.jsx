@@ -9,6 +9,7 @@ const StyledFooter = styled.footer`
   width: 95%;
   height: 3rem;
   margin: auto;
+  font-style: italic;
   > p {
     text-align: center
   }
