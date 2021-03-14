@@ -34,7 +34,7 @@ const sendEmail = async (guestDetail) => {
             <h6 style="font-style:italic">In English</h6>
             <p>Ciao ${guestDetail.fullname}!</p>
             <p>Thank you for confirming your RSVP. Please save the date in your calendar. </p>
-            <h4>10:30 Friday, 09 July 2021<br>
+            <h4>10:30 a.m. Friday, 09 July 2021<br>
             Lierna, Province of Lecco Italy</h4>
             <p> Names of additional guests: ${guestDetail.additionalguest} </p>
             <p>Can't wait to see you!</p>

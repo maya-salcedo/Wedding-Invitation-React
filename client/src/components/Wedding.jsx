@@ -22,8 +22,12 @@ const FlowerWrapper = styled.div`
 
 const SecondBoxWrapper = styled.div`
   margin-top: 5%;
-  padding: 23% 1% 1% 1%;
+  padding: 20% 1% 1% 1%;
   position: relative;
+  @media(max-width: 1380px) {
+    padding-top: 5%;
+  }
+
 `;
 
 const StyledInformation = styled.h2`
@@ -31,8 +35,8 @@ const StyledInformation = styled.h2`
   font-family: 'Parisienne', cursive;
   font-size: 2.1rem;
   color: #679b9b;
-  @media (max-width: 1028px) {
-    padding-top: 3%;
+  @media (max-width: 1028) {
+    padding-top: 1%;
   }
 `;
 

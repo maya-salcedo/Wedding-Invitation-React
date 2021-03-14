@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
     return res.json({
       "invite": "Siamo lieti di invitarvi al nostro matrimonio",
       "date": "09 Luglio 2021",
-      "time": "10:30 Venerdì",
+      "time": "ore 10:30, Venerdì",
       "church" : {
         "name": "Parrocchia Di Sant' Ambrogio",
         "addressLine1": "Via Papa Giovanni XXIII 41, 23827",
@@ -33,7 +33,7 @@ router.get('/', function(req, res, next) {
   return res.json({
     "invite": "You are joyfully invited to our wedding on",
     "date": "09 July 2021",
-    "time": "10:30 Friday",
+    "time": "10:30 a.m. Friday",
     "church" : {
       "name": "Parrocchia Di Sant' Ambrogio",
       "addressLine1": "Via Papa Giovanni XXIII 41, 23827 Lierna",
@@ -49,7 +49,7 @@ router.get('/', function(req, res, next) {
     },
     "dining": {
       "line1": "After the church ceremony, please proceed to the reception venue.",
-      "line2": "Aperitif will be served on the restaurant's veranda followed by a sit down dinner in the function hall.",
+      "line2": "Aperitif will be served on the restaurant's veranda followed by a sit down lunch in the function hall.",
       "line3": "Please let us know of any special dietary requirements you may have."
     },
     "dresscode": {
