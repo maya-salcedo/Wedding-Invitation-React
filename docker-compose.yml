@@ -1,0 +1,39 @@
+version: '3'
+services:
+  server_dev:
+    build:
+      context: ./server/
+    command: nodemon bin/www
+    volumes:
+      - ./server/:/usr/app
+      - /usr/app/node_modules
+    ports:
+      - "9000:9000"
+    # env_file: ./server/.env # TODO - uncomment this to auto-load your .env file!
+    environment:
+      NODE_ENV: development
+      CHOKIDAR_USEPOLLING: "true"
+
+  client_dev:
+    build:
+      context: ./client/
+    command: npm start
+    volumes:
+      - ./client/:/usr/app
+      - /usr/app/node_modules
+    depends_on:
+      - server_dev
+    ports:
+      - "3000:3000"
+    environment:
+      CHOKIDAR_USEPOLLING: "true"
+    # env_file: ./client/.env # TODO - uncomment this to auto-load your .env file!
+
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./server/database.sql:/docker-entrypoint-initdb.d/database.sql
