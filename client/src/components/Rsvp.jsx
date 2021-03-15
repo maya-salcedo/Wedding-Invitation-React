@@ -39,7 +39,7 @@ const Rsvp = ({ history }) => {
   const [message, setMessage] = useState();
   const query = flag === 'italy' ? '?it=true' : '';
   const getMessage = async () => {
-    const { data } = await axios.get(`http://localhost:9000/rsvp${query}`);
+    const { data } = await axios.get(`/rsvp${query}`);
     setMessage(data);
   };
 

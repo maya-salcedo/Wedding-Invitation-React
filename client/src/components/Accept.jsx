@@ -42,7 +42,7 @@ const Accept = ({ history }) => {
         if (detail.fname.length === 0){
           alert("Please enter your name.");
         } else {
-        await axios.post('http://localhost:9000/accept', {
+        await axios.post('/accept', {
           Name:detail.fname,
           Phone: detail.phone,
           Email: detail.email,

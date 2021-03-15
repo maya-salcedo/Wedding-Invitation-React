@@ -2,7 +2,7 @@
 
 --c\ into guestlist_database
 
-CREATE TABLE weddingguestlist(
+CREATE TABLE IF NOT EXISTS weddingguestlist(
     id SERIAL PRIMARY KEY,
     fullname VARCHAR(100) NOT NULL,
     email VARCHAR(50),
