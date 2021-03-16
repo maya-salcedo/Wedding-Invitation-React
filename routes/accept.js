@@ -7,7 +7,7 @@ const sendEmail = require('../utils/sendEmail')
 
 /* GET accept page */
 router.get("/", function (req, res, next) {
-  if (req.query.it) {
+  if (req.query.it){
     return res.json({
       "title": "Accetto con Piacere",
       "respondByDate": "Rispondi entro il 31 Maggi 2021",
