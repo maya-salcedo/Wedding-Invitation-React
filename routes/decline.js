@@ -15,7 +15,7 @@ router.get("/", function (req, res, next) {
       "phone1": "Telefono",
       "yourMessage" : "Scrivi un messaggio:",
       "yourMessage1": "Scrivi un messaggio: (opzione)",
-      "yourResponse": "Rifiuto"
+      "yourResponse": "Invia"
     })
   }
   return res.json({
@@ -27,7 +27,7 @@ router.get("/", function (req, res, next) {
     "phone1": "Phone",
     "yourMessage" : "Your message:",
     "yourMessage1": "Your message: (optional)",
-    "yourResponse": "Decline"
+    "yourResponse": "Send"
     }
   )
 })

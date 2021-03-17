@@ -19,7 +19,7 @@ router.get("/", function (req, res, next) {
       "additionalNames1": "Nome/i",
       "yourMessage": "Scrivi un messaggio:",
       "yourMessage1": "Scrivi un messaggio: (opzione)",
-      "yourResponse": "Accetto"
+      "yourResponse": "Invia"
     })
   }
   return res.json({
@@ -33,7 +33,7 @@ router.get("/", function (req, res, next) {
     "additionalNames1": "Name(s)",
     "yourMessage": "Your message:",
     "yourMessage1": "Your message: (optional)",
-    "yourResponse": "Accept"
+    "yourResponse": "Send"
   }
   )
 })

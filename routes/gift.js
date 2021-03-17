@@ -6,7 +6,7 @@ router.get("/", function (req, res, next) {
   if(req.query.it){
     return res.json({
     "title": "Regali",
-    "message": "La vostra presenza al nostro matrimonio è il dono più grande tutti. Se desideri farci un regalo, apprezzeremmo molto un contributo per la nostra luna di miele.",
+    "message": "La vostra presenza al nostro matrimonio è il dono più grande di tutti. Se desideri farci un regalo, apprezzeremmo molto un contributo per la nostra luna di miele.",
     "account": {
       "instruction": "Al nostro conto corrente oppure in contanti:",
       "name": "Name: May Salcedo",
