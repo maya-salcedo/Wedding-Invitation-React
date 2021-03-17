@@ -11,7 +11,7 @@ const Accept = ({ history }) => {
   const [message, setMessage] = useState();
   const query = flag === 'italy' ? '?it=true' : '';
   const getMessage = async () => {
-    const { data } = await axios.get(`/accept${query}`);
+    const { data } = await axios.get(`/api/accept${query}`);
     setMessage(data);
   };
 

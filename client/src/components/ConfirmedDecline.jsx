@@ -9,7 +9,7 @@ const ConfirmedDecline = () => {
   const [note, setNote] = useState();
   const query = flag === 'italy' ? '?it=true' : '';
   const getNote = async () => {
-    const { data } = await axios.get(`/confirmed-decline${query}`);
+    const { data } = await axios.get(`/api/confirmed-decline${query}`);
     setNote(data);
   };
   useEffect(() => {
