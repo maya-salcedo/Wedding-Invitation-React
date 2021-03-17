@@ -50,6 +50,12 @@ app.use('/api/unconfirmed-accept', unconfirmedAccept);
 app.use('/api/confirmed-decline', confirmedDecline);
 app.use('/api/unconfirmed-decline', unconfirmedDecline);
 app.use('/api/testdb', testdb);
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, './client/build'));
+});
+app.use('*', (req, res) => {
+  res.sendFile(path.join(__dirname, './client/build'));
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
