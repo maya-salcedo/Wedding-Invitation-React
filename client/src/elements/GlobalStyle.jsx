@@ -24,6 +24,7 @@ body {
     margin: 0.5%;
     text-decoration: none;
     padding: 4px;
+    font-size: 1.2rem;
 }
 
 .nav-link:hover {
