@@ -50,16 +50,13 @@ app.use('/api/unconfirmed-accept', unconfirmedAccept);
 app.use('/api/confirmed-decline', confirmedDecline);
 app.use('/api/unconfirmed-decline', unconfirmedDecline);
 app.use('/api/testdb', testdb);
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, './client/build/index.html'));
-});
 app.use('*', (req, res) => {
-  res.sendFile(path.join(__dirname, './client/build/index.html'));
+  res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  res.sendFile(path.join(__dirname, './client/build/index.html'));
+  next(createError(404));
 });
 
 // error handler
@@ -70,7 +67,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.sendFile(path.join(__dirname, './client/build/index.html'));
+  res.render('error');
 });
 
 module.exports = app;
