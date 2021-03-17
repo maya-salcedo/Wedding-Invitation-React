@@ -1,7 +1,8 @@
-import React, { useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { FlagContext } from './FlagContext';
+import axios from 'axios';
 import Select from 'react-select';
 import EnglishFlag from './image/englishflag.png';
 import ItalianFlag from './image/italianflag.png';
@@ -24,10 +25,12 @@ const FlagWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   margin-top: 1rem;
+  padding: 0.5rem;
 `;
 
 const Navigation = () => {
-  const {setFlag} = useContext(FlagContext)
+  const {flag, setFlag} = useContext(FlagContext);
+  const [message, setMessage] = useState();
   const getOption = (e) => {
     console.log(e);
     setFlag(e.value)
@@ -45,24 +48,36 @@ const Navigation = () => {
       backgroundColor: '#fde2e2',
     }),
     control: ( styles) => ({
-      ...styles, backgroundColor: 'transparent', width: 80, border: 0, boxShadow: 'none'
+      ...styles, backgroundColor: '#fff6f6', width: 80, border: 0, boxShadow: 'none'
     }),
     singleValue: (provided, state) => {
-      const opacity = state.isDisabled ? 0.5 : 1;
+      const opacity = state.isDisabled ? 0.9 : 1;
       const transition = 'opacity 300ms';
   
       return { ...provided, opacity, transition };
     }
   }
 
+  const query = flag === 'italy' ? '?it=true' : '';
+  const getMessage = async () => {
+    const { data } = await axios.get(`/api/navigation${query}`);
+    setMessage(data);
+  };
+
+  useEffect(() => {
+    getMessage();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [flag]);
+
+
   return (
     <div>
       <NavWrapper>
-        <NavLink className="nav-link" to="/">HOME</NavLink>
-        <NavLink className="nav-link" to="/wedding">WEDDING</NavLink>
-        <NavLink className="nav-link" to="/gift">GIFTS</NavLink>
-        <NavLink className="nav-link" to="/travel">TRAVEL</NavLink>
-        <NavLink className="nav-link" to="/rsvp">RSVP</NavLink>
+        <NavLink className="nav-link" to="/">{message?.home}</NavLink>
+        <NavLink className="nav-link" to="/wedding">{message?.wedding}</NavLink>
+        <NavLink className="nav-link" to="/gift">{message?.gifts}</NavLink>
+        <NavLink className="nav-link" to="/travel">{message?.travel}</NavLink>
+        <NavLink className="nav-link" to="/rsvp">{message?.rsvp}</NavLink>
       </NavWrapper>
       <FlagWrapper>
         <Select onChange={(e)=> getOption(e)} styles={customStyles}  hideSelectedOptions={false} name="flag" id="flag" defaultValue={options[1]} options={options} />
