@@ -56,7 +56,7 @@ const StyledAddress = styled.h3`
 
 const StyledReceptionText = styled.p`
   font-style: oblique;
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-family: 'EB Garamond', serif;
   margin: 3rem 0 0 0;
   padding: 0;
