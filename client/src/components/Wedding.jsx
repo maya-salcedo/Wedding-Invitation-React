@@ -52,7 +52,7 @@ const Wedding = () => {
   const [instruction, setInstruction] = useState();
   const query = flag === 'italy' ? '?it=true' : '';
   const getInstruction = async () => {
-    const { data } = await axios.get(`/wedding${query}`);
+    const { data } = await axios.get(`/api/wedding${query}`);
     setInstruction(data);
   }
 

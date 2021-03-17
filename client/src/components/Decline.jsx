@@ -11,7 +11,7 @@ const Decline = ({ history }) => {
   const [message, setMessage] = useState();
   const query = flag === 'italy' ? '?it=true' : '';
   const getMessage = async () => {
-    const { data } = await axios.get(`/decline${query}`);
+    const { data } = await axios.get(`/api/decline${query}`);
     setMessage(data);
   };
 

@@ -19,7 +19,7 @@ const Travel = () => {
   const [recommendation, setRecommendation] = useState();
   const query = flag === 'italy' ? '?it=true' : '';
   const getRecommendation = async () => {
-    const { data } = await axios.get(`/travel${query}`);
+    const { data } = await axios.get(`/api/travel${query}`);
     setRecommendation(data);
   };
 

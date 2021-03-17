@@ -15,7 +15,7 @@ const UnconfirmedAccept = () => {
   const [note, setNote] = useState();
   const query = flag === 'italy' ? '?it=true' : '';
   const getNote = async () => {
-    const { data } = await axios.get(`/unconfirmed-accept${query}`);
+    const { data } = await axios.get(`/api/unconfirmed-accept${query}`);
     setNote(data);
   };
   useEffect(() => {
