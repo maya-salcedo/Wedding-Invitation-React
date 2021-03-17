@@ -40,7 +40,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/couple', couple);
 app.use('/wedding', wedding);
-app.use('/gift', gift);
+app.use('/api/gift', gift);
 app.use('/travel', travel);
 app.use('/rsvp', rsvp);
 app.use('/accept', accept);
@@ -54,7 +54,7 @@ app.use('*', (req, res) => {
   res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
 
-// catch 404 and forward to error handler.
+// catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });

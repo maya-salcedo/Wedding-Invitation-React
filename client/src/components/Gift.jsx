@@ -11,7 +11,7 @@ const Gift = () => {
   const [message, setMessage] = useState();
   const query = flag === 'italy' ? '?it=true' : '';
   const getMessage = async () => {
-    const { data } = await axios.get(`/gift${query}`);
+    const { data } = await axios.get(`/api/gift${query}`);
     setMessage(data);
   };
 
