@@ -37,19 +37,19 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, './client/build')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/couple', couple);
-app.use('/wedding', wedding);
-app.use('/gift', gift);
-app.use('/travel', travel);
-app.use('/rsvp', rsvp);
-app.use('/accept', accept);
-app.use('/decline', decline);
-app.use('/confirmed-accept', confirmedAccept);
-app.use('/unconfirmed-accept', unconfirmedAccept);
-app.use('/confirmed-decline', confirmedDecline);
-app.use('/unconfirmed-decline', unconfirmedDecline);
-app.use('/testdb', testdb);
+app.use('/api/users', usersRouter);
+app.use('/api/couple', couple);
+app.use('/api/wedding', wedding);
+app.use('/api/gift', gift);
+app.use('/api/travel', travel);
+app.use('/api/rsvp', rsvp);
+app.use('/api/accept', accept);
+app.use('/api/decline', decline);
+app.use('/api/confirmed-accept', confirmedAccept);
+app.use('/api/unconfirmed-accept', unconfirmedAccept);
+app.use('/api/confirmed-decline', confirmedDecline);
+app.use('/api/unconfirmed-decline', unconfirmedDecline);
+app.use('/api/testdb', testdb);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
