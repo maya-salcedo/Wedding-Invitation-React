@@ -38,7 +38,7 @@ const Decline = ({ history }) => {
         if (detail.fname.length === 0){
           alert("Please enter your name.");
         } else {
-        await axios.post('/decline', {
+        await axios.post('/api/decline', {
           Name: detail.fname, 
           Phone: detail.phone, 
           Email: detail.email, 
