@@ -59,7 +59,7 @@ const sendEmail = async (guestDetail) => {
     return result;
     
   } catch (error) {
-    console.log("error");
+    console.log("errorerror at sendMail", error);
     return error;
   }
 }
