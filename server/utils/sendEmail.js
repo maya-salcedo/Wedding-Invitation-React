@@ -34,7 +34,7 @@ const sendEmail = async (guestDetail) => {
             <h6 style="font-style:italic">In English</h6>
             <p>Ciao ${guestDetail.fullname}!</p>
             <p>Thank you for confirming your RSVP. Please save the date in your calendar. </p>
-            <h4>10:30 a.m. Friday, 09 July 2021<br>
+            <h4>11:30 a.m. Friday, 09 July 2021<br>
             Lierna, Province of Lecco Italy</h4>
             <p> Names of additional guests: ${guestDetail.additionalguest} </p>
             <p>Can't wait to see you!</p>
@@ -46,7 +46,7 @@ const sendEmail = async (guestDetail) => {
             <p>Ciao ${guestDetail.fullname}!</p>
             <p>Grazie per aver confermato il RSVP. Salva questa data nel tuo calendario.</p>
             <h4>Venerdì, 09 Luglio 2021<br>
-            ore 10:30<br>
+            ore 11:30<br>
             Lierna (LC) </h4>
             <p>Ospite Aggiuntivo: ${guestDetail.additionalguest} </p>
             <p>Can't wait to see you!</p>
@@ -59,7 +59,7 @@ const sendEmail = async (guestDetail) => {
     return result;
     
   } catch (error) {
-    console.log("error");
+    console.log("errorerror at sendMail", error);
     return error;
   }
 }

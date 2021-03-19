@@ -6,6 +6,7 @@ const logger = require('morgan');
 const cors = require('cors');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const navigation = require('./routes/navigation');
 const couple = require('./routes/couple');
 const wedding = require('./routes/wedding');
 const gift = require('./routes/gift');
@@ -36,6 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/navigation', navigation);
 app.use('/couple', couple);
 app.use('/wedding', wedding);
 app.use('/gift', gift);
