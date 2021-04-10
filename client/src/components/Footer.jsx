@@ -4,14 +4,15 @@ import styled from 'styled-components';
 
 const StyledFooter = styled.footer`
   position: absolute;
-  text-align: center;
+  left: 50%;
   bottom: 0;
-  width: 95%;
+  width: 100vw;
   height: 3rem;
   margin: auto;
   font-style: italic;
   > p {
-    text-align: center
+    position: relative; 
+    left: -50%;
   }
 `;
 
