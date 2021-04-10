@@ -38,7 +38,6 @@ body {
     padding: 3px;
 }
 
-
 h1 {
     font-family: 'Parisienne', cursive;
     font-size: 8rem;
@@ -63,9 +62,7 @@ h4 {
 
 h3 {
     font-size: 1rem;
-
 }
-
 
 p {
   margin: 0.1rem 0 0 0;
@@ -91,6 +88,5 @@ a:hover {
   text-decoration: underline;
 }
 `;
-
 
 export default GlobalStyle;

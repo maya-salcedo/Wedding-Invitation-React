@@ -31,11 +31,11 @@ const ButtonWrapper = styled.button`
   color: #f9f3f3;
   background: -webkit-linear-gradient(transparent, transparent),
   -webkit-linear-gradient(top, rgba(163,126,67,1) 0%, rgba(213,173,109,1) 26%, rgba(226,186,120,1) 35%, rgba(226,186,120,1) 45%, rgba(213,173,109,1) 61%, rgba(163,126,67,1) 100%);
-}
+  }
 `;
 
 const Rsvp = ({ history }) => {
-  const {flag} = useContext(FlagContext);
+  const { flag } = useContext(FlagContext);
   const [message, setMessage] = useState();
   const query = flag === 'italy' ? '?it=true' : '';
   const getMessage = async () => {

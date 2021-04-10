@@ -23,5 +23,4 @@ const StyledFailedHeading = styled.h2`
 const GoldHeadingTwo = ({ text }) => <StyledHeading2>{text}</StyledHeading2>;
 export const FailedHeading = ({ text }) => <StyledFailedHeading>{text}</StyledFailedHeading>;
 
-
 export default GoldHeadingTwo;

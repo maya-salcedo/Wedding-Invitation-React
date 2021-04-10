@@ -68,6 +68,7 @@ export const InvitationWrapper = (props) => {
     churchAddressSecond, receptionText, restaurantName, restaurantLink, restaurantAddressFirst,
     restaurantAddressSecond
   } = props;
+  // eslint-disable-next-line
   return (
     <Wrapper>
       <InviteText>{invite}</InviteText>

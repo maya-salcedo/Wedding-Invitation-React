@@ -37,7 +37,6 @@ const FormGroup = styled.div`
   }
 `;
 
-
 const Button = styled.button`
   cursor: pointer;
   margin: 0.5rem auto 0.5rem auto;
@@ -57,7 +56,6 @@ const Button = styled.button`
   border: 0.1rem #D5AD6D solid;
   background: -webkit-linear-gradient(transparent, transparent),
   -webkit-linear-gradient(top, rgba(163,126,67,1) 0%, rgba(213,173,109,1) 26%, rgba(226,186,120,1) 35%, rgba(226,186,120,1) 45%, rgba(213,173,109,1) 61%, rgba(163,126,67,1) 100%);
-
   &:hover {
   border: 0.1rem #679b9b solid;
   color: #679b9b;
@@ -65,9 +63,8 @@ const Button = styled.button`
   }
 `;
   
-const FormWrapper = ({children}) => <Form>{children}</Form>; 
-export const FormGroupWrapper = ({children}) => <FormGroup>{children}</FormGroup>; 
-export const  ButtonWrapper = ({onClick, text}) => <Button onClick={onClick}>{text}</Button>;
-
+const FormWrapper = ({ children }) => <Form>{children}</Form>; 
+export const FormGroupWrapper = ({ children }) => <FormGroup>{children}</FormGroup>; 
+export const  ButtonWrapper = ({ onClick, text }) => <Button onClick={onClick}>{text}</Button>;
 
 export default FormWrapper;

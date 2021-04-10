@@ -4,10 +4,8 @@ import GoldHeadingTwo from '../elements/GoldHeadingTwo';
 import ResponseWrapper from '../elements/ResponseWrapper';
 import { FlagContext } from './FlagContext';
 
-
 const Gift = () => {
-  const {flag} = useContext(FlagContext);
-
+  const { flag } = useContext(FlagContext);
   const [message, setMessage] = useState();
   const query = flag === 'italy' ? '?it=true' : '';
   const getMessage = async () => {
@@ -26,8 +24,6 @@ const Gift = () => {
       <ResponseWrapper>
         <p> {message?.message}</p>
       </ResponseWrapper>
-        
-
       <ResponseWrapper>
         <p>{message?.account?.instruction}</p>
         <p>{message?.account?.name}</p>
