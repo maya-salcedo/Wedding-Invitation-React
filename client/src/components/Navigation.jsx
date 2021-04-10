@@ -4,9 +4,6 @@ import { NavLink } from 'react-router-dom';
 import { FlagContext } from './FlagContext';
 import axios from 'axios';
 import Select from 'react-select';
-import EnglishFlag from './image/englishflag.png';
-import ItalianFlag from './image/italianflag.png';
-
 
 const StyledImage = styled.img`
   width: 30px;
@@ -37,8 +34,8 @@ const Navigation = () => {
   }  
 
   const options = [
-    { value: "italy", label: <div><StyledImage src={ItalianFlag} alt="italiano" /></div>},
-    { value: "english", label: <div><StyledImage src={EnglishFlag} alt="english" /></div>}
+    { value: "italy", label: <div><StyledImage src="image/italianflag.png" alt="italiano" /></div>},
+    { value: "english", label: <div><StyledImage src="image/englishflag.png" alt="english" /></div>}
   ];
 
   const customStyles = {
@@ -68,7 +65,6 @@ const Navigation = () => {
     getMessage();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flag]);
-
 
   return (
     <div>

@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import ComoMap from './image/Lake Como Map.jpg';
 import GoldHeadingTwo from '../elements/GoldHeadingTwo';
 import ResponseWrapper from '../elements/ResponseWrapper';
 import styled from 'styled-components';
@@ -31,7 +30,7 @@ const Travel = () => {
   return (
     <div>
       <GoldHeadingTwo text={recommendation?.title} />
-      <MapWrapper img src={ComoMap} alt="como-map.img" />
+      <MapWrapper img src="image/Lake Como Map.jpg" alt="como-map.img" />
       <ResponseWrapper>
         <p>{recommendation?.text}</p>
       </ResponseWrapper>

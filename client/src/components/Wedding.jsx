@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from 'react';
-import Flower from './image/flower.png';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCocktail, faUserTie } from '@fortawesome/free-solid-svg-icons'
@@ -65,7 +64,7 @@ const Wedding = () => {
     <ComponentWrapper>
       <FirstBoxWrapper>
         <FlowerWrapper>
-          <img src={Flower} alt="flower-img" />
+          <img src="image/flower.png" alt="flower-img" />
         </FlowerWrapper>
         <InvitationWrapper
           invite={instruction?.invite}
