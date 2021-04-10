@@ -18,7 +18,6 @@ import ConfirmedDecline from './components/ConfirmedDecline';
 import UnconfirmedDecline from './components/UnconfirmedDecline';
 import { FlagContext } from './components/FlagContext';
 
-
 const App = () => {
     const [flag, setFlag] = useState('english')
     return (

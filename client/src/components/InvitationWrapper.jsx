@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
+ /* eslint-disable */ 
 
 const GoldText = styled.h2`
   color: #D5AD6D; /*if no support for background-clip*/

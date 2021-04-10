@@ -4,9 +4,6 @@ import { NavLink } from 'react-router-dom';
 import { FlagContext } from './FlagContext';
 import axios from 'axios';
 import Select from 'react-select';
-import EnglishFlag from './image/englishflag.png';
-import ItalianFlag from './image/italianflag.png';
-
 
 const StyledImage = styled.img`
   width: 30px;
@@ -29,7 +26,7 @@ const FlagWrapper = styled.div`
 `;
 
 const Navigation = () => {
-  const {flag, setFlag} = useContext(FlagContext);
+  const { flag, setFlag } = useContext(FlagContext);
   const [message, setMessage] = useState();
  
   const getOption = (e) => {
@@ -38,8 +35,8 @@ const Navigation = () => {
   }  
 
   const options = [
-    { value: "italy", label: <div><StyledImage src={ItalianFlag} alt="italiano" /></div>},
-    { value: "english", label: <div><StyledImage src={EnglishFlag} alt="english" /></div>}
+    { value: "italy", label: <div><StyledImage src="image/italianflag.png" alt="italiano" /></div> },
+    { value: "english", label: <div><StyledImage src="image/englishflag.png" alt="english" /></div> }
   ];
 
   const customStyles = {
@@ -48,18 +45,16 @@ const Navigation = () => {
       padding: 0,
       backgroundColor: '#fde2e2',
     }),
-    control: ( styles) => ({
+    control: (styles) => ({
       ...styles, backgroundColor: '#fff6f6', width: 80, border: 0, boxShadow: 'none'
     }),
     singleValue: (provided, state) => {
       const opacity = state.isDisabled ? 0.9 : 1;
       const transition = 'opacity 300ms';
-  
       return { ...provided, opacity, transition };
     }
   }
 
-  
   const query = flag === 'italy' ? '?it=true' : '';
   const getMessage = async () => {
     const { data } = await axios.get(`http://localhost:9000/navigation${query}`);
@@ -81,7 +76,7 @@ const Navigation = () => {
         <NavLink className="nav-link" to="/rsvp">{message?.rsvp}</NavLink>
       </NavWrapper>
       <FlagWrapper>
-        <Select onChange={(e)=> getOption(e)} styles={customStyles}  hideSelectedOptions={false} name="flag" id="flag" defaultValue={options[1]} options={options} />
+        <Select onChange={(e) => getOption(e)} styles={customStyles}  hideSelectedOptions={false} name="flag" id="flag" defaultValue={options[1]} options={options} />
       </FlagWrapper>
     </div>
   );

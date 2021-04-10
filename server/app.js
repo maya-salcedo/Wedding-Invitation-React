@@ -2,7 +2,7 @@ const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
-const logger = require('morgan');
+//const logger = require('morgan');
 const cors = require('cors');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -20,7 +20,7 @@ const confirmedDecline = require('./routes/confirmedDecline');
 const unconfirmedDecline = require('./routes/unconfirmedDecline');
 const testdb = require('./routes/testdb');
 require('dotenv').config();
-const { text } = require('express');
+//const { text } = require('express');
 
 const app = express();
 

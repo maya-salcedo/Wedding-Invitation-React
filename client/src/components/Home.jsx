@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from 'react';
-import Flower from './image/flower.png';
 import styled from 'styled-components';
 import axios from 'axios';
 import ComponentWrapper from '../elements/StyledContainer';
@@ -68,7 +67,7 @@ const Home = () => {
       </StyledName>
       <StyledText>{couple?.event}</StyledText>
       <FlowerWrapper>
-        <img src={Flower} alt="flower-img" />
+        <img src="image/flower.png" alt="flower-img" />
       </FlowerWrapper>
     </ComponentWrapper>
   );

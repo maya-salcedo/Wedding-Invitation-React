@@ -1,5 +1,4 @@
 const express = require('express');
-const pool = require("../db");
 const router = express.Router();
 require('dotenv').config();
 const { insertParticipant, getAllParticipants } = require('../utils/dbqueries')
@@ -38,7 +37,7 @@ router.get("/", function (req, res, next) {
 
 router.post("/", async (req, res) => {
   try {
-    insertParticipants
+    insertParticipant(req.body)
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Something Went Wrong');
@@ -47,8 +46,8 @@ router.post("/", async (req, res) => {
 
 router.get("/", async (req, res) => {
   try {
-    const allResponse = await pool.query("SELECT * FROM weddingguestlist");
-    res.json(allResponse.rows);
+    const allResponse = getAllParticipants;
+    res.json(allResponse);
   } catch (err) {
     console.error(err.message);
   }
