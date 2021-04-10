@@ -2,10 +2,8 @@ const express = require('express');
 const pool = require("../db");
 const router = express.Router();
 require('dotenv').config();
-const sendEmail = require('../utils/sendEmail')
+const { insertParticipant, getAllParticipants } = require('../utils/dbqueries')
 
-
-/* GET accept page */
 router.get("/", function (req, res, next) {
   if (req.query.it) {
     return res.json({
@@ -38,16 +36,9 @@ router.get("/", function (req, res, next) {
   )
 })
 
-/* POST rsvp page. */
 router.post("/", async (req, res) => {
   try {
-    const { Name, Email, Phone, Additional, Message, Response } = req.body;
-    const newResponse = await pool.query("INSERT INTO weddingguestlist(fullname, email, phone, additionalguest, guestmessage, response) VALUES ($1, $2, $3, $4, $5, $6 ) RETURNING *", [Name, Email, Phone, Additional, Message, Response]);
-    // Uncomment line after to check the unconfirmed page
-    // res.status(500).send('Something Went Wrong'); 
-    res.json(newResponse.rows[0]);
-    const guestDetail = newResponse.rows[0];
-    sendEmail(guestDetail);
+    insertParticipants
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Something Went Wrong');
