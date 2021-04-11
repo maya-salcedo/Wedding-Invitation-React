@@ -10,6 +10,16 @@ const StyledDiv = styled.div`
   @media (max-width: 1028px) {
     width: 19rem;
   }
+  @media (max-width: 400px) {
+    width: 17rem;
+    padding: 0.8rem;
+  }
+  @media (max-width: 298px) {
+    width: 14rem;
+  }
+  @media (max-width: 280px) {
+    width: 12rem;
+  }
   > div {
     padding: 2rem 0 2rem 0;
     font-weight: bold;

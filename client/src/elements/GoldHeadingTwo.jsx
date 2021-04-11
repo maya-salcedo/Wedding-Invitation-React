@@ -12,6 +12,13 @@ const StyledHeading2 = styled.h2`
   font-family: 'Parisienne', cursive;
   font-size: 3rem;
   margin-top: 0;
+  padding: 1rem;
+  @media(max-width: 404px){
+    font-size: 2.5rem;
+  }
+  @media(max-width: 364px){
+    font-size: 2rem;
+  }
 `;
 
 const StyledFailedHeading = styled.h2`
