@@ -1,22 +1,17 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-html {
-    display: grid;
-    text-align: center;
-    position: relative;
-    min-height: 100%;
-}
-
-body {
-    text-align: center;
-    background-color: #fde2e2;
-    background-image: url("https://www.transparenttextures.com/patterns/white-wall-3.png");
-    color:  #679b9b;
-    padding: 1rem;
-    font-family: 'Montserrat', sans-serif;
-    margin-bottom: 60px;
-
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden; 
+  text-align: center;
+  background-color: #fde2e2;
+  background-image: url("https://www.transparenttextures.com/patterns/white-wall-3.png");
+  color:  #679b9b;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .nav-link {
@@ -71,6 +66,7 @@ p {
   margin: 0.1rem 0 0 0;
   font-family: 'EB Garamond', serif;
   font-size: 1.2rem;
+  line-height: 160%;
 }
 
 .icon {

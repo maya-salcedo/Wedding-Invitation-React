@@ -6,8 +6,7 @@ import FormWrapper, {FormGroupWrapper, ButtonWrapper} from '../elements/FormWrap
 import { FlagContext } from './FlagContext';
 
 const Accept = ({ history }) => {
-  const {flag} = useContext(FlagContext);
-
+  const { flag } = useContext(FlagContext);
   const [message, setMessage] = useState();
   const query = flag === 'italy' ? '?it=true' : '';
   const getMessage = async () => {
@@ -36,7 +35,6 @@ const Accept = ({ history }) => {
   }
 
   const accept = async () => { 
-    
     try 
       {
         if (detail.fname.length === 0){
@@ -56,8 +54,6 @@ const Accept = ({ history }) => {
         history.push('/unconfirmed-accept');
       }
   }
-
-
 
   return (
     <ComponentWrapper>

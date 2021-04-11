@@ -22,6 +22,14 @@ const StyledName = styled.h1`
     font-size: 6.2rem;
     padding-bottom: 5%;
   }
+  @media (max-width: 474px) {
+    font-size: 5rem;
+    padding-bottom: 5%;
+  }
+  @media (max-width: 334px) {
+    font-size: 4rem;
+    padding-bottom: 5%;
+  }
   > span {
     font-size: 4rem;
     @media (max-width: 1028px) {

@@ -34,8 +34,12 @@ const ButtonWrapper = styled.button`
 }
 `;
 
+const Space = styled.div`
+  height: 50vh;
+`;
+
 const Rsvp = ({ history }) => {
-  const {flag} = useContext(FlagContext);
+  const { flag } = useContext(FlagContext);
   const [message, setMessage] = useState();
   const query = flag === 'italy' ? '?it=true' : '';
   const getMessage = async () => {
@@ -64,13 +68,13 @@ const Rsvp = ({ history }) => {
     }
   }
 
-
   return (
     <ComponentWrapper>
       <GoldHeadingTwo text={message?.instruction} />
       <TextWrapper>{message?.date}</TextWrapper>
       <ButtonWrapper onClick={accept}>{message?.attending}</ButtonWrapper>
       <ButtonWrapper onClick={decline}>{message?.notattending}</ButtonWrapper>
+      <Space />
     </ComponentWrapper>
   );
 }

@@ -1,21 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
 const StyledFooter = styled.footer`
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  width: 100vw;
-  height: 3rem;
-  margin: auto;
-  font-style: italic;
+  height: 2rem;
   > p {
-    position: relative; 
-    left: -50%;
+    font-style: italic;
+    font-size: 0.9rem;
   }
 `;
-
 
 const Footer = () => {
   return (
