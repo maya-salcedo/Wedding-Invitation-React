@@ -34,6 +34,10 @@ const ButtonWrapper = styled.button`
   }
 `;
 
+const Space = styled.div`
+  height: 50vh;
+`;
+
 const Rsvp = ({ history }) => {
   const { flag } = useContext(FlagContext);
   const [message, setMessage] = useState();
@@ -71,6 +75,7 @@ const Rsvp = ({ history }) => {
       <TextWrapper>{message?.date}</TextWrapper>
       <ButtonWrapper onClick={accept}>{message?.attending}</ButtonWrapper>
       <ButtonWrapper onClick={decline}>{message?.notattending}</ButtonWrapper>
+      <Space />
     </ComponentWrapper>
   );
 }

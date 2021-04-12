@@ -1,15 +1,29 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import GoldHeadingTwo from '../elements/GoldHeadingTwo';
+import ComponentWrapper from '../elements/StyledContainer';
 import ResponseWrapper from '../elements/ResponseWrapper';
 import styled from 'styled-components';
 import { FlagContext } from './FlagContext';
 
 const MapWrapper = styled.img`
   padding: 1rem;
-  width: 20rem;
+  width: 30rem;
   height: auto;
   border-radius: 8%;
+  margin-left: auto;
+  margin-right: auto;
+  @media(max-width: 600px){
+    width: 20rem;
+  }
+  @media(max-width: 394px){
+    width: 15rem;
+    padding: 2rem;
+  }
+  @media(max-width: 320px){
+    width: 10rem;
+    padding: 1rem;
+  }
 `;
 
 const Travel = () => {
@@ -28,13 +42,13 @@ const Travel = () => {
   }, [flag]);
 
   return (
-    <div>
+    <ComponentWrapper>
       <GoldHeadingTwo text={recommendation?.title} />
       <MapWrapper img src="image/Lake Como Map.jpg" alt="como-map.img" />
       <ResponseWrapper>
         <p>{recommendation?.text}</p>
       </ResponseWrapper>
-    </div>
+    </ComponentWrapper>
   );
 }
 
