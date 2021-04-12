@@ -3,14 +3,13 @@ const { google } = require('googleapis');
 
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
-const REDIRECT_URI = 'https://developers.google.com/oauthplayground';
 const REFRESH_TOKEN = process.env.REFRESH_TOKEN;
+const REDIRECT_URI = 'https://developers.google.com/oauthplayground';
 
 const oAuth2Client = new google.auth.OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI);
 oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
 
 const sendEmail = async (guestDetail) => {
-  console.log(guestDetail);
   try {
     const accessToken = await oAuth2Client.getAccessToken();
     const transport = nodemailer.createTransport({
@@ -59,7 +58,7 @@ const sendEmail = async (guestDetail) => {
     return result;
     
   } catch (error) {
-    console.log("error at sendMail", error);
+    console.error("error");
     return error;
   }
 }
