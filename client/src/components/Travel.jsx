@@ -13,42 +13,49 @@ const MapWrapper = styled.img`
   border-radius: 8%;
   margin-left: auto;
   margin-right: auto;
-  @media(max-width: 600px){
+  @media (max-width: 600px) {
     width: 20rem;
   }
-  @media(max-width: 394px){
+  @media (max-width: 394px) {
     width: 15rem;
     padding: 2rem;
   }
-  @media(max-width: 320px){
+  @media (max-width: 320px) {
     width: 10rem;
     padding: 1rem;
   }
 `;
 
 const Travel = () => {
-  const {flag} = useContext(FlagContext);
+  const { flag } = useContext(FlagContext);
   const [recommendation, setRecommendation] = useState();
   const query = flag === 'italy' ? '?it=true' : '';
   const getRecommendation = async () => {
-    const { data } = await axios.get(`/api/travel${query}`);
+    const { data } = await axios.get(`/api/covid19${query}`);
     setRecommendation(data);
   };
 
   useEffect(() => {
     getRecommendation();
-// eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flag]);
 
   return (
     <ComponentWrapper>
       <GoldHeadingTwo text={recommendation?.title} />
-      <MapWrapper img src="image/Lake Como Map.jpg" alt="como-map.img" />
       <ResponseWrapper>
-        <p>{recommendation?.text}</p>
+        <p>{recommendation?.text1}</p>
+        <br />
+        <p>{recommendation?.text2}</p>
+        <br />
+        <p>{recommendation?.list1}</p>
+        <p>{recommendation?.list2}</p>
+        <p>{recommendation?.list3}</p>
+        <p>{recommendation?.list4}</p>
       </ResponseWrapper>
+      <MapWrapper img src="image/Lake Como Map.jpg" alt="como-map.img" />
     </ComponentWrapper>
   );
-}
+};
 
 export default Travel;

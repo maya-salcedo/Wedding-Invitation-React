@@ -18,32 +18,31 @@ import ConfirmedDecline from './components/ConfirmedDecline';
 import UnconfirmedDecline from './components/UnconfirmedDecline';
 import { FlagContext } from './components/FlagContext';
 
-
 const App = () => {
-    const [flag, setFlag] = useState('english')
-    return (
-      <BrowserRouter>
-        <GlobalStyle />
-        <FlagContext.Provider value={{flag, setFlag}} >
-          <Navigation />
-          <Switch >
-            <Route path="/" component={Home} exact />
-            <Route path="/wedding" component={Wedding}/>
-            <Route path="/gift" component={Gift} />
-            <Route path="/travel" component={Travel} />
-            <Route path="/rsvp" component={Rsvp} />
-            <Route path="/accept" component={Accept} />
-            <Route path="/decline" component={Decline} />
-            <Route path="/confirmed-accept" component={ConfirmedAccept} />
-            <Route path="/unconfirmed-accept" component={UnconfirmedAccept} />
-            <Route path="/confirmed-decline" component={ConfirmedDecline} />
-            <Route path="/unconfirmed-decline" component={UnconfirmedDecline} />
-            <Route component={Error} />
-          </Switch>
-          <Footer />
-        </FlagContext.Provider>
-      </BrowserRouter>
-    );
-}
+  const [flag, setFlag] = useState('english');
+  return (
+    <BrowserRouter>
+      <GlobalStyle />
+      <FlagContext.Provider value={{ flag, setFlag }}>
+        <Navigation />
+        <Switch>
+          <Route path="/" component={Home} exact />
+          <Route path="/wedding" component={Wedding} />
+          <Route path="/gift" component={Gift} />
+          <Route path="/covid19" component={Travel} />
+          <Route path="/rsvp" component={Rsvp} />
+          <Route path="/accept" component={Accept} />
+          <Route path="/decline" component={Decline} />
+          <Route path="/confirmed-accept" component={ConfirmedAccept} />
+          <Route path="/unconfirmed-accept" component={UnconfirmedAccept} />
+          <Route path="/confirmed-decline" component={ConfirmedDecline} />
+          <Route path="/unconfirmed-decline" component={UnconfirmedDecline} />
+          <Route component={Error} />
+        </Switch>
+        <Footer />
+      </FlagContext.Provider>
+    </BrowserRouter>
+  );
+};
 
 export default App;

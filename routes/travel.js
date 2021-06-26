@@ -2,18 +2,34 @@ var express = require('express');
 var router = express.Router();
 
 /* GET travel page */
-router.get("/", function (req, res, next) {
-  if(req.query.it){
+router.get('/', function (req, res, next) {
+  if (req.query.it) {
     return res.json({
-      "title": "Mappa",
-      "text": ""
-    })
+      title: 'Covid-19 Green Pass',
+      text1:
+        'Tutti i partecipanti al matrimonio devono essere in possesso della carta verde.',
+      text2:
+        'La Certificazione viene generata in automatico e messa a disposizione gratuitamente nei seguenti casi:',
+      list1:
+        'Aver effettuato la prima dose o il vaccino monodose da 15 giorni.',
+      list2: 'Aver completato il ciclo vaccinale.',
+      list3:
+        'Essere risultati negativi a un tampone molecolare o rapido nelle 48 ore precedenti, bambini esclusi fino a 12 anni.',
+      list4: '‌Essere guariti da COVID-19 nei sei mesi precedenti.',
+    });
   }
   return res.json({
-    "title": "Accommodation and Transportation",
-    "text": "You may stay anywhere in Como Lake area as you desire if you have a rented car to move around. Varenna, 7 km north of Lierna, is a charming place to stay. If you do not want to rent a car, Lecco City is a good place to find accommodation as it has good train connections to Milan City and Malpensa Airport. Lecco City is about 14 km south of Lierna. You can contact us for additional information."
-  }
-  )
+    title: 'Covid-19 Green Pass',
+    text1: 'All wedding participants must be in possession of the green card.',
+    text2:
+      'The Certification is generated automatically and made available free of charge in the following cases:',
+    list1:
+      '‌Has received the first dose or the single-dose vaccine 15 days before the wedding day.',
+    list2: '‌Have completed the vaccination cycle.',
+    list3:
+      'Have tested negative for a molecular or rapid swab within the previous 48 hours, excluding children up to 12 years.',
+    list4: '‌Be cured of COVID-19 within the previous six months.',
+  });
 });
 
 module.exports = router;

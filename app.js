@@ -10,7 +10,7 @@ const navigation = require('./routes/navigation');
 const couple = require('./routes/couple');
 const wedding = require('./routes/wedding');
 const gift = require('./routes/gift');
-const travel = require('./routes/travel');
+const travel = require('./routes/covid19');
 const rsvp = require('./routes/rsvp');
 const accept = require('./routes/accept');
 const decline = require('./routes/decline');
@@ -30,7 +30,7 @@ app.set('view engine', 'jade');
 
 // app.use(logger('dev'));
 app.use(express.json());
-app.use(cors())
+app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
@@ -43,7 +43,7 @@ app.use('/api/navigation', navigation);
 app.use('/api/couple', couple);
 app.use('/api/wedding', wedding);
 app.use('/api/gift', gift);
-app.use('/api/travel', travel);
+app.use('/api/covid19', travel);
 app.use('/api/rsvp', rsvp);
 app.use('/api/accept', accept);
 app.use('/api/decline', decline);
@@ -53,16 +53,16 @@ app.use('/api/confirmed-decline', confirmedDecline);
 app.use('/api/unconfirmed-decline', unconfirmedDecline);
 app.use('/api/testdb', testdb);
 app.use('*', (req, res) => {
-  res.sendFile(path.join(__dirname+'/client/build/index.html'));
+  res.sendFile(path.join(__dirname + '/client/build/index.html'));
 });
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
