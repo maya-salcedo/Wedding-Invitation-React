@@ -48,10 +48,12 @@ const Travel = () => {
         <br />
         <p>{recommendation?.text2}</p>
         <br />
-        <p>{recommendation?.list1}</p>
-        <p>{recommendation?.list2}</p>
-        <p>{recommendation?.list3}</p>
-        <p>{recommendation?.list4}</p>
+        <ul>
+          <li>{recommendation?.list1}</li>
+          <li>{recommendation?.list2}</li>
+          <li>{recommendation?.list3}</li>
+          <li>{recommendation?.list4}</li>
+        </ul>
       </ResponseWrapper>
       <MapWrapper img src="image/Lake Como Map.jpg" alt="como-map.img" />
     </ComponentWrapper>
