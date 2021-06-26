@@ -72,7 +72,7 @@ const Navigation = () => {
         <NavLink className="nav-link" to="/">{message?.home}</NavLink>
         <NavLink className="nav-link" to="/wedding">{message?.wedding}</NavLink>
         <NavLink className="nav-link" to="/gift">{message?.gifts}</NavLink>
-        <NavLink className="nav-link" to="/covid19">{message?.travel}</NavLink>
+        <NavLink className="nav-link" to="/covid19">{message?.covid19}</NavLink>
         <NavLink className="nav-link" to="/rsvp">{message?.rsvp}</NavLink>
       </NavWrapper>
       <FlagWrapper>
