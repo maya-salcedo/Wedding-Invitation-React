@@ -8,7 +8,7 @@ router.get("/", function (req, res, next) {
       "home": "HOME",
       "wedding": "INFO",
       "gifts": "REGALI",
-      "covid19": "COVID19",
+      "covid19": "COVID-19",
       "rsvp": "RISPONDI"
     })
   }
@@ -16,7 +16,7 @@ router.get("/", function (req, res, next) {
     "home": "HOME",
     "wedding": "WEDDING",
     "gifts": "GIFTS",
-    "covid19": "COVID19",
+    "covid19": "COVID-19",
     "rsvp": "RSVP"
   })
 })
