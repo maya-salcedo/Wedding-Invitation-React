@@ -86,7 +86,7 @@ a:hover {
   text-decoration: underline;
 }
 ul {
-  padding-left: 2rem;
+  padding-left: 1rem;
 }
 `;
 
