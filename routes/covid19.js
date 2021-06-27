@@ -25,10 +25,10 @@ router.get('/', function (req, res, next) {
       'The Certification is generated automatically and made available free of charge in the following cases:',
     list1:
       '‌Has received the first dose or the single-dose vaccine 15 days before the wedding day.',
-    list2: '‌Have completed the vaccination cycle.',
+    list2: '‌Has completed the vaccination cycle.',
     list3:
-      'Have tested negative for a molecular or rapid swab within the previous 48 hours, excluding children up to 12 years.',
-    list4: '‌Be cured of COVID-19 within the previous six months.',
+      'Has tested negative for a molecular or rapid swab within 48 hours, excluding children up to 12 years.',
+    list4: '‌Has been cured from COVID-19 within the past six months.',
   });
 });
 
