@@ -26,6 +26,10 @@ const MapWrapper = styled.img`
   }
 `;
 
+const TextWrapper = styled.p`
+  font-family: Montserrat, sans-serif;
+`;
+
 const Travel = () => {
   const { flag } = useContext(FlagContext);
   const [recommendation, setRecommendation] = useState();
@@ -44,9 +48,9 @@ const Travel = () => {
     <ComponentWrapper>
       <GoldHeadingTwo text={recommendation?.title} />
       <ResponseWrapper>
-        <p>{recommendation?.text1}</p>
+        <TextWrapper>{recommendation?.text1}</TextWrapper>
         <br />
-        <p>{recommendation?.text2}</p>
+        <TextWrapper>{recommendation?.text2}</TextWrapper>
         <br />
         <ul>
           <li>{recommendation?.list1}</li>
