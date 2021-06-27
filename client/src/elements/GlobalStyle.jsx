@@ -85,6 +85,9 @@ a:link {
 a:hover {
   text-decoration: underline;
 }
+ul {
+  padding-left: 2rem;
+}
 `;
 
 
