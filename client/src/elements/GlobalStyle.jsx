@@ -62,7 +62,7 @@ h3 {
 }
 
 
-p {
+p, li {
   margin: 0.1rem 0 0 0;
   font-family: 'EB Garamond', serif;
   font-size: 1.2rem;
