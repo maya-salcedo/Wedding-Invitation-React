@@ -11,7 +11,7 @@ router.get("/", function (req, res, next) {
       "instruction": "Al nostro conto corrente oppure in contanti:",
       "name": "Name: May Salcedo",
       "number": "Account#: FI29 3939 0050 8098 54",
-      "bic": "BIC: SBANFIH"
+      "bic": "BIC: SBANFIHH"
     }
     })
   }
