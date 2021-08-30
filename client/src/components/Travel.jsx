@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import ComoMap from './image/Lake Como Map.jpg';
 import GoldHeadingTwo from '../elements/GoldHeadingTwo';
 import ResponseWrapper from '../elements/ResponseWrapper';
 import styled from 'styled-components';
@@ -14,7 +13,7 @@ const MapWrapper = styled.img`
 `;
 
 const Travel = () => {
-  const {flag} = useContext(FlagContext);
+  const { flag } = useContext(FlagContext);
 
   const [recommendation, setRecommendation] = useState();
   const query = flag === 'italy' ? '?it=true' : '';
@@ -25,18 +24,18 @@ const Travel = () => {
 
   useEffect(() => {
     getRecommendation();
-// eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flag]);
 
   return (
     <div>
       <GoldHeadingTwo text={recommendation?.title} />
-      <MapWrapper img src={ComoMap} alt="como-map.img" />
+      <MapWrapper img src="image/Lake Como Map.jpg" alt="como-map.img" />
       <ResponseWrapper>
         <p>{recommendation?.text}</p>
       </ResponseWrapper>
     </div>
   );
-}
+};
 
 export default Travel;

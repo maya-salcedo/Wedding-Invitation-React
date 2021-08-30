@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from 'react';
-import Flower from './image/flower.png';
 import styled from 'styled-components';
 import axios from 'axios';
 import ComponentWrapper from '../elements/StyledContainer';
@@ -13,9 +12,21 @@ const StyledName = styled.h1`
   margin-top: 0%;
   margin-bottom: 0%;
   padding-bottom: 1%;
-  color: #D5AD6D; /*if no support for background-clip*/
+  color: #d5ad6d; /*if no support for background-clip*/
   background: -webkit-linear-gradient(transparent, transparent),
-  -webkit-linear-gradient(top, rgba(213,173,109,1) 0%, rgba(213,173,109,1) 26%, rgba(226,186,120,1) 35%, rgba(163,126,67,1) 45%, rgba(145,112,59,1) 61%, rgba(213,173,109,1) 100%);
+    -webkit-linear-gradient(top, rgba(213, 173, 109, 1) 0%, rgba(
+            213,
+            173,
+            109,
+            1
+          )
+          26%, rgba(226, 186, 120, 1) 35%, rgba(163, 126, 67, 1) 45%, rgba(
+            145,
+            112,
+            59,
+            1
+          )
+          61%, rgba(213, 173, 109, 1) 100%);
   background: -o-linear-gradient(transparent, transparent);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -26,7 +37,7 @@ const StyledName = styled.h1`
   > span {
     font-size: 4rem;
     @media (max-width: 1028px) {
-     font-size: 3rem;
+      font-size: 3rem;
     }
   }
 `;
@@ -46,14 +57,14 @@ const FlowerWrapper = styled.div`
 `;
 
 const Home = () => {
-  const {flag} = useContext(FlagContext);
+  const { flag } = useContext(FlagContext);
 
   const [couple, setCouple] = useState();
   const query = flag === 'italy' ? '?it=true' : '';
   const getCouple = async () => {
     const { data } = await axios.get(`http://localhost:9000/couple${query}`);
     setCouple(data);
-  }
+  };
   useEffect(() => {
     getCouple();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -68,10 +79,10 @@ const Home = () => {
       </StyledName>
       <StyledText>{couple?.event}</StyledText>
       <FlowerWrapper>
-        <img src={Flower} alt="flower-img" />
+        <img src="image/flower.png" alt="flower-img" />
       </FlowerWrapper>
     </ComponentWrapper>
   );
-}
+};
 
 export default Home;
