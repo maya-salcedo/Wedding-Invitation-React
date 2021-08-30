@@ -2,10 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import GoldHeadingTwo from '../elements/GoldHeadingTwo';
 import axios from 'axios';
 import ComponentWrapper from '../elements/StyledContainer';
-import FormWrapper, {
-  FormGroupWrapper,
-  ButtonWrapper,
-} from '../elements/FormWrapper';
+import FormWrapper, { ButtonWrapper } from '../elements/FormWrapper';
 import { FlagContext } from './FlagContext';
 
 const Accept = ({ history }) => {
@@ -64,7 +61,7 @@ const Accept = ({ history }) => {
       <GoldHeadingTwo text={message?.title} />
       <p>{message?.respondByDate}</p>
       <FormWrapper>
-        <FormGroupWrapper>
+        <div>
           <label htmlFor="fname">{message?.yourName}</label>
           <input
             className="name"
@@ -75,8 +72,8 @@ const Accept = ({ history }) => {
             placeholder={message?.yourName1}
             style={{ textTransform: 'capitalize' }}
           />
-        </FormGroupWrapper>
-        <FormGroupWrapper>
+        </div>
+        <div>
           <label htmlFor="email">Email:</label>
           <input
             name="email"
@@ -85,8 +82,8 @@ const Accept = ({ history }) => {
             type="email"
             placeholder="Email"
           />
-        </FormGroupWrapper>
-        <FormGroupWrapper>
+        </div>
+        <div>
           <label htmlFor="phone">{message?.phone}</label>
           <input
             name="phone"
@@ -95,8 +92,8 @@ const Accept = ({ history }) => {
             type="number"
             placeholder={message?.phone1}
           />
-        </FormGroupWrapper>
-        <FormGroupWrapper>
+        </div>
+        <div>
           <label htmlFor="additional">{message?.additionalNames}</label>
           <textarea
             name="additional"
@@ -106,8 +103,8 @@ const Accept = ({ history }) => {
             value={detail.additional}
             onChange={handleChange}
           />
-        </FormGroupWrapper>
-        <FormGroupWrapper>
+        </div>
+        <div>
           <label htmlFor="message">{message?.yourMessage}</label>
           <textarea
             name="message"
@@ -117,7 +114,7 @@ const Accept = ({ history }) => {
             value={detail.message}
             onChange={handleChange}
           />
-        </FormGroupWrapper>
+        </div>
       </FormWrapper>
       <ButtonWrapper onClick={accept} text={message?.yourResponse} />
     </ComponentWrapper>

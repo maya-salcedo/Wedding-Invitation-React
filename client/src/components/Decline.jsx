@@ -2,10 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import GoldHeadingTwo from '../elements/GoldHeadingTwo';
 import axios from 'axios';
 import ComponentWrapper from '../elements/StyledContainer';
-import FormWrapper, {
-  FormGroupWrapper,
-  ButtonWrapper,
-} from '../elements/FormWrapper';
+import FormWrapper, { ButtonWrapper } from '../elements/FormWrapper';
 import { FlagContext } from './FlagContext';
 
 const Decline = ({ history }) => {
@@ -61,7 +58,7 @@ const Decline = ({ history }) => {
       <GoldHeadingTwo text={message?.title} />
       <p>{message?.respondByDate}</p>
       <FormWrapper>
-        <FormGroupWrapper>
+        <div>
           <label htmlFor="fname">{message?.yourName}</label>
           <input
             name="fname"
@@ -70,8 +67,8 @@ const Decline = ({ history }) => {
             value={detail.fname}
             onChange={handleChange}
           />
-        </FormGroupWrapper>
-        <FormGroupWrapper>
+        </div>
+        <div>
           <label htmlFor="email">Email:</label>
           <input
             name="email"
@@ -80,8 +77,8 @@ const Decline = ({ history }) => {
             value={detail.email}
             onChange={handleChange}
           />
-        </FormGroupWrapper>
-        <FormGroupWrapper>
+        </div>
+        <div>
           <label htmlFor="phone">{message?.phone}</label>
           <input
             name="phone"
@@ -90,8 +87,8 @@ const Decline = ({ history }) => {
             value={detail.phone}
             onChange={handleChange}
           />
-        </FormGroupWrapper>
-        <FormGroupWrapper>
+        </div>
+        <div>
           <label htmlFor="message">{message?.yourMessage}</label>
           <textarea
             name="message"
@@ -101,7 +98,7 @@ const Decline = ({ history }) => {
             value={detail.message}
             onChange={handleChange}
           />
-        </FormGroupWrapper>
+        </div>
       </FormWrapper>
       <ButtonWrapper onClick={decline} text={message?.yourResponse} />
     </ComponentWrapper>
