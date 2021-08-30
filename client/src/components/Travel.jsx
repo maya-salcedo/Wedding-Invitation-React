@@ -5,11 +5,13 @@ import ResponseWrapper from '../elements/ResponseWrapper';
 import styled from 'styled-components';
 import { FlagContext } from './FlagContext';
 
-const MapWrapper = styled.img`
-  padding: 1rem;
-  width: 20rem;
-  height: auto;
-  border-radius: 8%;
+const MapWrapper = styled.div`
+  > img {
+    padding: 1rem;
+    width: 20rem;
+    height: auto;
+    border-radius: 8%;
+  }
 `;
 
 const Travel = () => {
@@ -30,7 +32,9 @@ const Travel = () => {
   return (
     <div>
       <GoldHeadingTwo text={recommendation?.title} />
-      <MapWrapper src="image/Lake Como Map.jpg" alt="como-map.img" />
+      <MapWrapper>
+        <img src="image/comolake.jpg" alt="como-map.img" />
+      </MapWrapper>
       <ResponseWrapper>
         <p>{recommendation?.text}</p>
       </ResponseWrapper>
