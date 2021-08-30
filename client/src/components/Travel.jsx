@@ -18,7 +18,7 @@ const Travel = () => {
   const [recommendation, setRecommendation] = useState();
   const query = flag === 'italy' ? '?it=true' : '';
   const getRecommendation = async () => {
-    const { data } = await axios.get(`http://localhost:9000/travel${query}`);
+    const { data } = await axios.get(`/api/travel${query}`);
     setRecommendation(data);
   };
 
@@ -30,7 +30,7 @@ const Travel = () => {
   return (
     <div>
       <GoldHeadingTwo text={recommendation?.title} />
-      <MapWrapper img src="image/Lake Como Map.jpg" alt="como-map.img" />
+      <MapWrapper src="image/Lake Como Map.jpg" alt="como-map.img" />
       <ResponseWrapper>
         <p>{recommendation?.text}</p>
       </ResponseWrapper>

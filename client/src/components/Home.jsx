@@ -62,7 +62,7 @@ const Home = () => {
   const [couple, setCouple] = useState();
   const query = flag === 'italy' ? '?it=true' : '';
   const getCouple = async () => {
-    const { data } = await axios.get(`http://localhost:9000/couple${query}`);
+    const { data } = await axios.get(`/api/couple${query}`);
     setCouple(data);
   };
   useEffect(() => {

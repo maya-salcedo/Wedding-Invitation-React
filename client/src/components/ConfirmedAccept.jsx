@@ -2,22 +2,22 @@ import axios from 'axios';
 import React, { useEffect, useState, useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope, faPhoneAlt  } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
 import GoldHeadingTwo from '../elements/GoldHeadingTwo';
 import ResponseWrapper from '../elements/ResponseWrapper';
 import { FlagContext } from './FlagContext';
 
 const ConfirmedAccept = () => {
-  const {flag} = useContext(FlagContext);
+  const { flag } = useContext(FlagContext);
   const [note, setNote] = useState();
   const query = flag === 'italy' ? '?it=true' : '';
   const getNote = async () => {
-    const { data } = await axios.get(`http://localhost:9000/confirmed-accept${query}`);
+    const { data } = await axios.get(`/api/confirmed-accept${query}`);
     setNote(data);
   };
   useEffect(() => {
     getNote();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flag]);
 
   return (
@@ -32,11 +32,20 @@ const ConfirmedAccept = () => {
         <p>{note?.confirmed?.message2}</p>
       </ResponseWrapper>
       <ResponseWrapper>
-        <p> <FontAwesomeIcon icon={faEnvelope} />  {note?.contact?.email} </p>
-        <p> <FontAwesomeIcon icon={faPhoneAlt} />  {note?.contact?.phone} </p>
-        <p> <FontAwesomeIcon icon={faWhatsapp} />  {note?.contact?.whatsapp} </p>
+        <p>
+          {' '}
+          <FontAwesomeIcon icon={faEnvelope} /> {note?.contact?.email}{' '}
+        </p>
+        <p>
+          {' '}
+          <FontAwesomeIcon icon={faPhoneAlt} /> {note?.contact?.phone}{' '}
+        </p>
+        <p>
+          {' '}
+          <FontAwesomeIcon icon={faWhatsapp} /> {note?.contact?.whatsapp}{' '}
+        </p>
       </ResponseWrapper>
     </div>
   );
-}
+};
 export default ConfirmedAccept;

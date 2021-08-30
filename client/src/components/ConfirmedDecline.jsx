@@ -5,26 +5,26 @@ import ResponseWrapper from '../elements/ResponseWrapper';
 import { FlagContext } from './FlagContext';
 
 const ConfirmedDecline = () => {
-  const {flag} = useContext(FlagContext);
+  const { flag } = useContext(FlagContext);
   const [note, setNote] = useState();
   const query = flag === 'italy' ? '?it=true' : '';
   const getNote = async () => {
-    const { data } = await axios.get(`http://localhost:9000/confirmed-decline${query}`);
+    const { data } = await axios.get(`/api/confirmed-decline${query}`);
     setNote(data);
   };
   useEffect(() => {
     getNote();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flag]);
 
   return (
-      <div>
-        <GoldHeadingTwo text={note?.decline?.confirmed?.title} />
-        <ResponseWrapper>
-          <p>{note?.decline?.confirmed?.message}</p>
-          <p>{note?.decline?.confirmed?.message1}</p>
-        </ResponseWrapper>      
-      </div>      
+    <div>
+      <GoldHeadingTwo text={note?.decline?.confirmed?.title} />
+      <ResponseWrapper>
+        <p>{note?.decline?.confirmed?.message}</p>
+        <p>{note?.decline?.confirmed?.message1}</p>
+      </ResponseWrapper>
+    </div>
   );
-}
+};
 export default ConfirmedDecline;

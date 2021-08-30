@@ -4,20 +4,19 @@ import GoldHeadingTwo from '../elements/GoldHeadingTwo';
 import ResponseWrapper from '../elements/ResponseWrapper';
 import { FlagContext } from './FlagContext';
 
-
 const Gift = () => {
-  const {flag} = useContext(FlagContext);
+  const { flag } = useContext(FlagContext);
 
   const [message, setMessage] = useState();
   const query = flag === 'italy' ? '?it=true' : '';
   const getMessage = async () => {
-    const { data } = await axios.get(`http://localhost:9000/gift${query}`);
+    const { data } = await axios.get(`/api/gift${query}`);
     setMessage(data);
   };
 
   useEffect(() => {
     getMessage();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flag]);
 
   return (
@@ -26,7 +25,6 @@ const Gift = () => {
       <ResponseWrapper>
         <p> {message?.message}</p>
       </ResponseWrapper>
-        
 
       <ResponseWrapper>
         <p>{message?.account?.instruction}</p>
@@ -36,6 +34,6 @@ const Gift = () => {
       </ResponseWrapper>
     </div>
   );
-}
+};
 
 export default Gift;
