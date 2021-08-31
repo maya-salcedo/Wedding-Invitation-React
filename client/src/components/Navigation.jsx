@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { FlagContext } from './FlagContext';
-import axios from 'axios';
 import Select from 'react-select';
 
 const StyledImage = styled.img`
@@ -38,7 +37,6 @@ const FlagWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   margin-top: 1rem;
-  padding: 0.5rem;
 `;
 
 const Navigation = () => {
@@ -81,24 +79,12 @@ const Navigation = () => {
       boxShadow: 'none',
     }),
     singleValue: (provided, state) => {
-      const opacity = state.isDisabled ? 0.9 : 1;
+      const opacity = state.isDisabled ? 0.5 : 1;
       const transition = 'opacity 300ms';
+
       return { ...provided, opacity, transition };
     },
   };
-
-  const query = flag === 'italy' ? '?it=true' : '';
-  const getMessage = async () => {
-    const { data } = await axios.get(
-      `http://localhost:9000/navigation${query}`
-    );
-    setMessage(data);
-  };
-
-  useEffect(() => {
-    getMessage();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [flag]);
 
   return (
     <div>

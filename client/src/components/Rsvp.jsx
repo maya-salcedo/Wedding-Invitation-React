@@ -82,7 +82,6 @@ const Rsvp = ({ history }) => {
       <TextWrapper>{message?.date}</TextWrapper>
       <ButtonWrapper onClick={accept}>{message?.attending}</ButtonWrapper>
       <ButtonWrapper onClick={decline}>{message?.notattending}</ButtonWrapper>
-      <Space />
     </ComponentWrapper>
   );
 };

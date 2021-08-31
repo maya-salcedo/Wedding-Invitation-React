@@ -36,6 +36,7 @@ router.get('/', function (req, res, next) {
 
 router.post('/', async (req, res) => {
   try {
+    console.log(req.body);
     insertParticipant(req.body);
   } catch (err) {
     console.error(err.message);
