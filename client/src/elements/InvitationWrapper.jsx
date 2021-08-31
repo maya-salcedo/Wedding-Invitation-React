@@ -1,10 +1,22 @@
-import React from 'react'
+import React from 'react';
 import styled from 'styled-components';
 
 const GoldText = styled.h2`
-  color: #D5AD6D; /*if no support for background-clip*/
+  color: #d5ad6d; /*if no support for background-clip*/
   background: -webkit-linear-gradient(transparent, transparent),
-  -webkit-linear-gradient(top, rgba(213,173,109,1) 0%, rgba(213,173,109,1) 26%, rgba(226,186,120,1) 35%, rgba(163,126,67,1) 45%, rgba(145,112,59,1) 61%, rgba(213,173,109,1) 100%);
+    -webkit-linear-gradient(top, rgba(213, 173, 109, 1) 0%, rgba(
+            213,
+            173,
+            109,
+            1
+          )
+          26%, rgba(226, 186, 120, 1) 35%, rgba(163, 126, 67, 1) 45%, rgba(
+            145,
+            112,
+            59,
+            1
+          )
+          61%, rgba(213, 173, 109, 1) 100%);
   background: -o-linear-gradient(transparent, transparent);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -64,9 +76,18 @@ const StyledReceptionText = styled.p`
 
 export const InvitationWrapper = (props) => {
   const {
-    invite, date, time, churchName, churchLink, churchAddressFirst,
-    churchAddressSecond, receptionText, restaurantName, restaurantLink, restaurantAddressFirst,
-    restaurantAddressSecond
+    invite,
+    date,
+    time,
+    churchName,
+    churchLink,
+    churchAddressFirst,
+    churchAddressSecond,
+    receptionText,
+    restaurantName,
+    restaurantLink,
+    restaurantAddressFirst,
+    restaurantAddressSecond,
   } = props;
   return (
     <Wrapper>
@@ -74,26 +95,30 @@ export const InvitationWrapper = (props) => {
       <StyledDate> {date} </StyledDate>
       <StyledTime>{time}</StyledTime>
       <GoldHeader margin="3rem 0 0 0">
-      <a href={churchLink} target="_blank">{churchName}</a>
+        <a href={churchLink} target="_blank">
+          {churchName}
+        </a>
       </GoldHeader>
       <StyledAddress>
         <a href={churchLink} target="_blank">
-        {churchAddressFirst}
-        <br />
-        {churchAddressSecond}
+          {churchAddressFirst}
+          <br />
+          {churchAddressSecond}
         </a>
       </StyledAddress>
       <StyledReceptionText>{receptionText}</StyledReceptionText>
       <GoldHeader margin="1rem 0 0 0">
-      <a href={restaurantLink} target="_blank">{restaurantName}</a>
+        <a href={restaurantLink} target="_blank">
+          {restaurantName}
+        </a>
       </GoldHeader>
       <StyledAddress>
-      <a href={restaurantLink} target="_blank">
-        {restaurantAddressFirst}
-        <br />
-        {restaurantAddressSecond}
-      </a>
+        <a href={restaurantLink} target="_blank">
+          {restaurantAddressFirst}
+          <br />
+          {restaurantAddressSecond}
+        </a>
       </StyledAddress>
     </Wrapper>
-  )
-}
+  );
+};

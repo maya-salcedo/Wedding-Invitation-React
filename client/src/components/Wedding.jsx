@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCocktail, faUserTie } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import ComponentWrapper from '../elements/StyledContainer';
-import { InvitationWrapper } from './InvitationWrapper';
+import { InvitationWrapper } from '../elements/InvitationWrapper';
 import { FlagContext } from './FlagContext';
 
 const FirstBoxWrapper = styled.div`
@@ -84,13 +84,17 @@ const Wedding = () => {
         <StyledInformation>Wedding Information</StyledInformation>
         <InformationWrapper>
           <FontAwesomeIcon icon={faCocktail} className="icon" />
-          <p>{instruction?.dining?.line1}</p>
-          <p>{instruction?.dining?.line2}</p>
+          <p>
+            {instruction?.dining?.line1} <br />
+            {instruction?.dining?.line2}
+          </p>
           <FontAwesomeIcon icon={faUserTie} className="icon" />
-          <p>{instruction?.dresscode?.line1}</p>
-          <p>{instruction?.dresscode?.line2}</p>
-          <p>{instruction?.dresscode?.line3}</p>
-          <p>{instruction?.dresscode?.line4}</p>
+          <p>
+            {instruction?.dresscode?.line1} <br />
+            {instruction?.dresscode?.line2} <br />
+            {instruction?.dresscode?.line3} <br />
+            {instruction?.dresscode?.line4}
+          </p>
         </InformationWrapper>
       </SecondBoxWrapper>
     </ComponentWrapper>
