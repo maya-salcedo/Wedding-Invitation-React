@@ -8,15 +8,15 @@ import { FlagContext } from './FlagContext';
 const Decline = ({ history }) => {
   const { flag } = useContext(FlagContext);
 
-  const [message, setMessage] = useState();
+  const [info, setInfo] = useState();
   const query = flag === 'italy' ? '?it=true' : '';
-  const getMessage = async () => {
+  const getInfo = async () => {
     const { data } = await axios.get(`/api/decline${query}`);
-    setMessage(data);
+    setInfo(data);
   };
 
   useEffect(() => {
-    getMessage();
+    getInfo();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flag]);
 
@@ -55,15 +55,15 @@ const Decline = ({ history }) => {
 
   return (
     <ComponentWrapper>
-      <GoldHeadingTwo text={message?.title} />
-      <p>{message?.respondByDate}</p>
+      <GoldHeadingTwo text={info?.title} />
+      <p>{info?.respondByDate}</p>
       <FormWrapper>
         <div>
-          <label htmlFor="fname">{message?.yourName}</label>
+          <label htmlFor="fname">{info?.yourName}</label>
           <input
             name="fname"
             type="text"
-            placeholder={message?.yourName1}
+            placeholder={info?.yourName1}
             value={detail.fname}
             onChange={handleChange}
           />
@@ -79,28 +79,28 @@ const Decline = ({ history }) => {
           />
         </div>
         <div>
-          <label htmlFor="phone">{message?.phone}</label>
+          <label htmlFor="phone">{info?.phone}</label>
           <input
             name="phone"
             type="number"
-            placeholder={message?.phone1}
+            placeholder={info?.phone1}
             value={detail.phone}
             onChange={handleChange}
           />
         </div>
         <div>
-          <label htmlFor="message">{message?.yourMessage}</label>
+          <label htmlFor="message">{info?.yourMessage}</label>
           <textarea
             name="message"
             type="text"
-            placeholder={message?.yourMessage1}
+            placeholder={info?.yourMessage1}
             rows="3"
             value={detail.message}
             onChange={handleChange}
           />
         </div>
       </FormWrapper>
-      <ButtonWrapper onClick={decline} text={message?.yourResponse} />
+      <ButtonWrapper onClick={decline} text={info?.yourResponse} />
     </ComponentWrapper>
   );
 };
