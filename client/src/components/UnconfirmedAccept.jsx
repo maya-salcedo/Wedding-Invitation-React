@@ -25,21 +25,16 @@ const UnconfirmedAccept = () => {
     <div>
       <FailedHeading text={note?.unconfirmed?.title} />
       <ResponseWrapper>
-        <p>{note?.unconfirmed?.message1}</p>
-        <p> {note?.unconfirmed?.message2}</p>
+        <p>
+          {note?.unconfirmed?.message1} <br />
+          {note?.unconfirmed?.message2}
+        </p>
       </ResponseWrapper>
       <ResponseWrapper>
         <p>
-          {' '}
-          <FontAwesomeIcon icon={faEnvelope} /> {note?.contact?.email}{' '}
-        </p>
-        <p>
-          {' '}
-          <FontAwesomeIcon icon={faPhoneAlt} /> {note?.contact?.phone}{' '}
-        </p>
-        <p>
-          {' '}
-          <FontAwesomeIcon icon={faWhatsapp} /> {note?.contact?.whatsapp}{' '}
+          <FontAwesomeIcon icon={faEnvelope} /> {note?.contact?.email} <br />
+          <FontAwesomeIcon icon={faPhoneAlt} /> {note?.contact?.phone} <br />
+          <FontAwesomeIcon icon={faWhatsapp} /> {note?.contact?.whatsapp}
         </p>
       </ResponseWrapper>
     </div>
