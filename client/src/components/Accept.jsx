@@ -8,16 +8,16 @@ import { FlagContext } from './FlagContext';
 const Accept = ({ history }) => {
   const { flag } = useContext(FlagContext);
 
-  const [message, setMessage] = useState();
+  const [info, setInfo] = useState();
   const query = flag === 'italy' ? '?it=true' : '';
 
-  const getMessage = async () => {
+  const getInfo = async () => {
     const { data } = await axios.get(`/api/accept${query}`);
-    setMessage(data);
+    setInfo(data);
   };
 
   useEffect(() => {
-    getMessage();
+    getInfo();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flag]);
 
@@ -45,7 +45,7 @@ const Accept = ({ history }) => {
           Name: detail.fname,
           Phone: detail.phone,
           Email: detail.email,
-          Additional: detail.additional,
+          AdditionalGuest: detail.additional,
           Message: detail.message,
           Response: 'Accept',
         });
@@ -58,18 +58,18 @@ const Accept = ({ history }) => {
 
   return (
     <ComponentWrapper>
-      <GoldHeadingTwo text={message?.title} />
-      <p>{message?.respondByDate}</p>
+      <GoldHeadingTwo text={info?.title} />
+      <p>{info?.respondByDate}</p>
       <FormWrapper>
         <div>
-          <label htmlFor="fname">{message?.yourName}</label>
+          <label htmlFor="fname">{info?.yourName}</label>
           <input
             className="name"
             name="fname"
             value={detail.fname}
             onChange={handleChange}
             type="text"
-            placeholder={message?.yourName1}
+            placeholder={info?.yourName1}
             style={{ textTransform: 'capitalize' }}
           />
         </div>
@@ -84,39 +84,39 @@ const Accept = ({ history }) => {
           />
         </div>
         <div>
-          <label htmlFor="phone">{message?.phone}</label>
+          <label htmlFor="phone">{info?.phone}</label>
           <input
             name="phone"
             value={detail.phone}
             onChange={handleChange}
             type="number"
-            placeholder={message?.phone1}
+            placeholder={info?.phone1}
           />
         </div>
         <div>
-          <label htmlFor="additional">{message?.additionalNames}</label>
+          <label htmlFor="additional">{info?.additionalNames}</label>
           <textarea
             name="additional"
             type="text"
-            placeholder={message?.additionalNames1}
+            placeholder={info?.additionalNames1}
             rows="3"
             value={detail.additional}
             onChange={handleChange}
           />
         </div>
         <div>
-          <label htmlFor="message">{message?.yourMessage}</label>
+          <label htmlFor="message">{info?.yourMessage}</label>
           <textarea
             name="message"
             type="text"
-            placeholder={message?.yourMessage1}
+            placeholder={info?.yourMessage1}
             rows="3"
             value={detail.message}
             onChange={handleChange}
           />
         </div>
       </FormWrapper>
-      <ButtonWrapper onClick={accept} text={message?.yourResponse} />
+      <ButtonWrapper onClick={accept} text={info?.yourResponse} />
     </ComponentWrapper>
   );
 };
