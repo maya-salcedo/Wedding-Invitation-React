@@ -9,40 +9,35 @@ import { FlagContext } from './FlagContext';
 
 const ConfirmedAccept = () => {
   const { flag } = useContext(FlagContext);
-  const [note, setNote] = useState();
+  const [message, setMessage] = useState();
   const query = flag === 'italy' ? '?it=true' : '';
-  const getNote = async () => {
+  const getMessage = async () => {
     const { data } = await axios.get(`/api/confirmed-accept${query}`);
-    setNote(data);
+    setMessage(data);
   };
   useEffect(() => {
-    getNote();
+    getMessage();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flag]);
 
   return (
     <div>
-      <GoldHeadingTwo text={note?.confirmed?.title} />
+      <GoldHeadingTwo text={message?.confirmed?.title} />
       <ResponseWrapper>
-        <p>{note?.confirmed?.message1}</p>
+        <p>{message?.confirmed?.message1}</p>
         <div>
-          <p>{note?.confirmed?.information?.date}</p>
-          <p>{note?.confirmed?.information?.place}</p>
+          <p>
+            {message?.confirmed?.information?.date} <br />
+            {message?.confirmed?.information?.place}
+          </p>
         </div>
-        <p>{note?.confirmed?.message2}</p>
+        <p>{message?.confirmed?.message2}</p>
       </ResponseWrapper>
       <ResponseWrapper>
         <p>
-          {' '}
-          <FontAwesomeIcon icon={faEnvelope} /> {note?.contact?.email}{' '}
-        </p>
-        <p>
-          {' '}
-          <FontAwesomeIcon icon={faPhoneAlt} /> {note?.contact?.phone}{' '}
-        </p>
-        <p>
-          {' '}
-          <FontAwesomeIcon icon={faWhatsapp} /> {note?.contact?.whatsapp}{' '}
+          <FontAwesomeIcon icon={faEnvelope} /> {message?.contact?.email} <br />
+          <FontAwesomeIcon icon={faPhoneAlt} /> {message?.contact?.phone} <br />
+          <FontAwesomeIcon icon={faWhatsapp} /> {message?.contact?.whatsapp}
         </p>
       </ResponseWrapper>
     </div>
