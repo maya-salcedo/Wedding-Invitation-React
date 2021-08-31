@@ -37,6 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/api/users', usersRouter);
+app.use('/api/navigation', navigation);
 app.use('/api/couple', couple);
 app.use('/api/wedding', wedding);
 app.use('/api/gift', gift);

@@ -1,7 +1,8 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { FlagContext } from './FlagContext';
+import axios from 'axios';
 import Select from 'react-select';
 
 const StyledImage = styled.img`
@@ -37,10 +38,11 @@ const FlagWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   margin-top: 1rem;
+  padding: 0.5rem;
 `;
 
 const Navigation = () => {
-  const { setFlag } = useContext(FlagContext);
+  const { flag, setFlag } = useContext(FlagContext);
   const [message, setMessage] = useState();
   const getOption = (e) => {
     console.log(e);
@@ -102,19 +104,19 @@ const Navigation = () => {
     <div>
       <NavWrapper>
         <NavLink className="nav-link" to="/">
-          HOME
+          {message?.home}
         </NavLink>
         <NavLink className="nav-link" to="/wedding">
-          WEDDING
+          {message?.wedding}
         </NavLink>
         <NavLink className="nav-link" to="/gift">
-          GIFTS
+          {message?.gifts}
         </NavLink>
         <NavLink className="nav-link" to="/travel">
-          TRAVEL
+          {message?.travel}
         </NavLink>
         <NavLink className="nav-link" to="/rsvp">
-          RSVP
+          {message?.rsvp}
         </NavLink>
       </NavWrapper>
       <FlagWrapper>
