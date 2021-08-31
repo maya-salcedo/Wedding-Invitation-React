@@ -1,5 +1,5 @@
 const express = require('express');
-const { insertParticipant, getAllParticipants } = require('../utils/dbqueries');
+const pool = require('../db');
 const router = express.Router();
 
 router.get('/', function (req, res, next) {
@@ -31,7 +31,21 @@ router.get('/', function (req, res, next) {
 
 router.post('/', async (req, res) => {
   try {
-    insertParticipant(req.body);
+    const { Name, Email, Phone, Message, Response } = req.body;
+    const newResponse = await pool.query(
+      `INSERT INTO weddingguestlist(
+      fullname, 
+      email, 
+      phone, 
+      guestmessage, 
+      response) 
+      VALUES($1, $2, $3, $4, $5) 
+      RETURNING *`,
+      [Name, Email, Phone, Message, Response]
+    );
+    const guestDetail = newResponse.rows[0];
+    console.log(guestDetail);
+    res.json(guestDetail);
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Something Went Wrong');
@@ -40,8 +54,8 @@ router.post('/', async (req, res) => {
 
 router.get('/', async (req, res) => {
   try {
-    const allResponse = getAllParticipants;
-    res.json(allResponse);
+    const allResponse = await pool.query('SELECT * FROM guestlist');
+    return allResponse.rows;
   } catch (err) {
     console.error(err.message);
   }

@@ -41,17 +41,18 @@ const Accept = ({ history }) => {
       if (detail.fname.length === 0) {
         alert('Please enter your name.');
       } else {
+        history.push('/confirmed-accept');
         await axios.post('/api/accept', {
           Name: detail.fname,
-          Phone: detail.phone,
           Email: detail.email,
+          Phone: detail.phone,
           AdditionalGuest: detail.additional,
           Message: detail.message,
           Response: 'Accept',
         });
-        history.push('/confirmed-accept');
       }
     } catch (err) {
+      console.log(err);
       history.push('/unconfirmed-accept');
     }
   };
