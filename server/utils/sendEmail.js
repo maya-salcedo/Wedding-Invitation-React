@@ -6,7 +6,11 @@ const CLIENT_SECRET = process.env.CLIENT_SECRET;
 const REFRESH_TOKEN = process.env.REFRESH_TOKEN;
 const REDIRECT_URI = 'https://developers.google.com/oauthplayground';
 
-const oAuth2Client = new google.auth.OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI);
+const oAuth2Client = new google.auth.OAuth2(
+  CLIENT_ID,
+  CLIENT_SECRET,
+  REDIRECT_URI
+);
 oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
 
 const sendEmail = async (guestDetail) => {
@@ -21,7 +25,7 @@ const sendEmail = async (guestDetail) => {
         clientSecret: CLIENT_SECRET,
         refreshToken: REFRESH_TOKEN,
         accessToken: accessToken,
-      }
+      },
     });
 
     const mailOptions = {
@@ -51,16 +55,15 @@ const sendEmail = async (guestDetail) => {
             <p>Can't wait to see you!</p>
             <p>Best regards,</p>
             <p>Emanuele ❤️ Maya </p>
-            `
+            `,
     };
     const result = await transport.sendMail(mailOptions);
-    console.log("Email sent");
+    console.log('Email sent');
     return result;
-    
   } catch (error) {
-    console.error("error");
+    console.error('error in sending email');
     return error;
   }
-}
+};
 
 module.exports = sendEmail;
