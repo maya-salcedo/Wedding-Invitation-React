@@ -46,7 +46,6 @@ h3 {
 
 }
 
-
 p {
   margin: 0.1rem 0 0 0;
   font-family: 'EB Garamond', serif;
