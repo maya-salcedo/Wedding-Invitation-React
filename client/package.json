@@ -1,5 +1,6 @@
 {
   "name": "wedding-invitation-react",
+  "proxy": "http://localhost:9000",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -14,7 +15,6 @@
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.6.3",
     "axios": "^0.21.1",
-    "google-maps-react": "^2.0.6",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",

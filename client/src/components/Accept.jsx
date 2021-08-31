@@ -2,90 +2,123 @@ import React, { useState, useEffect, useContext } from 'react';
 import GoldHeadingTwo from '../elements/GoldHeadingTwo';
 import axios from 'axios';
 import ComponentWrapper from '../elements/StyledContainer';
-import FormWrapper, { FormGroupWrapper, ButtonWrapper } from '../elements/FormWrapper';
+import FormWrapper, { ButtonWrapper } from '../elements/FormWrapper';
 import { FlagContext } from './FlagContext';
 
 const Accept = ({ history }) => {
   const { flag } = useContext(FlagContext);
-  const [message, setMessage] = useState();
+
+  const [info, setInfo] = useState();
   const query = flag === 'italy' ? '?it=true' : '';
-  const getMessage = async () => {
-    const { data } = await axios.get(`http://localhost:9000/accept${query}`);
-    setMessage(data);
+
+  const getInfo = async () => {
+    const { data } = await axios.get(`/api/accept${query}`);
+    setInfo(data);
   };
 
   useEffect(() => {
-    getMessage();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    getInfo();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flag]);
 
   const [detail, setDetail] = useState({
-    fname: "",
-    email: "",
-    phone: "",
-    additional: "",
-    message: ""
+    fname: '',
+    email: '',
+    phone: '',
+    additional: '',
+    message: '',
   });
 
   const handleChange = (event) => {
     setDetail({
       ...detail,
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
-  }
+  };
 
-  const accept = async () => { 
-    
-    try 
-      {
-        if (detail.fname.length === 0){
-          alert("Please enter your name.");
-        } else {
-        await axios.post('http://localhost:9000/accept', {
-          Name:detail.fname,
+  const accept = async () => {
+    try {
+      if (detail.fname.length === 0) {
+        alert('Please enter your name.');
+      } else {
+        await axios.post('/api/accept', {
+          Name: detail.fname,
           Phone: detail.phone,
           Email: detail.email,
-          Additional: detail.additional,
+          AdditionalGuest: detail.additional,
           Message: detail.message,
-          Response: "Accept"
+          Response: 'Accept',
         });
         history.push('/confirmed-accept');
       }
-      } catch (err) {
-        history.push('/unconfirmed-accept');
-      }
-  }
+    } catch (err) {
+      history.push('/unconfirmed-accept');
+    }
+  };
 
   return (
     <ComponentWrapper>
-      <GoldHeadingTwo text={message?.title} />
-      <p>{message?.respondByDate}</p>
+      <GoldHeadingTwo text={info?.title} />
+      <p>{info?.respondByDate}</p>
       <FormWrapper>
-        <FormGroupWrapper>
-          <label htmlFor="fname">{message?.yourName}</label>
-          <input className="name" name="fname" value={detail.fname} onChange={handleChange} type="text" placeholder={message?.yourName1} style={{textTransform: 'capitalize'}} />
-        </FormGroupWrapper>
-        <FormGroupWrapper>
+        <div>
+          <label htmlFor="fname">{info?.yourName}</label>
+          <input
+            className="name"
+            name="fname"
+            value={detail.fname}
+            onChange={handleChange}
+            type="text"
+            placeholder={info?.yourName1}
+            style={{ textTransform: 'capitalize' }}
+          />
+        </div>
+        <div>
           <label htmlFor="email">Email:</label>
-          <input name="email" value={detail.email} onChange={handleChange} type="email" placeholder="Email" />
-        </FormGroupWrapper>      
-        <FormGroupWrapper>
-          <label htmlFor="phone">{message?.phone}</label>
-          <input name="phone" value={detail.phone} onChange={handleChange} type="number" placeholder={message?.phone1} />
-          </FormGroupWrapper>
-          <FormGroupWrapper>
-          <label htmlFor="additional">{message?.additionalNames}</label>
-          <textarea name="additional" type="text" placeholder={message?.additionalNames1} rows="3" value={detail.additional} onChange={handleChange} />
-        </FormGroupWrapper>
-        <FormGroupWrapper>
-          <label htmlFor="message">{message?.yourMessage}</label>
-          <textarea name="message" type="text" placeholder={message?.yourMessage1} rows="3" value={detail.message} onChange={handleChange} />
-        </FormGroupWrapper>         
-          
+          <input
+            name="email"
+            value={detail.email}
+            onChange={handleChange}
+            type="email"
+            placeholder="Email"
+          />
+        </div>
+        <div>
+          <label htmlFor="phone">{info?.phone}</label>
+          <input
+            name="phone"
+            value={detail.phone}
+            onChange={handleChange}
+            type="number"
+            placeholder={info?.phone1}
+          />
+        </div>
+        <div>
+          <label htmlFor="additional">{info?.additionalNames}</label>
+          <textarea
+            name="additional"
+            type="text"
+            placeholder={info?.additionalNames1}
+            rows="3"
+            value={detail.additional}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="message">{info?.yourMessage}</label>
+          <textarea
+            name="message"
+            type="text"
+            placeholder={info?.yourMessage1}
+            rows="3"
+            value={detail.message}
+            onChange={handleChange}
+          />
+        </div>
       </FormWrapper>
-      <ButtonWrapper onClick={accept} text={message?.yourResponse} />
+      <ButtonWrapper onClick={accept} text={info?.yourResponse} />
     </ComponentWrapper>
   );
-}
+};
 
 export default Accept;

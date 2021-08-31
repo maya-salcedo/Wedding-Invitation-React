@@ -15,25 +15,6 @@ html, body {
   font-family: 'Montserrat', sans-serif;
 }
 
-.nav-link {
-    color:  #679b9b !important;
-    margin: 0.5%;
-    text-decoration: none;
-    padding: 4px;
-    font-size: 1.2rem;
-}
-
-.nav-link:hover {
-    border: solid  #679b9b 1px;
-    margin: 0.5%;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    text-decoration: none;
-    color:  #679b9b;
-    padding: 3px;
-}
-
 h1 {
     font-family: 'Parisienne', cursive;
     font-size: 8rem;

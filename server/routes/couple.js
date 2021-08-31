@@ -1,20 +1,19 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  if(req.query.it){
+router.get('/', function (req, res, next) {
+  if (req.query.it) {
     return res.json({
-      'groom': 'Emanuele',
-      'bride': 'Maya',
-      'event': 'SI SPOSANO'
-    })
+      groom: 'Emanuele',
+      bride: 'Maya',
+      event: 'SI SPOSANO',
+    });
   }
   return res.json({
-    'groom': 'Emanuele',
-    'bride': 'Maya',
-    'event': 'ARE GETTING MARRIED'
-  })
+    groom: 'Emanuele',
+    bride: 'Maya',
+    event: 'ARE GETTING MARRIED',
+  });
 });
 
 module.exports = router;

@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCocktail, faUserTie } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCocktail, faUserTie } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import ComponentWrapper from '../elements/StyledContainer';
-import { InvitationWrapper } from './InvitationWrapper'
+import { InvitationWrapper } from '../elements/InvitationWrapper';
 import { FlagContext } from './FlagContext';
 
 const FirstBoxWrapper = styled.div`
@@ -13,8 +13,8 @@ const FirstBoxWrapper = styled.div`
 
 const FlowerWrapper = styled.div`
   height: 5rem;
-  >img {
-    width: 60%; 
+  > img {
+    width: 60%;
     transform: rotate(180deg);
   }
 `;
@@ -23,10 +23,9 @@ const SecondBoxWrapper = styled.div`
   margin-top: 5%;
   padding: 20% 1% 1% 1%;
   position: relative;
-  @media(max-width: 1380px) {
+  @media (max-width: 1380px) {
     padding-top: 5%;
   }
-
 `;
 
 const StyledInformation = styled.h2`
@@ -51,13 +50,13 @@ const Wedding = () => {
   const [instruction, setInstruction] = useState();
   const query = flag === 'italy' ? '?it=true' : '';
   const getInstruction = async () => {
-    const { data } = await axios.get(`http://localhost:9000/wedding${query}`);
+    const { data } = await axios.get(`/api/wedding${query}`);
     setInstruction(data);
-  }
+  };
 
   useEffect(() => {
     getInstruction();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flag]);
 
   return (
@@ -82,21 +81,24 @@ const Wedding = () => {
         />
       </FirstBoxWrapper>
       <SecondBoxWrapper>
-        <StyledInformation>
-          Wedding Information</StyledInformation>
+        <StyledInformation>Wedding Information</StyledInformation>
         <InformationWrapper>
           <FontAwesomeIcon icon={faCocktail} className="icon" />
-          <p>{instruction?.dining?.line1}</p>
-          <p>{instruction?.dining?.line2}</p>
+          <p>
+            {instruction?.dining?.line1} <br />
+            {instruction?.dining?.line2}
+          </p>
           <FontAwesomeIcon icon={faUserTie} className="icon" />
-          <p>{instruction?.dresscode?.line1}</p>
-          <p>{instruction?.dresscode?.line2}</p>
-          <p>{instruction?.dresscode?.line3}</p>
-          <p>{instruction?.dresscode?.line4}</p>
+          <p>
+            {instruction?.dresscode?.line1} <br />
+            {instruction?.dresscode?.line2} <br />
+            {instruction?.dresscode?.line3} <br />
+            {instruction?.dresscode?.line4}
+          </p>
         </InformationWrapper>
       </SecondBoxWrapper>
     </ComponentWrapper>
   );
-}
+};
 
 export default Wedding;

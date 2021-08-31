@@ -9,13 +9,13 @@ const Gift = () => {
   const [message, setMessage] = useState();
   const query = flag === 'italy' ? '?it=true' : '';
   const getMessage = async () => {
-    const { data } = await axios.get(`http://localhost:9000/gift${query}`);
+    const { data } = await axios.get(`/api/gift${query}`);
     setMessage(data);
   };
 
   useEffect(() => {
     getMessage();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flag]);
 
   return (
@@ -32,6 +32,6 @@ const Gift = () => {
       </ResponseWrapper>
     </div>
   );
-}
+};
 
 export default Gift;
