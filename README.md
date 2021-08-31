@@ -11,7 +11,7 @@ It is available at https://www.emanueleandmayawedding.com/
 
 It is also desktop and mobile size responsive.
 
-![Invitation Project 3](https://user-images.githubusercontent.com/68334235/131501114-e1dffe5b-a055-4072-87c5-3eb11a2938fd.gif)
+![Invitation Project 3](https://user-images.githubusercontent.com/68334235/131502046-eabd5386-d774-4b94-8a98-cedecfac22ae.gif)
 
 ## Available Scripts
 
