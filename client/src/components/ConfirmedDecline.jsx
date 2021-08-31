@@ -6,23 +6,23 @@ import { FlagContext } from './FlagContext';
 
 const ConfirmedDecline = () => {
   const { flag } = useContext(FlagContext);
-  const [note, setNote] = useState();
+  const [message, setMessage] = useState();
   const query = flag === 'italy' ? '?it=true' : '';
-  const getNote = async () => {
+  const getMessage = async () => {
     const { data } = await axios.get(`/api/confirmed-decline${query}`);
-    setNote(data);
+    setMessage(data);
   };
   useEffect(() => {
-    getNote();
+    getMessage();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flag]);
 
   return (
     <div>
-      <GoldHeadingTwo text={note?.decline?.confirmed?.title} />
+      <GoldHeadingTwo text={message?.decline?.confirmed?.title} />
       <ResponseWrapper>
-        <p>{note?.decline?.confirmed?.message}</p>
-        <p>{note?.decline?.confirmed?.message1}</p>
+        <p>{message?.decline?.confirmed?.message}</p>
+        <p>{message?.decline?.confirmed?.message1}</p>
       </ResponseWrapper>
     </div>
   );
