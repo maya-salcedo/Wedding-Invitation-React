@@ -81,7 +81,6 @@ export const InvitationWrapper = (props) => {
     time,
     churchName,
     churchLink,
-    churchAddressFirst,
     churchAddressSecond,
     receptionText,
     restaurantName,
@@ -95,25 +94,24 @@ export const InvitationWrapper = (props) => {
       <StyledDate> {date} </StyledDate>
       <StyledTime>{time}</StyledTime>
       <GoldHeader margin="3rem 0 0 0">
-        <a href={churchLink} target="_blank">
+        <a href={churchLink} target="_blank" rel="noreferrer">
           {churchName}
         </a>
       </GoldHeader>
       <StyledAddress>
-        <a href={churchLink} target="_blank">
-          {churchAddressFirst}
+        <a href={churchLink} target="_blank" rel="noreferrer">
           <br />
           {churchAddressSecond}
         </a>
       </StyledAddress>
       <StyledReceptionText>{receptionText}</StyledReceptionText>
       <GoldHeader margin="1rem 0 0 0">
-        <a href={restaurantLink} target="_blank">
+        <a href={restaurantLink} target="_blank" rel="noreferrer">
           {restaurantName}
         </a>
       </GoldHeader>
       <StyledAddress>
-        <a href={restaurantLink} target="_blank">
+        <a href={restaurantLink} target="_blank" rel="noreferrer">
           {restaurantAddressFirst}
           <br />
           {restaurantAddressSecond}
