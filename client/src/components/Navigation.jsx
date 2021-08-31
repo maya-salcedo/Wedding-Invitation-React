@@ -41,6 +41,7 @@ const FlagWrapper = styled.div`
 
 const Navigation = () => {
   const { setFlag } = useContext(FlagContext);
+  const [message, setMessage] = useState();
   const getOption = (e) => {
     console.log(e);
     setFlag(e.value);
@@ -85,6 +86,17 @@ const Navigation = () => {
       return { ...provided, opacity, transition };
     },
   };
+
+  const query = flag === 'italy' ? '?it=true' : '';
+  const getMessage = async () => {
+    const { data } = await axios.get(`/api/navigation${query}`);
+    setMessage(data);
+  };
+
+  useEffect(() => {
+    getMessage();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [flag]);
 
   return (
     <div>
