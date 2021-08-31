@@ -7,11 +7,17 @@ It is available at https://www.emanueleandmayawedding.com/
 
 ![Invitation Project 1](https://user-images.githubusercontent.com/68334235/131498839-49f74207-b262-41f3-b852-9ec53461d1eb.gif)
 
+![Invitation Project 2](https://user-images.githubusercontent.com/68334235/131500950-214fd223-b236-46f2-a53d-d3e9053b1068.gif)
+
+It is also desktop and mobile size responsive.
+
+![Invitation Project 3](https://user-images.githubusercontent.com/68334235/131501114-e1dffe5b-a055-4072-87c5-3eb11a2938fd.gif)
+
 ## Available Scripts
 
-In the project directory, you can run:
+In the project's client folder, you can run:
 
-`docker-compose up`
+`npm run dev`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
