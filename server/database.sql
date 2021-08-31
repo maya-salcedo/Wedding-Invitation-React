@@ -1,4 +1,4 @@
--- CREATE DATABASE IF NOT EXISTS guestlist_database;
+--CREATE DATABASE IF NOT EXISTS guestlist_database;
 
 --c\ into guestlist_database
 
