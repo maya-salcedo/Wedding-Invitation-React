@@ -3,7 +3,7 @@ through the website and the data is saved on the database. They will also get a 
 
 React, Node, Express, PostgreSQL, Nodemailer, Google API, Docker are among the technologies used in this project.
 
-It is available at https://www.emanueleandmayawedding.com/
+It is available at https://emanuele-maya-wedding.herokuapp.com/
 
 ![Invitation Project 1](https://user-images.githubusercontent.com/68334235/131498839-49f74207-b262-41f3-b852-9ec53461d1eb.gif)
 
