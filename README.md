@@ -1,7 +1,7 @@
 This project is an online wedding invitation that has RSVP feature where invited guests confirm their attendance 
 through the website and the data is saved on the database. They will also get a confirmation email after sending their RSVP. 
 
-React, Node, Express, PostgreSQL, Nodemailer, Google API, Docker are among the technologies used in this project.
+React, Node, Express, PostgreSQL, Nodemailer, GoogleMail API, Docker are among the technologies used in this project.
 
 It is available at https://emanuele-maya-wedding.herokuapp.com/
 
